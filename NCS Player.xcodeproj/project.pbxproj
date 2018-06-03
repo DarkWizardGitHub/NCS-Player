@@ -1,0 +1,415 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4228B3AF20BD18B000349913 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4228B3AE20BD18B000349913 /* AppDelegate.swift */; };
+		4228B3B120BD18B000349913 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4228B3B020BD18B000349913 /* ViewController.swift */; };
+		4228B3B420BD18B000349913 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4228B3B220BD18B000349913 /* Main.storyboard */; };
+		4228B3B620BD18B200349913 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4228B3B520BD18B200349913 /* Assets.xcassets */; };
+		4228B3B920BD18B200349913 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4228B3B720BD18B200349913 /* LaunchScreen.storyboard */; };
+		4257E4EC20BFD16400B9AD26 /* pauseicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257E4E720BFD16400B9AD26 /* pauseicon.png */; };
+		4257E4ED20BFD16400B9AD26 /* backicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257E4E820BFD16400B9AD26 /* backicon.png */; };
+		4257E4EE20BFD16400B9AD26 /* nexticon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257E4E920BFD16400B9AD26 /* nexticon.png */; };
+		4257E4EF20BFD16400B9AD26 /* playicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257E4EA20BFD16400B9AD26 /* playicon.png */; };
+		4257E4F020BFD16400B9AD26 /* stopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257E4EB20BFD16400B9AD26 /* stopicon.png */; };
+		425C0C6120C2EE2000BA1D2D /* darklogo512.png in Resources */ = {isa = PBXBuildFile; fileRef = 425C0C6020C2EE2000BA1D2D /* darklogo512.png */; };
+		425C0C6320C2F36600BA1D2D /* playbackpositioncursor.png in Resources */ = {isa = PBXBuildFile; fileRef = 425C0C6220C2F36600BA1D2D /* playbackpositioncursor.png */; };
+		42657FA020C438C10034FA19 /* Ehrling-Dance With Me.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42657F9D20C438C10034FA19 /* Ehrling-Dance With Me.mp3 */; };
+		42657FA120C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42657F9E20C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 */; };
+		42657FA220C438C10034FA19 /* Tobu-Candyland.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42657F9F20C438C10034FA19 /* Tobu-Candyland.mp3 */; };
+		4268008420BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4268008320BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 */; };
+		4268008620BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4268008520BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 */; };
+		42BFACCA20C3BE5600AE8996 /* Best30PlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BFACC920C3BE5600AE8996 /* Best30PlayListViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4228B3AB20BD18B000349913 /* NCS Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NCS Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4228B3AE20BD18B000349913 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4228B3B020BD18B000349913 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4228B3B320BD18B000349913 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4228B3B520BD18B200349913 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4228B3B820BD18B200349913 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4228B3BA20BD18B200349913 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4257E4E720BFD16400B9AD26 /* pauseicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseicon.png; sourceTree = "<group>"; };
+		4257E4E820BFD16400B9AD26 /* backicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backicon.png; sourceTree = "<group>"; };
+		4257E4E920BFD16400B9AD26 /* nexticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nexticon.png; sourceTree = "<group>"; };
+		4257E4EA20BFD16400B9AD26 /* playicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playicon.png; sourceTree = "<group>"; };
+		4257E4EB20BFD16400B9AD26 /* stopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopicon.png; sourceTree = "<group>"; };
+		425C0C6020C2EE2000BA1D2D /* darklogo512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darklogo512.png; sourceTree = "<group>"; };
+		425C0C6220C2F36600BA1D2D /* playbackpositioncursor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbackpositioncursor.png; sourceTree = "<group>"; };
+		42657F9D20C438C10034FA19 /* Ehrling-Dance With Me.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ehrling-Dance With Me.mp3"; sourceTree = "<group>"; };
+		42657F9E20C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Tobu & Itro-Sunburst.mp3"; sourceTree = "<group>"; };
+		42657F9F20C438C10034FA19 /* Tobu-Candyland.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Tobu-Candyland.mp3"; sourceTree = "<group>"; };
+		4268008320BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Itro & Tobu-Cloud 9.mp3"; sourceTree = "<group>"; };
+		4268008520BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ehrling-Sthlm Sunset.mp3"; sourceTree = "<group>"; };
+		42BFACC920C3BE5600AE8996 /* Best30PlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Best30PlayListViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4228B3A820BD18B000349913 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4228B3A220BD18B000349913 = {
+			isa = PBXGroup;
+			children = (
+				4228B3AD20BD18B000349913 /* NCS Player */,
+				4228B3AC20BD18B000349913 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4228B3AC20BD18B000349913 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4228B3AB20BD18B000349913 /* NCS Player.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4228B3AD20BD18B000349913 /* NCS Player */ = {
+			isa = PBXGroup;
+			children = (
+				425C0C5F20C2EE0F00BA1D2D /* logo */,
+				4257E4E620BFD13800B9AD26 /* Icons */,
+				4268008220BE638000A2659B /* Tunes */,
+				4228B3AE20BD18B000349913 /* AppDelegate.swift */,
+				4228B3B020BD18B000349913 /* ViewController.swift */,
+				4228B3B220BD18B000349913 /* Main.storyboard */,
+				4228B3B520BD18B200349913 /* Assets.xcassets */,
+				4228B3B720BD18B200349913 /* LaunchScreen.storyboard */,
+				4228B3BA20BD18B200349913 /* Info.plist */,
+				42BFACC920C3BE5600AE8996 /* Best30PlayListViewController.swift */,
+			);
+			path = "NCS Player";
+			sourceTree = "<group>";
+		};
+		4257E4E620BFD13800B9AD26 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				425C0C6220C2F36600BA1D2D /* playbackpositioncursor.png */,
+				4257E4E820BFD16400B9AD26 /* backicon.png */,
+				4257E4E920BFD16400B9AD26 /* nexticon.png */,
+				4257E4EA20BFD16400B9AD26 /* playicon.png */,
+				4257E4EB20BFD16400B9AD26 /* stopicon.png */,
+				4257E4E720BFD16400B9AD26 /* pauseicon.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
+		425C0C5F20C2EE0F00BA1D2D /* logo */ = {
+			isa = PBXGroup;
+			children = (
+				425C0C6020C2EE2000BA1D2D /* darklogo512.png */,
+			);
+			path = logo;
+			sourceTree = "<group>";
+		};
+		4268008220BE638000A2659B /* Tunes */ = {
+			isa = PBXGroup;
+			children = (
+				42657F9D20C438C10034FA19 /* Ehrling-Dance With Me.mp3 */,
+				42657F9F20C438C10034FA19 /* Tobu-Candyland.mp3 */,
+				42657F9E20C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 */,
+				4268008520BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 */,
+				4268008320BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 */,
+			);
+			path = Tunes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4228B3AA20BD18B000349913 /* NCS Player */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4228B3BD20BD18B200349913 /* Build configuration list for PBXNativeTarget "NCS Player" */;
+			buildPhases = (
+				4228B3A720BD18B000349913 /* Sources */,
+				4228B3A820BD18B000349913 /* Frameworks */,
+				4228B3A920BD18B000349913 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NCS Player";
+			productName = "NCS Player";
+			productReference = 4228B3AB20BD18B000349913 /* NCS Player.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4228B3A320BD18B000349913 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = Dark;
+				TargetAttributes = {
+					4228B3AA20BD18B000349913 = {
+						CreatedOnToolsVersion = 9.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 4228B3A620BD18B000349913 /* Build configuration list for PBXProject "NCS Player" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4228B3A220BD18B000349913;
+			productRefGroup = 4228B3AC20BD18B000349913 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4228B3AA20BD18B000349913 /* NCS Player */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4228B3A920BD18B000349913 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42657FA220C438C10034FA19 /* Tobu-Candyland.mp3 in Resources */,
+				4228B3B920BD18B200349913 /* LaunchScreen.storyboard in Resources */,
+				425C0C6120C2EE2000BA1D2D /* darklogo512.png in Resources */,
+				4228B3B620BD18B200349913 /* Assets.xcassets in Resources */,
+				425C0C6320C2F36600BA1D2D /* playbackpositioncursor.png in Resources */,
+				4257E4EC20BFD16400B9AD26 /* pauseicon.png in Resources */,
+				4268008620BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 in Resources */,
+				4268008420BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 in Resources */,
+				4257E4ED20BFD16400B9AD26 /* backicon.png in Resources */,
+				42657FA020C438C10034FA19 /* Ehrling-Dance With Me.mp3 in Resources */,
+				42657FA120C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 in Resources */,
+				4257E4F020BFD16400B9AD26 /* stopicon.png in Resources */,
+				4228B3B420BD18B000349913 /* Main.storyboard in Resources */,
+				4257E4EF20BFD16400B9AD26 /* playicon.png in Resources */,
+				4257E4EE20BFD16400B9AD26 /* nexticon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4228B3A720BD18B000349913 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42BFACCA20C3BE5600AE8996 /* Best30PlayListViewController.swift in Sources */,
+				4228B3B120BD18B000349913 /* ViewController.swift in Sources */,
+				4228B3AF20BD18B000349913 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4228B3B220BD18B000349913 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4228B3B320BD18B000349913 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4228B3B720BD18B200349913 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4228B3B820BD18B200349913 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4228B3BB20BD18B200349913 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4228B3BC20BD18B200349913 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4228B3BE20BD18B200349913 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9BTV2MB557;
+				INFOPLIST_FILE = "NCS Player/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dark.NCS-Player";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4228B3BF20BD18B200349913 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9BTV2MB557;
+				INFOPLIST_FILE = "NCS Player/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dark.NCS-Player";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4228B3A620BD18B000349913 /* Build configuration list for PBXProject "NCS Player" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4228B3BB20BD18B200349913 /* Debug */,
+				4228B3BC20BD18B200349913 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4228B3BD20BD18B200349913 /* Build configuration list for PBXNativeTarget "NCS Player" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4228B3BE20BD18B200349913 /* Debug */,
+				4228B3BF20BD18B200349913 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4228B3A320BD18B000349913 /* Project object */;
+}
