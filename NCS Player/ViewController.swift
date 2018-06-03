@@ -12,7 +12,7 @@ import AVFoundation
 class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationControllerDelegate {
 
     var audioPlayer: AVAudioPlayer!
-    var  playTimer: Timer!
+    var playTimer: Timer!
     
     struct tuneInformation {
         var tuneName: String
@@ -43,7 +43,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(Tunes.count)
         // 音楽ファイルとパスをviewDidLoad内に置くことで一時停止しても途中から再生再開
         // ここも便宜的に曲を指定しているが、将来的には大量の曲数を処理するフローを検討
         let audioUrl = URL(fileURLWithPath: Tunes[recievedIndex!].tunePath!)
@@ -84,7 +84,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
         audioPlayer.delegate = self
         audioPlayer.prepareToPlay()
         
-//        おかゆさんに聞くこと2
+//        おかゆさんに聞くこと１
 //        ここのデリゲートの意味
         // willShowを使用して、NavigationControllerのBackを押した動作をハンドリングする為
         navigationController?.delegate = self
@@ -97,22 +97,40 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
         
     }
     
-    // backボタンを押すと音楽の再生位置はリセットされ次にplayボタンを押すと頭から演奏が始まる
+    // backボタンを押すと以下の２パターンの処理を行う
+    // 再生中→音楽の再生位置はリセットされ1個前の曲の頭から演奏が始まる
+    // 一時停止中→音楽の再生位置はリセットされ1個前の曲の頭で一時停止する
+    // プレイリストの先頭の場合のみ再度その曲を選択する
     @IBAction func backButton(_ sender: UIButton) {
-        recievedIndex = recievedIndex! - 1
-        loadView()
-        viewDidLoad()
-//        audioPlayer.play()
-//        let audioUrl = URL(fileURLWithPath: Tunes[recievedIndex!].tunePath!)
-//
-//        // auido を再生するプレイヤーを作成する
-//        var audioError:NSError?
-//        do {
-//            audioPlayer = try AVAudioPlayer(contentsOf: audioUrl)
-//        } catch let error as NSError {
-//            audioError = error
-//            audioPlayer = nil
-//        }
+        if (audioPlayer.isPlaying){
+            if recievedIndex! == 0 {
+                loadView()
+                viewDidLoad()
+                audioPlayer.play()
+                // 再生アイコン切り替え
+                controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
+            } else {
+                recievedIndex = recievedIndex! - 1
+                loadView()
+                viewDidLoad()
+                audioPlayer.play()
+                // 再生アイコン切り替え
+                controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
+            }
+        } else {
+            if recievedIndex! == 0 {
+                loadView()
+                viewDidLoad()
+                // 一時停止アイコン切り替え
+                controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
+            } else {
+                recievedIndex = recievedIndex! - 1
+                loadView()
+                viewDidLoad()
+                // 一時停止アイコン切り替え
+                controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
+            }
+        }
     }
     
     @IBAction func controlButton(_ sender: UIButton) {
@@ -121,8 +139,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
             audioPlayer.stop()
             // 再生アイコン切り替え
             controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
-        }
-        else{
+        } else {
             // 再生
             audioPlayer.play()
             // 一時停止アイコン切り替え
@@ -130,12 +147,42 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
         }
     }
     
+    // nextボタンを押すと以下の２パターンの処理を行う
+    // 再生中→音楽の再生位置はリセットされ1個後の曲の頭から演奏が始まる
+    // 一時停止中→音楽の再生位置はリセットされ1個後の曲の頭で一時停止する
+    // プレイリストの末尾の場合のみ再度その曲を選択する
     @IBAction func nextButton(_ sender: UIButton) {
-        recievedIndex = recievedIndex! + 1
-        loadView()
-        viewDidLoad()
+        if (audioPlayer.isPlaying){
+            if recievedIndex! == Tunes.count - 1 {
+                print(Tunes.count)
+                loadView()
+                viewDidLoad()
+                audioPlayer.play()
+                // 再生アイコン切り替え
+                controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
+            } else {
+                recievedIndex = recievedIndex! + 1
+                loadView()
+                viewDidLoad()
+                audioPlayer.play()
+                // 再生アイコン切り替え
+                controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
+            }
+        } else {
+            if recievedIndex! == Tunes.count - 1 {
+                loadView()
+                viewDidLoad()
+                // 一時停止アイコン切り替え
+                controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
+            } else {
+                recievedIndex = recievedIndex! + 1
+                loadView()
+                viewDidLoad()
+                // 一時停止アイコン切り替え
+                controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
+            }
+        }
     }
-    
     
     @IBAction func playbackPositionSlider(_ sender: UISlider) {
         audioPlayer.currentTime = TimeInterval(playbackPositionSlider.value)
@@ -173,6 +220,14 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
         if viewController is Best30PlayListViewController {
             playTimer = nil
             audioPlayer = nil
+//        おかゆさんに聞くこと2
+//        以下の処理を入れないとエラーになる
+//        playTimerがaudioPlayerを破棄した後も動作せいている為audioPlayer.currentTimeの値が取得できずにエラーが発生していると考え
+//            playTimer自体もaudioPlayerを破棄前に破棄を試みたがエラー発生、破棄したがタイマーの処理が止まっていないためか？
+//            とりあえず以下を読み込むことでaudioPlayerが作成されるため該当箇所のエラーを回避している状態と推察。
+//            でも根本的な解決になっているのだろうか？
+            loadView()
+            viewDidLoad()
         }
     }
 }
