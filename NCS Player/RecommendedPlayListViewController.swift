@@ -27,7 +27,8 @@ var playList = [tune0, tune1, tune2, tune3, tune4]
 // 選択された行番号を保存する変数
 var selectedIndex:Int!
 
-class Best30PlayListViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
+//class Best30PlayListViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
+class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
 
     @IBOutlet weak var playListTableView: UITableView!
     
@@ -36,6 +37,11 @@ class Best30PlayListViewController: UIViewController ,UITableViewDelegate ,UITab
         
         playListTableView.delegate = self
         playListTableView.dataSource = self
+        
+        // TableViewのヘッダーを設定
+//        let headerCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "tableHeaderCell")!
+//        let headerView: UIView = headerCell.contentView
+//        tableView.tableHeaderView = headerView
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +62,6 @@ class Best30PlayListViewController: UIViewController ,UITableViewDelegate ,UITab
     }
     
     // セルをタップしたら発動する
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedIndex = indexPath.row
@@ -67,7 +72,7 @@ class Best30PlayListViewController: UIViewController ,UITableViewDelegate ,UITab
     // セグエを使って画面遷移しているときに発動
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 遷移先に情報を渡す処理
-        //次の画面のインスタンスを生成
+        // 次の画面のインスタンスを生成
         let dvc:ViewController = segue.destination as! ViewController
         
         // 次の画面のプロパティ passedIndexに選択された行番号を渡す

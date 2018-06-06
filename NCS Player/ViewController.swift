@@ -13,6 +13,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
 
     var audioPlayer: AVAudioPlayer!
     var playTimer: Timer!
+    var recievedIndex: Int? = nil
     
     struct tuneInformation {
         var tuneName: String
@@ -30,7 +31,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
     lazy var Tunes = [tune0, tune1, tune2, tune3, tune4]
 //    var Tunes = [Bundle.main.path(forResource: "Ehrling-Sthlm Sunset", ofType:"mp3")!, Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")!]
 
-    var recievedIndex: Int? = nil
     
     @IBOutlet weak var playbackPositionSlider: UISlider!
     @IBOutlet weak var titleLabel: UILabel!
@@ -90,12 +90,22 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
         navigationController?.delegate = self
     }
     
-    @IBOutlet var bar: UIView!
-    @IBOutlet weak var sl: UISlider!
+    override func viewDidDisappear(_ animated: Bool) {
+        viewDidLoad()
+        playTimer = nil
+//        audioPlayer = nil
+        
+//        エラー回避のため追加、今後は再生中の曲がある場合はそちらを破棄してから新規プレイヤー作成してから再生し、曲の重複再生を避ける仕組みに変更する
+//        viewDidLoad()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
     }
+    
+    @IBOutlet var bar: UIView!
+    @IBOutlet weak var sl: UISlider!
+
     
     // backボタンを押すと以下の２パターンの処理を行う
     // 再生中→音楽の再生位置はリセットされ1個前の曲の頭から演奏が始まる
@@ -216,19 +226,19 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
     
     // navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) は、その画面から別の画面に遷移したときに呼ばれるメソッド
     // →「遷移先から遷移元に遷移した時をハンドリング」
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        if viewController is Best30PlayListViewController {
-            playTimer = nil
-            audioPlayer = nil
+//    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+//        if viewController is Best30PlayListViewController {
+//            playTimer = nil
+//            audioPlayer = nil
 //        おかゆさんに聞くこと2
 //        以下の処理を入れないとエラーになる
 //        playTimerがaudioPlayerを破棄した後も動作せいている為audioPlayer.currentTimeの値が取得できずにエラーが発生していると考え
 //            playTimer自体もaudioPlayerを破棄前に破棄を試みたがエラー発生、破棄したがタイマーの処理が止まっていないためか？
 //            とりあえず以下を読み込むことでaudioPlayerが作成されるため該当箇所のエラーを回避している状態と推察。
 //            でも根本的な解決になっているのだろうか？
-            loadView()
-            viewDidLoad()
-        }
-    }
+//            loadView()
+//            viewDidLoad()
+//        }
+//    }
 }
 

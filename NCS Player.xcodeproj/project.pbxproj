@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4210472C20C706CE005CC2EB /* myfavoriteicon32.png in Resources */ = {isa = PBXBuildFile; fileRef = 4210472920C706CE005CC2EB /* myfavoriteicon32.png */; };
+		4210472D20C706CE005CC2EB /* recomendicon32.png in Resources */ = {isa = PBXBuildFile; fileRef = 4210472A20C706CE005CC2EB /* recomendicon32.png */; };
+		4210472E20C706CE005CC2EB /* serchicon32.png in Resources */ = {isa = PBXBuildFile; fileRef = 4210472B20C706CE005CC2EB /* serchicon32.png */; };
 		4228B3AF20BD18B000349913 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4228B3AE20BD18B000349913 /* AppDelegate.swift */; };
 		4228B3B120BD18B000349913 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4228B3B020BD18B000349913 /* ViewController.swift */; };
 		4228B3B420BD18B000349913 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4228B3B220BD18B000349913 /* Main.storyboard */; };
@@ -24,10 +27,15 @@
 		42657FA220C438C10034FA19 /* Tobu-Candyland.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42657F9F20C438C10034FA19 /* Tobu-Candyland.mp3 */; };
 		4268008420BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4268008320BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 */; };
 		4268008620BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4268008520BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 */; };
-		42BFACCA20C3BE5600AE8996 /* Best30PlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BFACC920C3BE5600AE8996 /* Best30PlayListViewController.swift */; };
+		428FA2E020C5A5F100E5D5E7 /* volumeminicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 428FA2DE20C5A5F100E5D5E7 /* volumeminicon.png */; };
+		428FA2E120C5A5F100E5D5E7 /* volumemaxicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 428FA2DF20C5A5F100E5D5E7 /* volumemaxicon.png */; };
+		42BFACCA20C3BE5600AE8996 /* RecommendedPlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BFACC920C3BE5600AE8996 /* RecommendedPlayListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4210472920C706CE005CC2EB /* myfavoriteicon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myfavoriteicon32.png; sourceTree = "<group>"; };
+		4210472A20C706CE005CC2EB /* recomendicon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recomendicon32.png; sourceTree = "<group>"; };
+		4210472B20C706CE005CC2EB /* serchicon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = serchicon32.png; sourceTree = "<group>"; };
 		4228B3AB20BD18B000349913 /* NCS Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NCS Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4228B3AE20BD18B000349913 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4228B3B020BD18B000349913 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,7 +55,9 @@
 		42657F9F20C438C10034FA19 /* Tobu-Candyland.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Tobu-Candyland.mp3"; sourceTree = "<group>"; };
 		4268008320BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Itro & Tobu-Cloud 9.mp3"; sourceTree = "<group>"; };
 		4268008520BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ehrling-Sthlm Sunset.mp3"; sourceTree = "<group>"; };
-		42BFACC920C3BE5600AE8996 /* Best30PlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Best30PlayListViewController.swift; sourceTree = "<group>"; };
+		428FA2DE20C5A5F100E5D5E7 /* volumeminicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volumeminicon.png; sourceTree = "<group>"; };
+		428FA2DF20C5A5F100E5D5E7 /* volumemaxicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volumemaxicon.png; sourceTree = "<group>"; };
+		42BFACC920C3BE5600AE8996 /* RecommendedPlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedPlayListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +99,7 @@
 				4228B3B520BD18B200349913 /* Assets.xcassets */,
 				4228B3B720BD18B200349913 /* LaunchScreen.storyboard */,
 				4228B3BA20BD18B200349913 /* Info.plist */,
-				42BFACC920C3BE5600AE8996 /* Best30PlayListViewController.swift */,
+				42BFACC920C3BE5600AE8996 /* RecommendedPlayListViewController.swift */,
 			);
 			path = "NCS Player";
 			sourceTree = "<group>";
@@ -97,6 +107,11 @@
 		4257E4E620BFD13800B9AD26 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				4210472920C706CE005CC2EB /* myfavoriteicon32.png */,
+				4210472A20C706CE005CC2EB /* recomendicon32.png */,
+				4210472B20C706CE005CC2EB /* serchicon32.png */,
+				428FA2DF20C5A5F100E5D5E7 /* volumemaxicon.png */,
+				428FA2DE20C5A5F100E5D5E7 /* volumeminicon.png */,
 				425C0C6220C2F36600BA1D2D /* playbackpositioncursor.png */,
 				4257E4E820BFD16400B9AD26 /* backicon.png */,
 				4257E4E920BFD16400B9AD26 /* nexticon.png */,
@@ -188,14 +203,19 @@
 				42657FA220C438C10034FA19 /* Tobu-Candyland.mp3 in Resources */,
 				4228B3B920BD18B200349913 /* LaunchScreen.storyboard in Resources */,
 				425C0C6120C2EE2000BA1D2D /* darklogo512.png in Resources */,
+				4210472C20C706CE005CC2EB /* myfavoriteicon32.png in Resources */,
+				428FA2E120C5A5F100E5D5E7 /* volumemaxicon.png in Resources */,
 				4228B3B620BD18B200349913 /* Assets.xcassets in Resources */,
 				425C0C6320C2F36600BA1D2D /* playbackpositioncursor.png in Resources */,
 				4257E4EC20BFD16400B9AD26 /* pauseicon.png in Resources */,
 				4268008620BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 in Resources */,
+				4210472E20C706CE005CC2EB /* serchicon32.png in Resources */,
 				4268008420BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 in Resources */,
 				4257E4ED20BFD16400B9AD26 /* backicon.png in Resources */,
+				428FA2E020C5A5F100E5D5E7 /* volumeminicon.png in Resources */,
 				42657FA020C438C10034FA19 /* Ehrling-Dance With Me.mp3 in Resources */,
 				42657FA120C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 in Resources */,
+				4210472D20C706CE005CC2EB /* recomendicon32.png in Resources */,
 				4257E4F020BFD16400B9AD26 /* stopicon.png in Resources */,
 				4228B3B420BD18B000349913 /* Main.storyboard in Resources */,
 				4257E4EF20BFD16400B9AD26 /* playicon.png in Resources */,
@@ -210,7 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42BFACCA20C3BE5600AE8996 /* Best30PlayListViewController.swift in Sources */,
+				42BFACCA20C3BE5600AE8996 /* RecommendedPlayListViewController.swift in Sources */,
 				4228B3B120BD18B000349913 /* ViewController.swift in Sources */,
 				4228B3AF20BD18B000349913 /* AppDelegate.swift in Sources */,
 			);
