@@ -75,8 +75,8 @@ class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,
         // 次の画面のインスタンスを生成
         let dvc:ViewController = segue.destination as! ViewController
         
-        // 次の画面のプロパティ passedIndexに選択された行番号を渡す
-        dvc.recievedIndex = selectedIndex
+        // 次の画面のプロパティ tuneIndexに選択された行番号を渡す
+        dvc.self.tuneIndex = selectedIndex
         
     }
 }

@@ -118,10 +118,10 @@
             </objects>
             <point key="canvasLocation" x="264" y="-638"/>
         </scene>
-        <!--Best30 Play List View Controller-->
+        <!--Recommended Play List View Controller-->
         <scene sceneID="Az6-be-JQZ">
             <objects>
-                <viewController id="FDx-QL-PoA" customClass="Best30PlayListViewController" customModule="NCS_Player" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FDx-QL-PoA" customClass="RecommendedPlayListViewController" customModule="NCS_Player" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UPY-LC-r7P">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -288,6 +288,6 @@
         <image name="volumeminicon.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tPR-wq-IPN"/>
+        <segue reference="PS9-Ks-ep4"/>
     </inferredMetricsTieBreakers>
 </document>

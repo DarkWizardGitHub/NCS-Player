@@ -27,6 +27,7 @@
 		42657FA220C438C10034FA19 /* Tobu-Candyland.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42657F9F20C438C10034FA19 /* Tobu-Candyland.mp3 */; };
 		4268008420BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4268008320BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 */; };
 		4268008620BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4268008520BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 */; };
+		426A5DB020C821ED00624F30 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426A5DAF20C821ED00624F30 /* AudioManager.swift */; };
 		428FA2E020C5A5F100E5D5E7 /* volumeminicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 428FA2DE20C5A5F100E5D5E7 /* volumeminicon.png */; };
 		428FA2E120C5A5F100E5D5E7 /* volumemaxicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 428FA2DF20C5A5F100E5D5E7 /* volumemaxicon.png */; };
 		42BFACCA20C3BE5600AE8996 /* RecommendedPlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BFACC920C3BE5600AE8996 /* RecommendedPlayListViewController.swift */; };
@@ -55,6 +56,7 @@
 		42657F9F20C438C10034FA19 /* Tobu-Candyland.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Tobu-Candyland.mp3"; sourceTree = "<group>"; };
 		4268008320BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Itro & Tobu-Cloud 9.mp3"; sourceTree = "<group>"; };
 		4268008520BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ehrling-Sthlm Sunset.mp3"; sourceTree = "<group>"; };
+		426A5DAF20C821ED00624F30 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		428FA2DE20C5A5F100E5D5E7 /* volumeminicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volumeminicon.png; sourceTree = "<group>"; };
 		428FA2DF20C5A5F100E5D5E7 /* volumemaxicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volumemaxicon.png; sourceTree = "<group>"; };
 		42BFACC920C3BE5600AE8996 /* RecommendedPlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedPlayListViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				4228B3B720BD18B200349913 /* LaunchScreen.storyboard */,
 				4228B3BA20BD18B200349913 /* Info.plist */,
 				42BFACC920C3BE5600AE8996 /* RecommendedPlayListViewController.swift */,
+				426A5DAF20C821ED00624F30 /* AudioManager.swift */,
 			);
 			path = "NCS Player";
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			files = (
 				42BFACCA20C3BE5600AE8996 /* RecommendedPlayListViewController.swift in Sources */,
 				4228B3B120BD18B000349913 /* ViewController.swift in Sources */,
+				426A5DB020C821ED00624F30 /* AudioManager.swift in Sources */,
 				4228B3AF20BD18B000349913 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
