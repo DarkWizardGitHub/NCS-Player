@@ -8,7 +8,11 @@
 
 import Foundation
 
+// プロジェクト内のグローバル変数管理用シングルトン
 class GlobalVariableManager: NSObject {
+    
+    // シングルトン
+    // シングルトンパターンはインスタンスが1個しか生成されないことを保証したい時に使用
     static let shared = GlobalVariableManager()
     
     var tuneIndex: Int!

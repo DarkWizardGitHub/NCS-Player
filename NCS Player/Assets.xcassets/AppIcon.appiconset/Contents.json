@@ -39,7 +39,7 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "NCS-Player-App-Icon-40x3-1.png",
+      "filename" : "NCS-Player-App-Icon-60x2.png",
       "scale" : "2x"
     },
     {
@@ -51,7 +51,7 @@
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "NCS-Player-App-Icon-20.png",
+      "filename" : "NCS-Player-App-Icon-20x1.png",
       "scale" : "1x"
     },
     {
@@ -63,7 +63,7 @@
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "NCS-Player-App-Icon-29.png",
+      "filename" : "NCS-Player-App-Icon-29x1.png",
       "scale" : "1x"
     },
     {
@@ -75,7 +75,7 @@
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "NCS-Player-App-Icon-20x2-2.png",
+      "filename" : "NCS-Player-App-Icon-40x1.png",
       "scale" : "1x"
     },
     {
@@ -87,7 +87,7 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "NCS-Player-App-Icon-76.png",
+      "filename" : "NCS-Player-App-Icon-76x1.png",
       "scale" : "1x"
     },
     {
@@ -99,13 +99,13 @@
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "NCS-Player-App-Icon-83-5x2.png",
+      "filename" : "NCS-Player-App-Icon-83_5x2.png",
       "scale" : "2x"
     },
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "NCS-Player-App-Icon-1024.png",
+      "filename" : "NCS-Player-App-Icon-1024x1.png",
       "scale" : "1x"
     }
   ],

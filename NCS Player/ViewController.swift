@@ -10,11 +10,9 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationControllerDelegate {
-
-//    var audioPlayer: AVAudioPlayer!
+    
+    // タイマー関数用変数
     var playTimer: Timer!
-//    var tuneIndex: Int? = nil
-//    var playingTuneIndex: Int?
     
     struct tuneInformation {
         var tuneName: String
@@ -30,7 +28,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
     
     // 再生する audio ファイルのパスを取得
     lazy var tunes = [tune0, tune1, tune2, tune3, tune4]
-//    var Tunes = [Bundle.main.path(forResource: "Ehrling-Sthlm Sunset", ofType:"mp3")!, Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")!]
 
     // アウトレット接続
     @IBOutlet weak var playbackPositionSlider: UISlider!
@@ -44,7 +41,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print("proceeded vdl")
         // playbackPositionSliderの設定
         // スライダー非操作時の画像
         self.playbackPositionSlider.setThumbImage(UIImage(named: "playbackpositioncursor"), for: .normal)
@@ -54,13 +50,23 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(GlobalVariableManager.shared.tuneIndex)
-        print(GlobalVariableManager.shared.playingTuneIndex)
         if GlobalVariableManager.shared.tuneIndex != GlobalVariableManager.shared.playingTuneIndex {
-            print("proceeded")
             self.prepareTune()
         } else {
-            AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
+            // 再生アイコン切り替え
+            if (AudioManager.shared.audioBuffer?.isPlaying)! {
+                self.controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
+            } else {
+                self.controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
+            }
+            // オーディオデータの読み込み以外はprepareTune()と同処理
+            self.titleLabel.text = tunes[GlobalVariableManager.shared.tuneIndex!].tuneName
+            self.artistLabel.text = tunes[GlobalVariableManager.shared.tuneIndex!].artistName
+            self.volumeSlider.value = AudioManager.shared.audioVolume
+            self.playbackPositionSlider.maximumValue = Float((AudioManager.shared.audioBuffer?.duration)!)
+            self.playbackPositionSlider.value = Float((AudioManager.shared.audioBuffer?.currentTime)!)
+            self.synchronizeLeftPlaybackPositionLabel(value: (AudioManager.shared.audioBuffer?.currentTime)!)
+            self.rightPlaybackPositionLabel.text = convertTimeIntervalToString(value: (AudioManager.shared.audioBuffer?.duration)!)
         }
     }
     
@@ -68,8 +74,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
         super.viewDidAppear(animated)
         // Timerで1秒毎にプレイヤーのcurrentTimeとスライダーのvalueを同期、leftPlaybackPositionLabelのtextをプレイヤーのcurrentTimeと同期
         self.playTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {(action) in
-            self.changePlaybackPositionSlider()
-            self.changeLeftPlaybackPositionLabel(value: (AudioManager.shared.audioBuffer?.currentTime)!)
+            self.synchronizePlaybackPositionSlider()
+            self.synchronizeLeftPlaybackPositionLabel(value: (AudioManager.shared.audioBuffer?.currentTime)!)
         })
     }
 
@@ -82,19 +88,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    func prepareTune() {
-        AudioManager.shared.load(path: tunes[GlobalVariableManager.shared.tuneIndex!].tunePath)
-        // 曲名とアーティスト名取得
-        self.titleLabel.text = tunes[GlobalVariableManager.shared.tuneIndex!].tuneName
-        self.artistLabel.text = tunes[GlobalVariableManager.shared.tuneIndex!].artistName
-        self.volumeSlider.value = AudioManager.shared.audioVolume
-        // スライダーの最大値と音楽ファイルの長さを同期
-        // スライダーの値はFloat型になるのでFloat型にキャスト変換
-        // duration Type:TimeInterval /The total duration, in seconds, of the sound associated with the audio player
-        self.playbackPositionSlider.maximumValue = Float((AudioManager.shared.audioBuffer?.duration)!)
-        self.rightPlaybackPositionLabel.text = convertTimeIntervalToString(value: (AudioManager.shared.audioBuffer?.duration)!)
     }
     
     // backボタンを押すと以下の２パターンの処理を行う
@@ -175,25 +168,43 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
         }
     }
     
+//    以下２個の関数名変更予定だが、SIGBRT出るのでストーリーボードつなぎ直しの必要有りか？
     @IBAction func playbackPositionSlider(_ sender: UISlider) {
         AudioManager.shared.audioBuffer?.currentTime = TimeInterval(playbackPositionSlider.value)
     }
     
     // 手動音量調整の為スライダーのvalueをプレイヤーのvolumeに代入
     @IBAction func volumeSlider(_ sender: UISlider) {
-//        audioPlayer.volume = volumeSlider.value
+        // audioPlayer.volume = volumeSlider.value
         // ユーザー設定のvolumeを保持
         AudioManager.shared.audioVolume = volumeSlider.value
         AudioManager.shared.audioBuffer?.volume = AudioManager.shared.audioVolume
     }
     
+    // オーディオデータの読み込みに伴う処理関数
+    func prepareTune() {
+        AudioManager.shared.load(path: tunes[GlobalVariableManager.shared.tuneIndex!].tunePath)
+        // 曲名とアーティスト名取得
+        self.titleLabel.text = tunes[GlobalVariableManager.shared.tuneIndex!].tuneName
+        self.artistLabel.text = tunes[GlobalVariableManager.shared.tuneIndex!].artistName
+        self.volumeSlider.value = AudioManager.shared.audioVolume
+        // スライダーの最大値と音楽ファイルの長さを同期
+        // スライダーの値はFloat型になるのでFloat型にキャスト変換
+        // duration Type:TimeInterval /The total duration, in seconds, of the sound associated with the audio player
+        self.playbackPositionSlider.maximumValue = Float((AudioManager.shared.audioBuffer?.duration)!)
+        self.playbackPositionSlider.value = Float((AudioManager.shared.audioBuffer?.currentTime)!)
+        self.synchronizeLeftPlaybackPositionLabel(value: (AudioManager.shared.audioBuffer?.currentTime)!)
+        self.rightPlaybackPositionLabel.text = convertTimeIntervalToString(value: (AudioManager.shared.audioBuffer?.duration)!)
+    }
+    
     // playbackPositionSliderのvalueをリアルタイムに書き換える関数
-    func changePlaybackPositionSlider() {
+    // 将来的にタイマー関数内で呼び出す処理の追加を想定して関数化する
+    func synchronizePlaybackPositionSlider() {
         playbackPositionSlider.value = Float((AudioManager.shared.audioBuffer?.currentTime)!)
     }
     
     // leftPlaybackPositionLabelのtextをリアルタイムにプレイヤーのcurrentTimeに書き換える関数
-    func changeLeftPlaybackPositionLabel(value:TimeInterval) {
+    func synchronizeLeftPlaybackPositionLabel(value: TimeInterval) {
         let formatter = DateFormatter()
         formatter.dateFormat = "mm:ss"
         let returnvalue = formatter.string(from: Date(timeIntervalSinceReferenceDate: value))
@@ -201,7 +212,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
     }
     
     // TimeInterval型をString型に変換する関数
-    func convertTimeIntervalToString(value:TimeInterval) -> String {
+    func convertTimeIntervalToString(value: TimeInterval) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "mm:ss"
         let returnvalue = formatter.string(from: Date(timeIntervalSinceReferenceDate: value))
