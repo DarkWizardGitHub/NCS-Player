@@ -24,13 +24,13 @@ var tune4 = tuneInformation(tuneName: "Dance With Me", artistName: "Ehrling", tu
 // 再生する audio ファイルのパスを取得
 var playList = [tune0, tune1, tune2, tune3, tune4]
 
-// 選択された行番号を保存する変数
-var selectedIndex:Int!
+//// 選択された行番号を保存する変数
+//var selectedIndex:Int!
 
 //class Best30PlayListViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
 class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
 
-    var playingTuneIndex: Int?
+//    var playingTuneIndex: Int?
     
     @IBOutlet weak var playListTableView: UITableView!
     
@@ -63,22 +63,22 @@ class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,
         return cell
     }
     
-    // セルをタップしたら発動する
+    // セルをタップしたら遷移する
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        selectedIndex = indexPath.row
+        GlobalVariableManager.shared.tuneIndex = indexPath.row
         // セグエの名前を指定して画面遷移を発動
         performSegue(withIdentifier: "segue1", sender: nil)
     }
     
-    // セグエを使って画面遷移しているときに発動
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // 遷移先に情報を渡す処理
-        // 次の画面のインスタンスを生成
-        let dvc: ViewController = segue.destination as! ViewController
-        
-        // 次の画面のプロパティ tuneIndexに選択された行番号を渡す
-        dvc.tuneIndex = selectedIndex
-        
-    }
+//    // セグエを使って画面遷移しているときに発動
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // 遷移先に情報を渡す処理
+//        // 次の画面のインスタンスを生成
+//        let dvc: ViewController = segue.destination as! ViewController
+//
+//        // 次の画面のプロパティ tuneIndexに選択された行番号を渡す
+//        dvc.tuneIndex = selectedIndex
+//
+//    }
 }

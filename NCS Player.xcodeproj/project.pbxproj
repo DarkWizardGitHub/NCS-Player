@@ -15,6 +15,7 @@
 		4228B3B420BD18B000349913 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4228B3B220BD18B000349913 /* Main.storyboard */; };
 		4228B3B620BD18B200349913 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4228B3B520BD18B200349913 /* Assets.xcassets */; };
 		4228B3B920BD18B200349913 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4228B3B720BD18B200349913 /* LaunchScreen.storyboard */; };
+		424A446320CC2DED00B0681B /* GlobalVariableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A446220CC2DED00B0681B /* GlobalVariableManager.swift */; };
 		4257E4EC20BFD16400B9AD26 /* pauseicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257E4E720BFD16400B9AD26 /* pauseicon.png */; };
 		4257E4ED20BFD16400B9AD26 /* backicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257E4E820BFD16400B9AD26 /* backicon.png */; };
 		4257E4EE20BFD16400B9AD26 /* nexticon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257E4E920BFD16400B9AD26 /* nexticon.png */; };
@@ -44,6 +45,7 @@
 		4228B3B520BD18B200349913 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4228B3B820BD18B200349913 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4228B3BA20BD18B200349913 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		424A446220CC2DED00B0681B /* GlobalVariableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariableManager.swift; sourceTree = "<group>"; };
 		4257E4E720BFD16400B9AD26 /* pauseicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseicon.png; sourceTree = "<group>"; };
 		4257E4E820BFD16400B9AD26 /* backicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backicon.png; sourceTree = "<group>"; };
 		4257E4E920BFD16400B9AD26 /* nexticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nexticon.png; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				4228B3BA20BD18B200349913 /* Info.plist */,
 				42BFACC920C3BE5600AE8996 /* RecommendedPlayListViewController.swift */,
 				426A5DAF20C821ED00624F30 /* AudioManager.swift */,
+				424A446220CC2DED00B0681B /* GlobalVariableManager.swift */,
 			);
 			path = "NCS Player";
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				424A446320CC2DED00B0681B /* GlobalVariableManager.swift in Sources */,
 				42BFACCA20C3BE5600AE8996 /* RecommendedPlayListViewController.swift in Sources */,
 				4228B3B120BD18B000349913 /* ViewController.swift in Sources */,
 				426A5DB020C821ED00624F30 /* AudioManager.swift in Sources */,

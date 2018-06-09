@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+class GlobalVariableManager: NSObject {
+    static let shared = GlobalVariableManager()
+    
+    var tuneIndex: Int!
+    var playingTuneIndex: Int!
+    
+    // シングルトンの唯一性を保証するためprivateにする
+    private override init() {
+    }
+}

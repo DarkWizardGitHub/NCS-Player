@@ -13,8 +13,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
 
 //    var audioPlayer: AVAudioPlayer!
     var playTimer: Timer!
-    var tuneIndex: Int? = nil
-    var playingTuneIndex: Int?
+//    var tuneIndex: Int? = nil
+//    var playingTuneIndex: Int?
     
     struct tuneInformation {
         var tuneName: String
@@ -44,6 +44,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        print("proceeded vdl")
         // playbackPositionSliderの設定
         // スライダー非操作時の画像
         self.playbackPositionSlider.setThumbImage(UIImage(named: "playbackpositioncursor"), for: .normal)
@@ -51,12 +52,15 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
         self.playbackPositionSlider.setThumbImage(UIImage(named: "playbackpositioncursor"), for: .highlighted)
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(self.playingTuneIndex)
-        if self.tuneIndex != self.playingTuneIndex {
+        print(GlobalVariableManager.shared.tuneIndex)
+        print(GlobalVariableManager.shared.playingTuneIndex)
+        if GlobalVariableManager.shared.tuneIndex != GlobalVariableManager.shared.playingTuneIndex {
+            print("proceeded")
             self.prepareTune()
+        } else {
+            AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
         }
     }
     
@@ -71,25 +75,20 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-//        定義大丈夫？
         // 画面遷移時にタイマー破棄
         self.playTimer = nil
-        self.playingTuneIndex = self.tuneIndex
-        print(self.playingTuneIndex)
-        
-        
+        GlobalVariableManager.shared.playingTuneIndex = GlobalVariableManager.shared.tuneIndex
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
     
     func prepareTune() {
-        AudioManager.shared.load(path: tunes[self.tuneIndex!].tunePath)
+        AudioManager.shared.load(path: tunes[GlobalVariableManager.shared.tuneIndex!].tunePath)
         // 曲名とアーティスト名取得
-        self.titleLabel.text = tunes[self.tuneIndex!].tuneName
-        self.artistLabel.text = tunes[self.tuneIndex!].artistName
+        self.titleLabel.text = tunes[GlobalVariableManager.shared.tuneIndex!].tuneName
+        self.artistLabel.text = tunes[GlobalVariableManager.shared.tuneIndex!].artistName
         self.volumeSlider.value = AudioManager.shared.audioVolume
         // スライダーの最大値と音楽ファイルの長さを同期
         // スライダーの値はFloat型になるのでFloat型にキャスト変換
@@ -104,25 +103,25 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
     // プレイリストの先頭の場合のみ再度その曲を選択する
     @IBAction func backButton(_ sender: UIButton) {
         if (AudioManager.shared.audioBuffer?.isPlaying)! {
-            if self.tuneIndex! == 0 {
+            if GlobalVariableManager.shared.tuneIndex! == 0 {
                 self.prepareTune()
                 AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
                 // 再生アイコン切り替え
                 self.controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
             } else {
-                self.tuneIndex = self.tuneIndex! - 1
+                GlobalVariableManager.shared.tuneIndex = GlobalVariableManager.shared.tuneIndex! - 1
                 self.prepareTune()
                 AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
                 // 再生アイコン切り替え
                 self.controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
             }
         } else {
-            if self.tuneIndex! == 0 {
+            if GlobalVariableManager.shared.tuneIndex! == 0 {
                 self.prepareTune()
                 // 一時停止アイコン切り替え
                 controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
             } else {
-                self.tuneIndex = self.tuneIndex! - 1
+                GlobalVariableManager.shared.tuneIndex = GlobalVariableManager.shared.tuneIndex! - 1
                 self.prepareTune()
                 // 一時停止アイコン切り替え
                 controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
@@ -150,25 +149,25 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
     // プレイリストの末尾の場合のみ再度その曲を選択する
     @IBAction func nextButton(_ sender: UIButton) {
         if (AudioManager.shared.audioBuffer?.isPlaying)! {
-            if self.tuneIndex! == tunes.count - 1 {
+            if GlobalVariableManager.shared.tuneIndex! == tunes.count - 1 {
                 self.prepareTune()
                 AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
                 // 再生アイコン切り替え
                 controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
             } else {
-                self.tuneIndex = self.tuneIndex! + 1
+                GlobalVariableManager.shared.tuneIndex = GlobalVariableManager.shared.tuneIndex! + 1
                 self.prepareTune()
                 AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
                 // 再生アイコン切り替え
                 controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
             }
         } else {
-            if self.tuneIndex! == tunes.count - 1 {
+            if GlobalVariableManager.shared.tuneIndex! == tunes.count - 1 {
                 self.prepareTune()
                 // 一時停止アイコン切り替え
                 controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
             } else {
-                self.tuneIndex = self.tuneIndex! + 1
+                GlobalVariableManager.shared.tuneIndex = GlobalVariableManager.shared.tuneIndex! + 1
                 self.prepareTune()
                 // 一時停止アイコン切り替え
                 controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
