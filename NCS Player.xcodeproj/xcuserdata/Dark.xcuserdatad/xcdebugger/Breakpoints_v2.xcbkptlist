@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NCS Player/ViewController.swift"
-            timestampString = "550137493.628744"
+            timestampString = "550243677.654987"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216">
+            startingLineNumber = "213"
+            endingLineNumber = "213">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

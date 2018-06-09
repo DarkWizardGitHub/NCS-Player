@@ -30,6 +30,8 @@ var selectedIndex:Int!
 //class Best30PlayListViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
 class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
 
+    var playingTuneIndex: Int?
+    
     @IBOutlet weak var playListTableView: UITableView!
     
     override func viewDidLoad() {
@@ -73,10 +75,10 @@ class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 遷移先に情報を渡す処理
         // 次の画面のインスタンスを生成
-        let dvc:ViewController = segue.destination as! ViewController
+        let dvc: ViewController = segue.destination as! ViewController
         
         // 次の画面のプロパティ tuneIndexに選択された行番号を渡す
-        dvc.self.tuneIndex = selectedIndex
+        dvc.tuneIndex = selectedIndex
         
     }
 }

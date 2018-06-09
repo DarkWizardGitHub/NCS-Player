@@ -42,11 +42,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
     @IBOutlet weak var leftPlaybackPositionLabel: UILabel!
     @IBOutlet weak var rightPlaybackPositionLabel: UILabel!
     
-//    おかゆさんに聞くこと１
-//    なんか勝手に作られている気がする
-    @IBOutlet var bar: UIView!
-    @IBOutlet weak var sl: UISlider!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // playbackPositionSliderの設定
@@ -81,6 +76,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UINavigationContr
         self.playTimer = nil
         self.playingTuneIndex = self.tuneIndex
         print(self.playingTuneIndex)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

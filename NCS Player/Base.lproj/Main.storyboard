@@ -261,12 +261,10 @@
                     <connections>
                         <outlet property="artistLabel" destination="fr0-d0-fuE" id="NRP-IU-Xmm"/>
                         <outlet property="backButton" destination="SRR-L5-eyV" id="Sh1-vm-Gey"/>
-                        <outlet property="bar" destination="7l2-xR-sjR" id="Jr8-Yc-tI0"/>
                         <outlet property="controlButton" destination="DQj-Ja-sAz" id="kT6-Gz-Eg5"/>
                         <outlet property="leftPlaybackPositionLabel" destination="qeK-H3-4MU" id="djZ-mh-2XG"/>
                         <outlet property="playbackPositionSlider" destination="Tff-Eu-TEx" id="2wX-pU-4Yz"/>
                         <outlet property="rightPlaybackPositionLabel" destination="WaI-KD-kPj" id="K3z-DQ-yGW"/>
-                        <outlet property="sl" destination="Tff-Eu-TEx" id="qAC-eF-lDP"/>
                         <outlet property="titleLabel" destination="RsO-iU-eRw" id="I5L-ue-jns"/>
                         <outlet property="volumeSlider" destination="PrE-65-C8I" id="8uj-hT-Vua"/>
                     </connections>
