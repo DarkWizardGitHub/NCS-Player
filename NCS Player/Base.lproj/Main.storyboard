@@ -156,16 +156,16 @@
             </objects>
             <point key="canvasLocation" x="264" y="875"/>
         </scene>
-        <!--View Controller-->
+        <!--Audio Player View Controller-->
         <scene sceneID="WTR-5a-7tv">
             <objects>
-                <viewController id="bwS-PM-6Ry" customClass="ViewController" customModule="NCS_Player" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bwS-PM-6Ry" customClass="AudioPlayerViewController" customModule="NCS_Player" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7l2-xR-sjR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="volumeminicon.png" maximumValueImage="volumemaxicon.png" translatesAutoresizingMaskIntoConstraints="NO" id="PrE-65-C8I">
-                                <rect key="frame" x="18" y="675" width="378" height="30"/>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="PrE-65-C8I">
+                                <rect key="frame" x="50" y="687" width="315" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="thumbTintColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -202,7 +202,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WaI-KD-kPj">
-                                <rect key="frame" x="364" y="455" width="30" height="20"/>
+                                <rect key="frame" x="366" y="455" width="30" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
@@ -254,6 +254,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mnz-4R-zwT">
+                                <rect key="frame" x="378" y="694" width="16" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="volumemaxicon256.png"/>
+                                <connections>
+                                    <action selector="changeMaxmumVolumeButton:" destination="bwS-PM-6Ry" eventType="touchUpInside" id="hI0-dz-QZf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFf-Vw-ah8">
+                                <rect key="frame" x="20" y="694" width="16" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="volumeminicon256.png"/>
+                                <connections>
+                                    <action selector="changeMinimumVolumeButton:" destination="bwS-PM-6Ry" eventType="touchUpInside" id="fWc-cJ-vcX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4jB-1R-wnT"/>
@@ -272,7 +288,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0wW-Rg-hae" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="7qh-EW-Bc2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1438" y="121"/>
+            <point key="canvasLocation" x="1437.68115942029" y="120.65217391304348"/>
         </scene>
     </scenes>
     <resources>
@@ -282,8 +298,8 @@
         <image name="playicon.png" width="256" height="256"/>
         <image name="recomendicon32.png" width="32" height="32"/>
         <image name="serchicon32.png" width="32" height="32"/>
-        <image name="volumemaxicon.png" width="32" height="32"/>
-        <image name="volumeminicon.png" width="32" height="32"/>
+        <image name="volumemaxicon256.png" width="256" height="256"/>
+        <image name="volumeminicon256.png" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PS9-Ks-ep4"/>

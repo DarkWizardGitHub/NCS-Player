@@ -11,7 +11,7 @@
 		4210472D20C706CE005CC2EB /* recomendicon32.png in Resources */ = {isa = PBXBuildFile; fileRef = 4210472A20C706CE005CC2EB /* recomendicon32.png */; };
 		4210472E20C706CE005CC2EB /* serchicon32.png in Resources */ = {isa = PBXBuildFile; fileRef = 4210472B20C706CE005CC2EB /* serchicon32.png */; };
 		4228B3AF20BD18B000349913 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4228B3AE20BD18B000349913 /* AppDelegate.swift */; };
-		4228B3B120BD18B000349913 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4228B3B020BD18B000349913 /* ViewController.swift */; };
+		4228B3B120BD18B000349913 /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4228B3B020BD18B000349913 /* AudioPlayerViewController.swift */; };
 		4228B3B420BD18B000349913 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4228B3B220BD18B000349913 /* Main.storyboard */; };
 		4228B3B620BD18B200349913 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4228B3B520BD18B200349913 /* Assets.xcassets */; };
 		4228B3B920BD18B200349913 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4228B3B720BD18B200349913 /* LaunchScreen.storyboard */; };
@@ -29,9 +29,9 @@
 		4268008420BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4268008320BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 */; };
 		4268008620BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4268008520BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 */; };
 		426A5DB020C821ED00624F30 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426A5DAF20C821ED00624F30 /* AudioManager.swift */; };
-		428FA2E020C5A5F100E5D5E7 /* volumeminicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 428FA2DE20C5A5F100E5D5E7 /* volumeminicon.png */; };
-		428FA2E120C5A5F100E5D5E7 /* volumemaxicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 428FA2DF20C5A5F100E5D5E7 /* volumemaxicon.png */; };
 		42BFACCA20C3BE5600AE8996 /* RecommendedPlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BFACC920C3BE5600AE8996 /* RecommendedPlayListViewController.swift */; };
+		42C8B69120CCED1D006C44C4 /* volumemaxicon256.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C8B69020CCED1D006C44C4 /* volumemaxicon256.png */; };
+		42C8B69320CCEE3B006C44C4 /* volumeminicon256.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C8B69220CCEE3B006C44C4 /* volumeminicon256.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +40,7 @@
 		4210472B20C706CE005CC2EB /* serchicon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = serchicon32.png; sourceTree = "<group>"; };
 		4228B3AB20BD18B000349913 /* NCS Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NCS Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4228B3AE20BD18B000349913 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4228B3B020BD18B000349913 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4228B3B020BD18B000349913 /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
 		4228B3B320BD18B000349913 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4228B3B520BD18B200349913 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4228B3B820BD18B200349913 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,13 +59,14 @@
 		4268008320BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Itro & Tobu-Cloud 9.mp3"; sourceTree = "<group>"; };
 		4268008520BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ehrling-Sthlm Sunset.mp3"; sourceTree = "<group>"; };
 		426A5DAF20C821ED00624F30 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
-		428FA2DE20C5A5F100E5D5E7 /* volumeminicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volumeminicon.png; sourceTree = "<group>"; };
-		428FA2DF20C5A5F100E5D5E7 /* volumemaxicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volumemaxicon.png; sourceTree = "<group>"; };
 		42BFACC920C3BE5600AE8996 /* RecommendedPlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedPlayListViewController.swift; sourceTree = "<group>"; };
+		42C8B69020CCED1D006C44C4 /* volumemaxicon256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volumemaxicon256.png; sourceTree = "<group>"; };
+		42C8B69220CCEE3B006C44C4 /* volumeminicon256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volumeminicon256.png; sourceTree = "<group>"; };
+		42C8B69520CD008E006C44C4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4228B3A820BD18B000349913 /* Frameworks */ = {
+		42C52EA020CD0222002E4624 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -80,6 +81,7 @@
 			children = (
 				4228B3AD20BD18B000349913 /* NCS Player */,
 				4228B3AC20BD18B000349913 /* Products */,
+				42C8B69420CD008D006C44C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,7 +100,7 @@
 				4257E4E620BFD13800B9AD26 /* Icons */,
 				4268008220BE638000A2659B /* Tunes */,
 				4228B3AE20BD18B000349913 /* AppDelegate.swift */,
-				4228B3B020BD18B000349913 /* ViewController.swift */,
+				4228B3B020BD18B000349913 /* AudioPlayerViewController.swift */,
 				4228B3B220BD18B000349913 /* Main.storyboard */,
 				4228B3B520BD18B200349913 /* Assets.xcassets */,
 				4228B3B720BD18B200349913 /* LaunchScreen.storyboard */,
@@ -113,11 +115,11 @@
 		4257E4E620BFD13800B9AD26 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				42C8B69220CCEE3B006C44C4 /* volumeminicon256.png */,
+				42C8B69020CCED1D006C44C4 /* volumemaxicon256.png */,
 				4210472920C706CE005CC2EB /* myfavoriteicon32.png */,
 				4210472A20C706CE005CC2EB /* recomendicon32.png */,
 				4210472B20C706CE005CC2EB /* serchicon32.png */,
-				428FA2DF20C5A5F100E5D5E7 /* volumemaxicon.png */,
-				428FA2DE20C5A5F100E5D5E7 /* volumeminicon.png */,
 				425C0C6220C2F36600BA1D2D /* playbackpositioncursor.png */,
 				4257E4E820BFD16400B9AD26 /* backicon.png */,
 				4257E4E920BFD16400B9AD26 /* nexticon.png */,
@@ -148,6 +150,14 @@
 			path = Tunes;
 			sourceTree = "<group>";
 		};
+		42C8B69420CD008D006C44C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42C8B69520CD008E006C44C4 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,7 +166,7 @@
 			buildConfigurationList = 4228B3BD20BD18B200349913 /* Build configuration list for PBXNativeTarget "NCS Player" */;
 			buildPhases = (
 				4228B3A720BD18B000349913 /* Sources */,
-				4228B3A820BD18B000349913 /* Frameworks */,
+				42C52EA020CD0222002E4624 /* Frameworks */,
 				4228B3A920BD18B000349913 /* Resources */,
 			);
 			buildRules = (
@@ -180,6 +190,11 @@
 				TargetAttributes = {
 					4228B3AA20BD18B000349913 = {
 						CreatedOnToolsVersion = 9.3.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -210,7 +225,6 @@
 				4228B3B920BD18B200349913 /* LaunchScreen.storyboard in Resources */,
 				425C0C6120C2EE2000BA1D2D /* darklogo512.png in Resources */,
 				4210472C20C706CE005CC2EB /* myfavoriteicon32.png in Resources */,
-				428FA2E120C5A5F100E5D5E7 /* volumemaxicon.png in Resources */,
 				4228B3B620BD18B200349913 /* Assets.xcassets in Resources */,
 				425C0C6320C2F36600BA1D2D /* playbackpositioncursor.png in Resources */,
 				4257E4EC20BFD16400B9AD26 /* pauseicon.png in Resources */,
@@ -218,11 +232,12 @@
 				4210472E20C706CE005CC2EB /* serchicon32.png in Resources */,
 				4268008420BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 in Resources */,
 				4257E4ED20BFD16400B9AD26 /* backicon.png in Resources */,
-				428FA2E020C5A5F100E5D5E7 /* volumeminicon.png in Resources */,
 				42657FA020C438C10034FA19 /* Ehrling-Dance With Me.mp3 in Resources */,
 				42657FA120C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 in Resources */,
 				4210472D20C706CE005CC2EB /* recomendicon32.png in Resources */,
 				4257E4F020BFD16400B9AD26 /* stopicon.png in Resources */,
+				42C8B69320CCEE3B006C44C4 /* volumeminicon256.png in Resources */,
+				42C8B69120CCED1D006C44C4 /* volumemaxicon256.png in Resources */,
 				4228B3B420BD18B000349913 /* Main.storyboard in Resources */,
 				4257E4EF20BFD16400B9AD26 /* playicon.png in Resources */,
 				4257E4EE20BFD16400B9AD26 /* nexticon.png in Resources */,
@@ -238,7 +253,7 @@
 			files = (
 				424A446320CC2DED00B0681B /* GlobalVariableManager.swift in Sources */,
 				42BFACCA20C3BE5600AE8996 /* RecommendedPlayListViewController.swift in Sources */,
-				4228B3B120BD18B000349913 /* ViewController.swift in Sources */,
+				4228B3B120BD18B000349913 /* AudioPlayerViewController.swift in Sources */,
 				426A5DB020C821ED00624F30 /* AudioManager.swift in Sources */,
 				4228B3AF20BD18B000349913 /* AppDelegate.swift in Sources */,
 			);
