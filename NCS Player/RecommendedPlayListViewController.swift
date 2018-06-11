@@ -24,38 +24,55 @@ var tune4 = tuneInformation(tuneName: "Dance With Me", artistName: "Ehrling", tu
 // 再生する audio ファイルのパスを取得
 var playList = [tune0, tune1, tune2, tune3, tune4]
 
-//// 選択された行番号を保存する変数
-//var selectedIndex:Int!
-
-//class Best30PlayListViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
 class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
-
-//    var playingTuneIndex: Int?
+    
+    // Sectionのタイトル
+    let sectionTitle: NSArray = ["RecommendedPlayList"]
     
     @IBOutlet weak var playListTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.playListTableView.delegate = self
         self.playListTableView.dataSource = self
         
-        // TableViewのヘッダーを設定
-//        let headerCell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "tableHeaderCell")!
-//        let headerView: UIView = headerCell.contentView
-//        tableView.tableHeaderView = headerView
+        
+//        聞くこと
+//        セクションのフォントサイズとカラー変更方法
+//        リストの枠が一部広くなる理由
+        
+//        実装すること
+//        リストから削除する機能
+//        順序を変更する機能(タップしながらズラすような感じ、もしくは上下移動か)
+        
+        
+        
+        // UIcolorのRGB値は、256段階ではなく、0~1.0までの値で指定
+        // UIcolorのRGB値の引数に255で割った値を直接渡す
+        // self.playListTableView.sectionIndexBackgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    // TableView行数を決定
+    // Section数
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.sectionTitle.count
+    }
+    
+    // Sectioのタイトル
+    func tableView(_ tableView: UITableView,
+                   titleForHeaderInSection section: Int) -> String? {
+        return sectionTitle[section] as? String
+    }
+    
+    // TableViewのセルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return playList.count
     }
     
-    // 表示する中身の設定　１行毎のセルの設定
+    // 1行毎のセルの要素を設定する(表示する中身の設定)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルのインスタンス化　文字列を表示するCell
         let cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "tableviewcell", for: indexPath)
