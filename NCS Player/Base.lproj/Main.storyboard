@@ -174,7 +174,7 @@
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQj-Ja-sAz">
-                                <rect key="frame" x="191" y="600" width="32" height="32"/>
+                                <rect key="frame" x="191" y="610" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="PlayStop" image="playicon.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -186,7 +186,7 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tff-Eu-TEx">
-                                <rect key="frame" x="50" y="450" width="315" height="30"/>
+                                <rect key="frame" x="50" y="460" width="315" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="thumbTintColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -195,35 +195,35 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeK-H3-4MU">
-                                <rect key="frame" x="20" y="455" width="30" height="20"/>
+                                <rect key="frame" x="20" y="465" width="30" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WaI-KD-kPj">
-                                <rect key="frame" x="366" y="455" width="30" height="20"/>
+                                <rect key="frame" x="366" y="465" width="30" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RsO-iU-eRw">
-                                <rect key="frame" x="20" y="500" width="374" height="30"/>
+                                <rect key="frame" x="20" y="510" width="374" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fr0-d0-fuE">
-                                <rect key="frame" x="20" y="550" width="374" height="25"/>
+                                <rect key="frame" x="20" y="560" width="374" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRR-L5-eyV">
-                                <rect key="frame" x="52" y="600" width="32" height="32"/>
+                                <rect key="frame" x="52" y="610" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="PlayStop" image="backicon.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -235,7 +235,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kms-o2-09z">
-                                <rect key="frame" x="331" y="600" width="32" height="32"/>
+                                <rect key="frame" x="331" y="610" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next" image="nexticon.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -270,6 +270,14 @@
                                     <action selector="changeMinimumVolumeButton:" destination="bwS-PM-6Ry" eventType="touchUpInside" id="fWc-cJ-vcX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUL-Ue-03R">
+                                <rect key="frame" x="371" y="437" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="normalmodeicon128.png"/>
+                                <connections>
+                                    <action selector="changePlayModeButton:" destination="bwS-PM-6Ry" eventType="touchUpInside" id="nvQ-do-1r0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4jB-1R-wnT"/>
@@ -279,6 +287,7 @@
                         <outlet property="backButton" destination="SRR-L5-eyV" id="Sh1-vm-Gey"/>
                         <outlet property="controlButton" destination="DQj-Ja-sAz" id="kT6-Gz-Eg5"/>
                         <outlet property="leftPlaybackPositionLabel" destination="qeK-H3-4MU" id="djZ-mh-2XG"/>
+                        <outlet property="playModeButton" destination="pUL-Ue-03R" id="G5h-KP-o3Y"/>
                         <outlet property="playbackPositionSlider" destination="Tff-Eu-TEx" id="2wX-pU-4Yz"/>
                         <outlet property="rightPlaybackPositionLabel" destination="WaI-KD-kPj" id="K3z-DQ-yGW"/>
                         <outlet property="titleLabel" destination="RsO-iU-eRw" id="I5L-ue-jns"/>
@@ -295,6 +304,7 @@
         <image name="backicon.png" width="256" height="256"/>
         <image name="myfavoriteicon32.png" width="32" height="32"/>
         <image name="nexticon.png" width="256" height="256"/>
+        <image name="normalmodeicon128.png" width="128" height="128"/>
         <image name="playicon.png" width="256" height="256"/>
         <image name="recomendicon32.png" width="32" height="32"/>
         <image name="serchicon32.png" width="32" height="32"/>

@@ -11,8 +11,18 @@ import AVFoundation
 
 class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavigationControllerDelegate {
     
+    
+    var hoge: TimeInterval!
+    
+    
     // タイマー関数用変数
     var playTimer: Timer!
+    
+    enum playMode: String {
+        case isNormal = "Normal"
+        case isRepeat = "Repeat"
+        case isShuffle = "Shuffle"
+    }
     
     struct tuneInformation {
         var tuneName: String
@@ -30,6 +40,7 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
     lazy var tunes = [tune0, tune1, tune2, tune3, tune4]
 
     // アウトレット接続
+    @IBOutlet weak var playModeButton: UIButton!
     @IBOutlet weak var playbackPositionSlider: UISlider!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
@@ -76,7 +87,7 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
         self.playTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {(action) in
             self.synchronizePlaybackPositionSlider()
             self.synchronizeLeftPlaybackPositionLabel(value: (AudioManager.shared.audioBuffer?.currentTime)!)
-            self.test()
+            self.playNextTune()
         })
     }
 
@@ -89,6 +100,37 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func changePlayModeButton(_ sender: UIButton) {
+        switch AudioManager.shared.audioPlayMode {
+            case "Normal":
+                print("n-r")
+                AudioManager.shared.loopTimes = 1
+                AudioManager.shared.audioPlayMode = playMode.isRepeat.rawValue
+                self.playModeButton.setImage(UIImage(named: "repeatmodeicon128"), for: UIControlState())
+                AudioManager.shared.audioBuffer?.pause()
+            hoge = AudioManager.shared.audioBuffer?.currentTime
+            resumeTune()
+            case "Repeat":
+                print("r-s")
+                AudioManager.shared.loopTimes = 0
+                AudioManager.shared.audioPlayMode = playMode.isShuffle.rawValue
+                self.playModeButton.setImage(UIImage(named: "shufflemodeicon128"), for: UIControlState())
+                AudioManager.shared.audioBuffer?.pause()
+            hoge = AudioManager.shared.audioBuffer?.currentTime
+            resumeTune()
+            case "Shuffle":
+                print("s-n")
+                AudioManager.shared.loopTimes = 0
+                AudioManager.shared.audioPlayMode = playMode.isNormal.rawValue
+                self.playModeButton.setImage(UIImage(named: "normalmodeicon128"), for: UIControlState())
+                AudioManager.shared.audioBuffer?.pause()
+            hoge = AudioManager.shared.audioBuffer?.currentTime
+            resumeTune()
+            default:
+                break
+        }
     }
     
     // backボタンを押すと以下の２パターンの処理を行う
@@ -194,24 +236,6 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
         self.volumeSlider.value = AudioManager.shared.audioVolume
     }
     
-//    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-//        print("Music Finish")
-//        if GlobalVariableManager.shared.tuneIndex! == tunes.count - 1 {
-//                print("okok")
-////            self.prepareTune()
-////            AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
-////            // 再生アイコン切り替え
-////            controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
-//        } else {
-//            print("okok")
-//            GlobalVariableManager.shared.tuneIndex = GlobalVariableManager.shared.tuneIndex! + 1
-//            self.prepareTune()
-//            AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
-//            // 再生アイコン切り替え
-//            controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
-//        }
-//    }
-    
     // オーディオデータの読み込みに伴う処理関数
     func prepareTune() {
         AudioManager.shared.load(path: tunes[GlobalVariableManager.shared.tuneIndex!].tunePath)
@@ -250,7 +274,7 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
         return returnvalue
     }
     
-    func test() {
+    func playNextTune() {
         if AudioManager.shared.finishedFlag == true {
             print("finished")
             
@@ -269,5 +293,20 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
             AudioManager.shared.finishedFlag = false
         }
     }
+    
+    func resumeTune() {
+//        AudioManager.shared.load(path: tunes[GlobalVariableManager.shared.tuneIndex!].tunePath)
+        // 曲名とアーティスト名取得
+//        self.titleLabel.text = tunes[GlobalVariableManager.shared.tuneIndex!].tuneName
+//        self.artistLabel.text = tunes[GlobalVariableManager.shared.tuneIndex!].artistName
+//        self.volumeSlider.value = AudioManager.shared.audioVolume
+        
+//        self.playbackPositionSlider.maximumValue = Float((AudioManager.shared.audioBuffer?.duration)!)
+        self.playbackPositionSlider.value = Float(hoge)
+        self.synchronizeLeftPlaybackPositionLabel(value: hoge)
+//        self.rightPlaybackPositionLabel.text = convertTimeIntervalToString(value: (AudioManager.shared.audioBuffer?.duration)!)
+        AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
+    }
+
 }
 

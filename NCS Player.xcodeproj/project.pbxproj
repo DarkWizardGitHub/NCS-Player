@@ -23,6 +23,9 @@
 		4257E4F020BFD16400B9AD26 /* stopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257E4EB20BFD16400B9AD26 /* stopicon.png */; };
 		425C0C6120C2EE2000BA1D2D /* darklogo512.png in Resources */ = {isa = PBXBuildFile; fileRef = 425C0C6020C2EE2000BA1D2D /* darklogo512.png */; };
 		425C0C6320C2F36600BA1D2D /* playbackpositioncursor.png in Resources */ = {isa = PBXBuildFile; fileRef = 425C0C6220C2F36600BA1D2D /* playbackpositioncursor.png */; };
+		4260B75C20CE380500D27312 /* normalmodeicon128.png in Resources */ = {isa = PBXBuildFile; fileRef = 4260B75B20CE380500D27312 /* normalmodeicon128.png */; };
+		4260B75F20CE380F00D27312 /* shufflemodeicon128.png in Resources */ = {isa = PBXBuildFile; fileRef = 4260B75D20CE380F00D27312 /* shufflemodeicon128.png */; };
+		4260B76020CE380F00D27312 /* repeatmodeicon128.png in Resources */ = {isa = PBXBuildFile; fileRef = 4260B75E20CE380F00D27312 /* repeatmodeicon128.png */; };
 		42657FA020C438C10034FA19 /* Ehrling-Dance With Me.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42657F9D20C438C10034FA19 /* Ehrling-Dance With Me.mp3 */; };
 		42657FA120C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42657F9E20C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 */; };
 		42657FA220C438C10034FA19 /* Tobu-Candyland.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42657F9F20C438C10034FA19 /* Tobu-Candyland.mp3 */; };
@@ -53,6 +56,9 @@
 		4257E4EB20BFD16400B9AD26 /* stopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopicon.png; sourceTree = "<group>"; };
 		425C0C6020C2EE2000BA1D2D /* darklogo512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darklogo512.png; sourceTree = "<group>"; };
 		425C0C6220C2F36600BA1D2D /* playbackpositioncursor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbackpositioncursor.png; sourceTree = "<group>"; };
+		4260B75B20CE380500D27312 /* normalmodeicon128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normalmodeicon128.png; sourceTree = "<group>"; };
+		4260B75D20CE380F00D27312 /* shufflemodeicon128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shufflemodeicon128.png; sourceTree = "<group>"; };
+		4260B75E20CE380F00D27312 /* repeatmodeicon128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repeatmodeicon128.png; sourceTree = "<group>"; };
 		42657F9D20C438C10034FA19 /* Ehrling-Dance With Me.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ehrling-Dance With Me.mp3"; sourceTree = "<group>"; };
 		42657F9E20C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Tobu & Itro-Sunburst.mp3"; sourceTree = "<group>"; };
 		42657F9F20C438C10034FA19 /* Tobu-Candyland.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Tobu-Candyland.mp3"; sourceTree = "<group>"; };
@@ -115,6 +121,9 @@
 		4257E4E620BFD13800B9AD26 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				4260B75E20CE380F00D27312 /* repeatmodeicon128.png */,
+				4260B75D20CE380F00D27312 /* shufflemodeicon128.png */,
+				4260B75B20CE380500D27312 /* normalmodeicon128.png */,
 				42C8B69220CCEE3B006C44C4 /* volumeminicon256.png */,
 				42C8B69020CCED1D006C44C4 /* volumemaxicon256.png */,
 				4210472920C706CE005CC2EB /* myfavoriteicon32.png */,
@@ -230,11 +239,14 @@
 				4257E4EC20BFD16400B9AD26 /* pauseicon.png in Resources */,
 				4268008620BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 in Resources */,
 				4210472E20C706CE005CC2EB /* serchicon32.png in Resources */,
+				4260B75F20CE380F00D27312 /* shufflemodeicon128.png in Resources */,
 				4268008420BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 in Resources */,
 				4257E4ED20BFD16400B9AD26 /* backicon.png in Resources */,
 				42657FA020C438C10034FA19 /* Ehrling-Dance With Me.mp3 in Resources */,
 				42657FA120C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 in Resources */,
+				4260B76020CE380F00D27312 /* repeatmodeicon128.png in Resources */,
 				4210472D20C706CE005CC2EB /* recomendicon32.png in Resources */,
+				4260B75C20CE380500D27312 /* normalmodeicon128.png in Resources */,
 				4257E4F020BFD16400B9AD26 /* stopicon.png in Resources */,
 				42C8B69320CCEE3B006C44C4 /* volumeminicon256.png in Resources */,
 				42C8B69120CCED1D006C44C4 /* volumemaxicon256.png in Resources */,

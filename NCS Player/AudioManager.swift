@@ -16,9 +16,10 @@ class AudioManager: NSObject, AVAudioPlayerDelegate {
     static let shared = AudioManager()
     
     var audioBuffer: AVAudioPlayer? = nil
-    
     var audioPlayer: AVAudioPlayer!
     var audioVolume: Float!
+    var audioPlayMode: String = "Normal"
+    var loopTimes: Int = 0
     var finishedFlag: Bool = false
     
     // シングルトンの唯一性を保証するためprivateにする
@@ -43,43 +44,26 @@ class AudioManager: NSObject, AVAudioPlayerDelegate {
     func play(volumeValue: Float) {
         audioBuffer?.volume = volumeValue
         audioBuffer?.delegate = self
+        audioBuffer?.numberOfLoops = loopTimes
         audioBuffer?.play()
     }
+    
+//    Test
+//    func resume(volumeValue: Float, resumeTime: TimeInterval) {
+//        audioBuffer?.volume = volumeValue
+//        audioBuffer?.delegate = self
+//        audioBuffer?.numberOfLoops = loopTimes
+//        audioBuffer?.play(atTime: resumeTime)
+//    }
     
     func pause() {
         audioBuffer?.pause()
     }
-    
-//    func forward() {
-//
-//    }
-//
-//    func backward() {
-//
-//    }
 
+    // オーディオファイル再生終了検知
+    // 再生が終わるとデリゲートのこのメソッドがコールバックされる
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        print("dfp")
+        // 再生終了後の処理をViewController側で行うため、グローバル変数に再生終了用の変数を作成し状態を保持する
         finishedFlag = true
-//        struct tuneInformation {
-//            var tuneName: String
-//            var artistName: String
-//            var tunePath: String
-//        }
-//
-//        var tune0 = tuneInformation(tuneName: "Cloud 9", artistName: "Itro & Tobu", tunePath: Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")!)
-//        var tune1 = tuneInformation(tuneName: "Sthlm Sunset", artistName: "Ehrling", tunePath: Bundle.main.path(forResource: "Ehrling-Sthlm Sunset", ofType:"mp3")!)
-//        var tune2 = tuneInformation(tuneName: "Sunburst", artistName: "Tobu & Itro", tunePath: Bundle.main.path(forResource: "Tobu & Itro-Sunburst", ofType:"mp3")!)
-//        var tune3 = tuneInformation(tuneName: "Candyland", artistName: "Tobu", tunePath: Bundle.main.path(forResource: "Tobu-Candyland", ofType:"mp3")!)
-//        var tune4 = tuneInformation(tuneName: "Dance With Me", artistName: "Ehrling", tunePath: Bundle.main.path(forResource: "Ehrling-Dance With Me", ofType:"mp3")!)
-//
-//        // 再生する audio ファイルのパスを取得
-//        var tunes = [tune0, tune1, tune2, tune3, tune4]
-//
-//            GlobalVariableManager.shared.tuneIndex = GlobalVariableManager.shared.tuneIndex! + 1
-//            self.load(path: tunes[GlobalVariableManager.shared.tuneIndex!].tunePath)
-//            AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
-//            // 再生アイコン切り替え
-////            controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
     }
 }
