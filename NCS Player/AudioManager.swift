@@ -48,14 +48,6 @@ class AudioManager: NSObject, AVAudioPlayerDelegate {
         audioBuffer?.play()
     }
     
-//    Test
-//    func resume(volumeValue: Float, resumeTime: TimeInterval) {
-//        audioBuffer?.volume = volumeValue
-//        audioBuffer?.delegate = self
-//        audioBuffer?.numberOfLoops = loopTimes
-//        audioBuffer?.play(atTime: resumeTime)
-//    }
-    
     func pause() {
         audioBuffer?.pause()
     }
