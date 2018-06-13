@@ -116,22 +116,16 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
                 AudioManager.shared.loopTimes = 1
                 AudioManager.shared.audioPlayMode = playMode.isRepeat.rawValue
                 self.playModeButton.setImage(UIImage(named: "repeatmodeicon128"), for: UIControlState())
-                AudioManager.shared.audioBuffer?.pause()
-                self.changedPlayModeTime = AudioManager.shared.audioBuffer?.currentTime
                 self.reloadTune()
             case "Repeat":
                 AudioManager.shared.loopTimes = 0
                 AudioManager.shared.audioPlayMode = playMode.isShuffle.rawValue
                 self.playModeButton.setImage(UIImage(named: "shufflemodeicon128"), for: UIControlState())
-                AudioManager.shared.audioBuffer?.pause()
-                self.changedPlayModeTime = AudioManager.shared.audioBuffer?.currentTime
                 self.reloadTune()
             case "Shuffle":
                 AudioManager.shared.loopTimes = 0 // シャッフル用のnumberOfLoopsに割り当てられた整数がないので0とする
                 AudioManager.shared.audioPlayMode = playMode.isNormal.rawValue
                 self.playModeButton.setImage(UIImage(named: "normalmodeicon128"), for: UIControlState())
-                AudioManager.shared.audioBuffer?.pause()
-                self.changedPlayModeTime = AudioManager.shared.audioBuffer?.currentTime
                 self.reloadTune()
             default:
                 break
@@ -319,10 +313,20 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
         }
     }
     
+    // PlayMode切り替え時の再読み込み処理
+    // 切り替え時に再生中であれば再読み込み後再生
+    // 切り替え時に一時停止中であれば再読み込み後一時停止
     func reloadTune() {
-        self.playbackPositionSlider.value = Float(self.changedPlayModeTime)
-        self.synchronizeLeftPlaybackPositionLabel(value: self.changedPlayModeTime)
-        AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
+        if (AudioManager.shared.audioBuffer?.isPlaying)! {
+            AudioManager.shared.audioBuffer?.pause()
+            self.changedPlayModeTime = AudioManager.shared.audioBuffer?.currentTime
+            self.playbackPositionSlider.value = Float(self.changedPlayModeTime)
+            self.synchronizeLeftPlaybackPositionLabel(value: self.changedPlayModeTime)
+            AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
+        } else {
+            self.changedPlayModeTime = AudioManager.shared.audioBuffer?.currentTime
+            self.playbackPositionSlider.value = Float(self.changedPlayModeTime)
+            self.synchronizeLeftPlaybackPositionLabel(value: self.changedPlayModeTime)
+        }
     }
 }
-
