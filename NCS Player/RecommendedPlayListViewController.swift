@@ -15,6 +15,14 @@ struct tuneInformation {
     var tunePath: String?
 }
 
+
+
+
+//ユーザーリストはiOSの記憶領域に保存するべきか？
+
+
+
+
 var tune0 = tuneInformation(tuneName: "Cloud 9", artistName: "Itro & Tobu", tunePath: Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")!)
 var tune1 = tuneInformation(tuneName: "Sthlm Sunset", artistName: "Ehrling", tunePath: Bundle.main.path(forResource: "Ehrling-Sthlm Sunset", ofType:"mp3")!)
 var tune2 = tuneInformation(tuneName: "Sunburst", artistName: "Tobu & Itro", tunePath: Bundle.main.path(forResource: "Tobu & Itro-Sunburst", ofType:"mp3")!)
@@ -25,6 +33,8 @@ var tune4 = tuneInformation(tuneName: "Dance With Me", artistName: "Ehrling", tu
 var playList = [tune0, tune1, tune2, tune3, tune4]
 
 class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
+    
+    let coreDataManager: CoreDataManager = CoreDataManager(setEntityName: GlobalVariableManager.shared.coreDataEntityName, columnName: GlobalVariableManager.shared.tunesColumn)
     
     // Sectionのタイトル
     let sectionTitle: NSArray = ["RecommendedPlayList"]
@@ -44,12 +54,6 @@ class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,
 //        実装すること
 //        リストから削除する機能
 //        順序を変更する機能(タップしながらズラすような感じ、もしくは上下移動か)
-        
-        
-        
-        // UIcolorのRGB値は、256段階ではなく、0~1.0までの値で指定
-        // UIcolorのRGB値の引数に255で割った値を直接渡す
-        // self.playListTableView.sectionIndexBackgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,9 +66,20 @@ class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,
     }
     
     // Sectioのタイトル
-    func tableView(_ tableView: UITableView,
-                   titleForHeaderInSection section: Int) -> String? {
-        return sectionTitle[section] as? String
+//    func tableView(_ tableView: UITableView,
+//                   titleForHeaderInSection section: Int) -> String? {
+//        return sectionTitle[section] as? String
+//    }
+
+    // Sectioのタイトル
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label: UILabel = UILabel()
+        label.text = sectionTitle[section] as! String
+        // UIcolorのRGB値は、256段階ではなく、0~1.0までの値で指定
+        // UIcolorのRGB値の引数に255で割った値を直接渡す
+        label.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        label.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
+        return label
     }
     
     // TableViewのセルの数を指定
@@ -78,6 +93,23 @@ class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,
         let cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "tableviewcell", for: indexPath)
         cell.textLabel?.text = playList[indexPath.row].tuneName
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        // removeで配列から要素削除、deleteRowsでセルから要素を削除
+        let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "DELETE") { (action, index) -> Void in
+            playList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            // データベースの要素を削除する機能を追加する
+            
+            let hoge: [String] = ["a","2","3"]
+            self.coreDataManager.create(values: hoge)
+            
+            
+        }
+        deleteButton.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
+        
+        return [deleteButton]
     }
     
     // セルをタップしたら遷移する

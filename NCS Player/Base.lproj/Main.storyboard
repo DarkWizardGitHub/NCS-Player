@@ -34,7 +34,10 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cQp-m6-SjR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="z5q-bJ-Ey9" kind="relationship" relationship="viewControllers" id="Der-WS-lrO"/>
@@ -74,7 +77,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="WLz-IK-aPj"/>
+                        <viewLayoutGuide key="safeArea" id="UtN-SQ-zgT"/>
                     </view>
                     <tabBarItem key="tabBarItem" image="myfavoriteicon32.png" selectedImage="myfavoriteicon32.png" id="Vcn-Rl-Y9M"/>
                 </viewController>
@@ -110,9 +113,9 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="60I-nh-nN3"/>
+                        <viewLayoutGuide key="safeArea" id="5JV-eO-NNk"/>
                     </view>
-                    <tabBarItem key="tabBarItem" image="serchicon32.png" selectedImage="serchicon32.png" id="VsL-zk-vzF"/>
+                    <tabBarItem key="tabBarItem" image="serchicon32.png" largeContentSizeImage="darklogo512.png" selectedImage="serchicon32.png" id="VsL-zk-vzF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7VJ-K6-xdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -143,7 +146,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="gt9-NN-BW0"/>
+                        <viewLayoutGuide key="safeArea" id="401-pz-xG2"/>
                     </view>
                     <tabBarItem key="tabBarItem" image="recomendicon32.png" selectedImage="recomendicon32.png" id="3eg-Qo-1MV"/>
                     <navigationItem key="navigationItem" id="fD1-qp-QPd"/>
@@ -170,7 +173,7 @@
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="thumbTintColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="volumeSlider:" destination="bwS-PM-6Ry" eventType="valueChanged" id="kSi-NG-mzm"/>
+                                    <action selector="changeVolumeSlider:" destination="bwS-PM-6Ry" eventType="valueChanged" id="1QG-Wo-mcV"/>
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQj-Ja-sAz">
@@ -191,7 +194,7 @@
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="thumbTintColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="playbackPositionSlider:" destination="bwS-PM-6Ry" eventType="valueChanged" id="FQb-jU-2o1"/>
+                                    <action selector="changePlaybackPositionSlider:" destination="bwS-PM-6Ry" eventType="valueChanged" id="NSJ-lp-bdB"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeK-H3-4MU">
@@ -280,7 +283,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="4jB-1R-wnT"/>
+                        <viewLayoutGuide key="safeArea" id="jrL-pT-QZj"/>
                     </view>
                     <connections>
                         <outlet property="artistLabel" destination="fr0-d0-fuE" id="NRP-IU-Xmm"/>
@@ -302,6 +305,7 @@
     </scenes>
     <resources>
         <image name="backicon.png" width="256" height="256"/>
+        <image name="darklogo512.png" width="512" height="512"/>
         <image name="myfavoriteicon32.png" width="32" height="32"/>
         <image name="nexticon.png" width="256" height="256"/>
         <image name="normalmodeicon128.png" width="128" height="128"/>
@@ -312,6 +316,7 @@
         <image name="volumeminicon256.png" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PS9-Ks-ep4"/>
+        <segue reference="tPR-wq-IPN"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

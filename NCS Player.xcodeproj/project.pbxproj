@@ -10,6 +10,10 @@
 		4210472C20C706CE005CC2EB /* myfavoriteicon32.png in Resources */ = {isa = PBXBuildFile; fileRef = 4210472920C706CE005CC2EB /* myfavoriteicon32.png */; };
 		4210472D20C706CE005CC2EB /* recomendicon32.png in Resources */ = {isa = PBXBuildFile; fileRef = 4210472A20C706CE005CC2EB /* recomendicon32.png */; };
 		4210472E20C706CE005CC2EB /* serchicon32.png in Resources */ = {isa = PBXBuildFile; fileRef = 4210472B20C706CE005CC2EB /* serchicon32.png */; };
+		42168CEF20D253F800B72D4F /* Tunes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42168CED20D253F800B72D4F /* Tunes.xcdatamodeld */; };
+		42168CFA20D2756A00B72D4F /* Tunes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42168CF820D2756A00B72D4F /* Tunes+CoreDataClass.swift */; };
+		42168CFB20D2756A00B72D4F /* Tunes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42168CF920D2756A00B72D4F /* Tunes+CoreDataProperties.swift */; };
+		42168CFD20D2B16300B72D4F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42168CFC20D2B16300B72D4F /* CoreDataManager.swift */; };
 		4228B3AF20BD18B000349913 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4228B3AE20BD18B000349913 /* AppDelegate.swift */; };
 		4228B3B120BD18B000349913 /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4228B3B020BD18B000349913 /* AudioPlayerViewController.swift */; };
 		4228B3B420BD18B000349913 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4228B3B220BD18B000349913 /* Main.storyboard */; };
@@ -41,6 +45,10 @@
 		4210472920C706CE005CC2EB /* myfavoriteicon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myfavoriteicon32.png; sourceTree = "<group>"; };
 		4210472A20C706CE005CC2EB /* recomendicon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recomendicon32.png; sourceTree = "<group>"; };
 		4210472B20C706CE005CC2EB /* serchicon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = serchicon32.png; sourceTree = "<group>"; };
+		42168CEE20D253F800B72D4F /* Tunes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tunes.xcdatamodel; sourceTree = "<group>"; };
+		42168CF820D2756A00B72D4F /* Tunes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tunes+CoreDataClass.swift"; sourceTree = "<group>"; };
+		42168CF920D2756A00B72D4F /* Tunes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tunes+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		42168CFC20D2B16300B72D4F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		4228B3AB20BD18B000349913 /* NCS Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NCS Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4228B3AE20BD18B000349913 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4228B3B020BD18B000349913 /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +93,8 @@
 		4228B3A220BD18B000349913 = {
 			isa = PBXGroup;
 			children = (
+				42168CF820D2756A00B72D4F /* Tunes+CoreDataClass.swift */,
+				42168CF920D2756A00B72D4F /* Tunes+CoreDataProperties.swift */,
 				4228B3AD20BD18B000349913 /* NCS Player */,
 				4228B3AC20BD18B000349913 /* Products */,
 				42C8B69420CD008D006C44C4 /* Frameworks */,
@@ -114,6 +124,8 @@
 				42BFACC920C3BE5600AE8996 /* RecommendedPlayListViewController.swift */,
 				426A5DAF20C821ED00624F30 /* AudioManager.swift */,
 				424A446220CC2DED00B0681B /* GlobalVariableManager.swift */,
+				42168CED20D253F800B72D4F /* Tunes.xcdatamodeld */,
+				42168CFC20D2B16300B72D4F /* CoreDataManager.swift */,
 			);
 			path = "NCS Player";
 			sourceTree = "<group>";
@@ -266,7 +278,11 @@
 				424A446320CC2DED00B0681B /* GlobalVariableManager.swift in Sources */,
 				42BFACCA20C3BE5600AE8996 /* RecommendedPlayListViewController.swift in Sources */,
 				4228B3B120BD18B000349913 /* AudioPlayerViewController.swift in Sources */,
+				42168CFB20D2756A00B72D4F /* Tunes+CoreDataProperties.swift in Sources */,
+				42168CEF20D253F800B72D4F /* Tunes.xcdatamodeld in Sources */,
 				426A5DB020C821ED00624F30 /* AudioManager.swift in Sources */,
+				42168CFD20D2B16300B72D4F /* CoreDataManager.swift in Sources */,
+				42168CFA20D2756A00B72D4F /* Tunes+CoreDataClass.swift in Sources */,
 				4228B3AF20BD18B000349913 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +481,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		42168CED20D253F800B72D4F /* Tunes.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				42168CEE20D253F800B72D4F /* Tunes.xcdatamodel */,
+			);
+			currentVersion = 42168CEE20D253F800B72D4F /* Tunes.xcdatamodel */;
+			path = Tunes.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4228B3A320BD18B000349913 /* Project object */;
 }

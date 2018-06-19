@@ -211,13 +211,13 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
         }
     }
     
-//    以下２個の関数名変更予定だが、SIGBRT出るのでストーリーボードつなぎ直しの必要有りか？
-    @IBAction func playbackPositionSlider(_ sender: UISlider) {
+    // 曲の再生位置操作時の処理
+    @IBAction func changePlaybackPositionSlider(_ sender: UISlider) {
         AudioManager.shared.audioBuffer?.currentTime = TimeInterval(self.playbackPositionSlider.value)
     }
     
     // 手動音量調整の為スライダーのvalueをプレイヤーのvolumeに代入
-    @IBAction func volumeSlider(_ sender: UISlider) {
+    @IBAction func changeVolumeSlider(_ sender: UISlider) {
         // audioPlayer.volume = volumeSlider.value
         // ユーザー設定のvolumeを保持
         AudioManager.shared.audioVolume = self.volumeSlider.value
