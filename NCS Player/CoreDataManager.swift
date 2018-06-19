@@ -14,10 +14,11 @@ class CoreDataManager: NSObject {
     let entityName: String
     var attributes: [String] = []
     
-    init(setEntityName: String, columnName: [String]) {
+    init(setEntityName: String, attributeNames: [String]) {
         self.entityName = setEntityName
-        self.attributes = columnName
+        self.attributes = attributeNames
     }
+    
     
     // Create処理
     func create(values: [String]) {
@@ -39,10 +40,7 @@ class CoreDataManager: NSObject {
             print("error")
             return
         }
-//        for i in 0...value.count - 1 {
-//            print(newRecord.value(forKey: column[i]))
-//        }
-//    }
+        
         // 保存
         do {
             try context.save()
@@ -50,6 +48,7 @@ class CoreDataManager: NSObject {
             print("error:",error)
         }
     }
+    
     
     // Read(sort)処理
     func sortRead(attribute: String, ascending: Bool, numberOfLimit: Int = 0) -> (Any) { // NSManagedObject型で返したいがAny型じゃないとエラー
@@ -74,9 +73,29 @@ class CoreDataManager: NSObject {
         } catch {
             print("read error:",error)
         }
-//        フェッチで取得した配列をreturnする前に別の配列に格納した方がいいか確認
-        return fetchedArry
+        
+// 返り値と下記のAny型がすごく気になる、どうすればいいか質問する
+        var record: [Any] = []
+        var returnArry: [Any] = []
+        for buffer in fetchedArry {
+            for i in 0...GlobalVariableManager.shared.coreDataAttributes.count - 1 {
+//                print(i)
+// record[i] = buffer.value(forKey: GlobalVariableManager.shared.coreDataAttributes[i])では要素追加できないんだっけか？
+                record.append(buffer.value(forKey: GlobalVariableManager.shared.coreDataAttributes[i]))
+            }
+            print("returnArryに格納")
+            print("recordの値\(record)")
+            returnArry.append(record)
+            print("returnArryの値\(returnArry)")
+            print("record初期化")
+            // データ追加時に取得したメモリ空間を残しておく場合は引数にtrue
+            // 削除、追加を繰り返す場合はメモリ空間を残しておいたほうが余計なメモリ取得処理が行われない
+            record.removeAll(keepingCapacity: true)
+        }
+//        returnArryはAny型？これでいいのか質問する
+        return returnArry
     }
+    
     
     // Read(predicate)処理
     func predicateRead(attribute: String, placeholder: String, string: String, numberOfLimit: Int = 0) -> (Any) {
@@ -105,9 +124,26 @@ class CoreDataManager: NSObject {
         } catch {
             print("read error:",error)
         }
-//        1.フェッチで取得した配列をreturnする前に別の配列に格納した方がいいか確認
-        return fetchedArry
+        
+        var record: [Any] = []
+        var returnArry: [Any] = []
+        for buffer in fetchedArry {
+            for i in 0...GlobalVariableManager.shared.coreDataAttributes.count - 1 {
+                print(i)
+                record.append(buffer.value(forKey: GlobalVariableManager.shared.coreDataAttributes[i]))
+            }
+            print("returnArryに格納")
+            print("recordの値\(record)")
+            returnArry.append(record)
+            print("returnArryの値\(returnArry)")
+            print("record初期化")
+            // データ追加時に取得したメモリ空間を残しておく場合は引数にtrue
+            // 削除、追加を繰り返す場合はメモリ空間を残しておいたほうが余計なメモリ取得処理が行われない
+            record.removeAll(keepingCapacity: true)
+        }
+        return returnArry
     }
+    
     
     // Update処理
     func update(attribute: String, placeholder: String, string: String, values: [String]) {
@@ -126,7 +162,7 @@ class CoreDataManager: NSObject {
         
         do {
             // データ取得 配列で取得される
-            let fetchedArry = try context.fetch(fetchRequest)
+            fetchedArry = try context.fetch(fetchRequest) as! [NSManagedObject]
         } catch  {
             print("read error:",error)
         }
@@ -150,6 +186,7 @@ class CoreDataManager: NSObject {
         }
     }
     
+    
     // Delete処理
     func delete(attribute: String, placeholder: String, string: String) {
         
@@ -162,19 +199,19 @@ class CoreDataManager: NSObject {
         // データをフェッチ
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         // 絞り込み
+//        let predicate = NSPredicate(format: "\(attribute) = \(placeholder)", string)
         let predicate = NSPredicate(format: "\(attribute) = \(placeholder)", string)
         fetchRequest.predicate = predicate
-        
+
         do {
             // データ取得 配列で取得される
-            let fetchedArry = try context.fetch(fetchRequest)
+            fetchedArry = try context.fetch(fetchRequest) as! [NSManagedObject]
             // context.delete(fetchResults.first!) 一行だけ削除するなら、この書き方でも良い
         } catch  {
             print("read error:",error)
         }
         
-        // 同名のデータも削除
-//        2.ここは１レコードごと消去される事を確認
+        // 同キーワードのデータ(1レコード)も削除
         for result in fetchedArry {
             context.delete(result as! NSManagedObject)
         }

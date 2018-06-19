@@ -34,7 +34,7 @@ var playList = [tune0, tune1, tune2, tune3, tune4]
 
 class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
     
-    let coreDataManager: CoreDataManager = CoreDataManager(setEntityName: GlobalVariableManager.shared.coreDataEntityName, columnName: GlobalVariableManager.shared.tunesColumn)
+    let coreDataManager: CoreDataManager = CoreDataManager(setEntityName: GlobalVariableManager.shared.coreDataEntityName, attributeNames: GlobalVariableManager.shared.coreDataAttributes)
     
     // Sectionのタイトル
     let sectionTitle: NSArray = ["RecommendedPlayList"]
@@ -102,10 +102,21 @@ class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,
             tableView.deleteRows(at: [indexPath], with: .fade)
             // データベースの要素を削除する機能を追加する
             
-            let hoge: [String] = ["a","2","3"]
-            self.coreDataManager.create(values: hoge)
+//            create処理OK
+//            let hoge: [String] = ["c","cc","ccc"]
+//            self.coreDataManager.create(values: hoge)
+        
+//            read(sort)処理OK
+//            self.coreDataManager.sortRead(attribute: GlobalVariableManager.shared.coreDataAttributes[0], ascending: true, numberOfLimit: 4)
             
+//            read(predicate)処理OK
+//            self.coreDataManager.predicateRead(attribute: GlobalVariableManager.shared.coreDataAttributes[0], placeholder: "%@", string: "b", numberOfLimit: 3)
             
+//            delete処理OK
+//            self.coreDataManager.delete(attribute: GlobalVariableManager.shared.coreDataAttributes[0], placeholder: "%@", string: "tunename")
+
+            
+
         }
         deleteButton.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
         

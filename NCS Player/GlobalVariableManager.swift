@@ -17,14 +17,14 @@ class GlobalVariableManager: NSObject {
     
     var tuneIndex: Int!
     var playingTuneIndex: Int!
-    var tunesColumn: [String]
+    var coreDataAttributes: [String]
     
 //    検証中
     let coreDataEntityName: String
     
     // シングルトンの唯一性を保証するためprivateにする
     private override init() {
-        tunesColumn = ["tune_name", "artist_name", "tune_path"]
+        coreDataAttributes = ["tune_name", "artist_name", "tune_path"]
         coreDataEntityName = "Tunes"
     }
 }
