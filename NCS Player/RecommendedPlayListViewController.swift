@@ -112,6 +112,11 @@ class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,
 //            read(predicate)処理OK
 //            self.coreDataManager.predicateRead(attribute: GlobalVariableManager.shared.coreDataAttributes[0], placeholder: "%@", string: "b", numberOfLimit: 3)
             
+//            update処理OK
+//            データがない場合にエラーになるので、エラー処理考えないとバグって寒い
+            let hoge: [String] = ["d","dd","ddd"]
+            self.coreDataManager.update(attribute: GlobalVariableManager.shared.coreDataAttributes[0], placeholder: "%@", string: "c", values: hoge)
+            
 //            delete処理OK
 //            self.coreDataManager.delete(attribute: GlobalVariableManager.shared.coreDataAttributes[0], placeholder: "%@", string: "tunename")
 

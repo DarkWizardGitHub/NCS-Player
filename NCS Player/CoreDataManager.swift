@@ -121,6 +121,7 @@ class CoreDataManager: NSObject {
         do {
             // データ取得 配列で取得される
             fetchedArry = try context.fetch(fetchRequest) as! [NSManagedObject]
+            print(fetchedArry)
         } catch {
             print("read error:",error)
         }
@@ -163,6 +164,7 @@ class CoreDataManager: NSObject {
         do {
             // データ取得 配列で取得される
             fetchedArry = try context.fetch(fetchRequest) as! [NSManagedObject]
+            print(fetchedArry)
         } catch  {
             print("read error:",error)
         }
