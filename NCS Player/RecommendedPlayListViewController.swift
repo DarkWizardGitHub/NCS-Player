@@ -115,7 +115,7 @@ class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,
 //            delete処理OK
 //            self.coreDataManager.delete(attribute: GlobalVariableManager.shared.coreDataAttributes[0], placeholder: "%@", string: "tunename")
 
-            
+             
 
         }
         deleteButton.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)

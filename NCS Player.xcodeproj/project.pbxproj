@@ -73,6 +73,7 @@
 		4268008320BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Itro & Tobu-Cloud 9.mp3"; sourceTree = "<group>"; };
 		4268008520BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ehrling-Sthlm Sunset.mp3"; sourceTree = "<group>"; };
 		426A5DAF20C821ED00624F30 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		4299AE1F20DA93040020A726 /* NCS Player.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NCS Player.entitlements"; sourceTree = "<group>"; };
 		42BFACC920C3BE5600AE8996 /* RecommendedPlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedPlayListViewController.swift; sourceTree = "<group>"; };
 		42C8B69020CCED1D006C44C4 /* volumemaxicon256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volumemaxicon256.png; sourceTree = "<group>"; };
 		42C8B69220CCEE3B006C44C4 /* volumeminicon256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volumeminicon256.png; sourceTree = "<group>"; };
@@ -112,6 +113,7 @@
 		4228B3AD20BD18B000349913 /* NCS Player */ = {
 			isa = PBXGroup;
 			children = (
+				4299AE1F20DA93040020A726 /* NCS Player.entitlements */,
 				425C0C5F20C2EE0F00BA1D2D /* logo */,
 				4257E4E620BFD13800B9AD26 /* Icons */,
 				4268008220BE638000A2659B /* Tunes */,
@@ -214,6 +216,9 @@
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 0;
 							};
 						};
 					};
@@ -427,17 +432,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9BTV2MB557;
 				INFOPLIST_FILE = "NCS Player/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dark.NCS-Player";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -445,17 +453,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9BTV2MB557;
 				INFOPLIST_FILE = "NCS Player/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dark.NCS-Player";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

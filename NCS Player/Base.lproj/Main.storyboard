@@ -167,15 +167,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="PrE-65-C8I">
-                                <rect key="frame" x="50" y="687" width="315" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Advertisement Area" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inA-cD-Zmc">
+                                <rect key="frame" x="47" y="100" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="thumbTintColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUL-Ue-03R">
+                                <rect key="frame" x="371" y="437" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="normalmodeicon128.png"/>
                                 <connections>
-                                    <action selector="changeVolumeSlider:" destination="bwS-PM-6Ry" eventType="valueChanged" id="1QG-Wo-mcV"/>
+                                    <action selector="changePlayModeButton:" destination="bwS-PM-6Ry" eventType="touchUpInside" id="nvQ-do-1r0"/>
                                 </connections>
-                            </slider>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQj-Ja-sAz">
                                 <rect key="frame" x="191" y="610" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -249,40 +256,48 @@
                                     <action selector="nextButton:" destination="bwS-PM-6Ry" eventType="touchUpInside" id="ZWq-Hg-C0g"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Advertisement Area" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inA-cD-Zmc">
-                                <rect key="frame" x="47" y="100" width="320" height="320"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mnz-4R-zwT">
-                                <rect key="frame" x="378" y="694" width="16" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="volumemaxicon256.png"/>
-                                <connections>
-                                    <action selector="changeMaxmumVolumeButton:" destination="bwS-PM-6Ry" eventType="touchUpInside" id="hI0-dz-QZf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFf-Vw-ah8">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0m-2f-U2T" userLabel="Minimum Volume Button">
                                 <rect key="frame" x="20" y="694" width="16" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <state key="normal" title="Button" image="volumeminicon256.png"/>
                                 <connections>
-                                    <action selector="changeMinimumVolumeButton:" destination="bwS-PM-6Ry" eventType="touchUpInside" id="fWc-cJ-vcX"/>
+                                    <action selector="pressMinimumVolumeButton:" destination="bwS-PM-6Ry" eventType="touchUpInside" id="1cH-7R-oNj"/>
+                                    <outletCollection property="gestureRecognizers" destination="Uph-r5-FCA" appends="YES" id="idd-9Z-MJQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUL-Ue-03R">
-                                <rect key="frame" x="371" y="437" width="20" height="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mnz-4R-zwT" userLabel="Maximum Volume Button">
+                                <rect key="frame" x="378" y="694" width="16" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="normalmodeicon128.png"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Button" image="volumemaxicon256.png"/>
                                 <connections>
-                                    <action selector="changePlayModeButton:" destination="bwS-PM-6Ry" eventType="touchUpInside" id="nvQ-do-1r0"/>
+                                    <action selector="pressMaximumVolumeButton:" destination="bwS-PM-6Ry" eventType="touchUpInside" id="f5C-nb-3ER"/>
+                                    <outletCollection property="gestureRecognizers" destination="Kj5-hf-Boe" appends="YES" id="mhD-eX-4ai"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="PrE-65-C8I">
+                                <rect key="frame" x="50" y="687" width="315" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="thumbTintColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="changeVolumeSlider:" destination="bwS-PM-6Ry" eventType="valueChanged" id="1QG-Wo-mcV"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0Q-54-lsJ">
+                                <rect key="frame" x="0.0" y="523" width="84" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="78S-UL-rGS" appends="YES" id="eph-fr-CMt"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="jrL-pT-QZj"/>
                     </view>
                     <connections>
@@ -293,12 +308,28 @@
                         <outlet property="playModeButton" destination="pUL-Ue-03R" id="G5h-KP-o3Y"/>
                         <outlet property="playbackPositionSlider" destination="Tff-Eu-TEx" id="2wX-pU-4Yz"/>
                         <outlet property="rightPlaybackPositionLabel" destination="WaI-KD-kPj" id="K3z-DQ-yGW"/>
+                        <outlet property="testmin" destination="C0Q-54-lsJ" id="gQH-8o-j8X"/>
                         <outlet property="titleLabel" destination="RsO-iU-eRw" id="I5L-ue-jns"/>
                         <outlet property="volumeSlider" destination="PrE-65-C8I" id="8uj-hT-Vua"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0wW-Rg-hae" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="7qh-EW-Bc2" userLabel="Exit" sceneMemberID="exit"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1" id="Kj5-hf-Boe" userLabel="Maximum Volume Button Long Press Gesture Recognizer">
+                    <connections>
+                        <action selector="longPressMaximumVolumeButton:" destination="bwS-PM-6Ry" id="RaR-TR-6a6"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1" id="Uph-r5-FCA" userLabel="Minimum Volume Button Long Press Gesture Recognizer">
+                    <connections>
+                        <action selector="longPressMinimumVolumeButton:" destination="bwS-PM-6Ry" id="KEA-mq-0lD"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="78S-UL-rGS">
+                    <connections>
+                        <action selector="testmin:" destination="bwS-PM-6Ry" id="pmJ-5U-dF2"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1437.68115942029" y="120.65217391304348"/>
         </scene>

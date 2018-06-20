@@ -224,16 +224,59 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
         AudioManager.shared.audioBuffer?.volume = AudioManager.shared.audioVolume
     }
     
-    @IBAction func changeMinimumVolumeButton(_ sender: UIButton) {
-        AudioManager.shared.audioVolume = 0
-        AudioManager.shared.audioBuffer?.volume = 0
+    @IBAction func pressMinimumVolumeButton(_ sender: UIButton) {
+        AudioManager.shared.audioVolume = 0.25
+        AudioManager.shared.audioBuffer?.volume = 0.25
         self.volumeSlider.value = AudioManager.shared.audioVolume
     }
     
-    @IBAction func changeMaxmumVolumeButton(_ sender: UIButton) {
-        AudioManager.shared.audioVolume = 1
-        AudioManager.shared.audioBuffer?.volume = 1
+    @IBOutlet weak var testmin: UIButton!
+    @IBAction func testmin(_ sender: UILongPressGestureRecognizer) {
+        // 押した時点からdurationで設定した秒数経過した時の処理
+        if sender.state == .began {
+            print("began")
+            AudioManager.shared.audioVolume = 0
+            AudioManager.shared.audioBuffer?.volume = 0
+            self.volumeSlider.value = AudioManager.shared.audioVolume
+        }
+            // ボタンを話した時の処理
+        else if sender.state == .ended {
+            print("ended")
+        }
+    }
+    
+    @IBAction func longPressMinimumVolumeButton(_ sender: UILongPressGestureRecognizer) {
+        // 押した時点からdurationで設定した秒数経過した時の処理
+        if sender.state == .began {
+            print("began")
+            AudioManager.shared.audioVolume = 0
+            AudioManager.shared.audioBuffer?.volume = 0
+            self.volumeSlider.value = AudioManager.shared.audioVolume
+        }
+        // ボタンを話した時の処理
+        else if sender.state == .ended {
+            print("ended")
+        }
+    }
+    
+    @IBAction func pressMaximumVolumeButton(_ sender: UIButton) {
+        AudioManager.shared.audioVolume = 0.75
+        AudioManager.shared.audioBuffer?.volume = 0.75
         self.volumeSlider.value = AudioManager.shared.audioVolume
+    }
+    
+    @IBAction func longPressMaximumVolumeButton(_ sender: UILongPressGestureRecognizer) {
+        // 押した時点からdurationで設定した秒数経過した時の処理
+        if sender.state == .began {
+            print("began")
+            AudioManager.shared.audioVolume = 1
+            AudioManager.shared.audioBuffer?.volume = 1
+            self.volumeSlider.value = AudioManager.shared.audioVolume
+        }
+        // ボタンを話した時の処理
+        else if sender.state == .ended {
+            print("ended")
+        }
     }
     
     // オーディオデータの読み込みに伴う処理関数
