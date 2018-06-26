@@ -50,6 +50,9 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 画面左側にNavigationController用のPopGestureRecognizer感知領域(スワイプで戻る処理)がある為、その領域内にLongPressGestureRecognizer設置すると感知されない現象が発生(おそらくPopGestureRecognizerが優先されている)、対策としてPopGestureRecognizerを不能にする
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         // スライダー非操作時の画像
         self.playbackPositionSlider.setThumbImage(UIImage(named: "playbackpositioncursor"), for: .normal)
         // スライダー操作時の画像
@@ -225,24 +228,43 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
     }
     
     @IBAction func pressMinimumVolumeButton(_ sender: UIButton) {
-        AudioManager.shared.audioVolume = 0.25
-        AudioManager.shared.audioBuffer?.volume = 0.25
-        self.volumeSlider.value = AudioManager.shared.audioVolume
-    }
-    
-    @IBOutlet weak var testmin: UIButton!
-    @IBAction func testmin(_ sender: UILongPressGestureRecognizer) {
-        // 押した時点からdurationで設定した秒数経過した時の処理
-        if sender.state == .began {
-            print("began")
+        
+        switch AudioManager.shared.audioVolume {
+        // 0...nであればnを含み、0..<nであればnを含まない
+        case 0.0..<0.11:
             AudioManager.shared.audioVolume = 0
             AudioManager.shared.audioBuffer?.volume = 0
-            self.volumeSlider.value = AudioManager.shared.audioVolume
+        case 0.11..<0.21:
+            AudioManager.shared.audioVolume = 0.1
+            AudioManager.shared.audioBuffer?.volume = 0.1
+        case 0.21..<0.31:
+            AudioManager.shared.audioVolume = 0.2
+            AudioManager.shared.audioBuffer?.volume = 0.2
+        case 0.31..<0.41:
+            AudioManager.shared.audioVolume = 0.3
+            AudioManager.shared.audioBuffer?.volume = 0.3
+        case 0.41..<0.51:
+            AudioManager.shared.audioVolume = 0.4
+            AudioManager.shared.audioBuffer?.volume = 0.4
+        case 0.51..<0.61:
+            AudioManager.shared.audioVolume = 0.5
+            AudioManager.shared.audioBuffer?.volume = 0.5
+        case 0.61..<0.71:
+            AudioManager.shared.audioVolume = 0.6
+            AudioManager.shared.audioBuffer?.volume = 0.6
+        case 0.71..<0.81:
+            AudioManager.shared.audioVolume = 0.7
+            AudioManager.shared.audioBuffer?.volume = 0.7
+        case 0.81..<0.91:
+            AudioManager.shared.audioVolume = 0.8
+            AudioManager.shared.audioBuffer?.volume = 0.8
+        case 0.91...1.0:
+            AudioManager.shared.audioVolume = 0.9
+            AudioManager.shared.audioBuffer?.volume = 0.9
+        default:
+            break
         }
-            // ボタンを話した時の処理
-        else if sender.state == .ended {
-            print("ended")
-        }
+        self.volumeSlider.value = AudioManager.shared.audioVolume
     }
     
     @IBAction func longPressMinimumVolumeButton(_ sender: UILongPressGestureRecognizer) {
@@ -260,8 +282,41 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
     }
     
     @IBAction func pressMaximumVolumeButton(_ sender: UIButton) {
-        AudioManager.shared.audioVolume = 0.75
-        AudioManager.shared.audioBuffer?.volume = 0.75
+        switch AudioManager.shared.audioVolume {
+        // 0...nであればnを含み、0..<nであればnを含まない
+        case 0.0..<0.09:
+            AudioManager.shared.audioVolume = 0.1
+            AudioManager.shared.audioBuffer?.volume = 0.1
+        case 0.09..<0.19:
+            AudioManager.shared.audioVolume = 0.2
+            AudioManager.shared.audioBuffer?.volume = 0.2
+        case 0.19..<0.29:
+            AudioManager.shared.audioVolume = 0.3
+            AudioManager.shared.audioBuffer?.volume = 0.3
+        case 0.29..<0.39:
+            AudioManager.shared.audioVolume = 0.4
+            AudioManager.shared.audioBuffer?.volume = 0.4
+        case 0.39..<0.49:
+            AudioManager.shared.audioVolume = 0.5
+            AudioManager.shared.audioBuffer?.volume = 0.5
+        case 0.49..<0.59:
+            AudioManager.shared.audioVolume = 0.6
+            AudioManager.shared.audioBuffer?.volume = 0.6
+        case 0.59..<0.69:
+            AudioManager.shared.audioVolume = 0.7
+            AudioManager.shared.audioBuffer?.volume = 0.7
+        case 0.69..<0.79:
+            AudioManager.shared.audioVolume = 0.8
+            AudioManager.shared.audioBuffer?.volume = 0.8
+        case 0.79..<0.89:
+            AudioManager.shared.audioVolume = 0.9
+            AudioManager.shared.audioBuffer?.volume = 0.9
+        case 0.89...1.0:
+            AudioManager.shared.audioVolume = 1.0
+            AudioManager.shared.audioBuffer?.volume = 1.0
+        default:
+            break
+        }
         self.volumeSlider.value = AudioManager.shared.audioVolume
     }
     

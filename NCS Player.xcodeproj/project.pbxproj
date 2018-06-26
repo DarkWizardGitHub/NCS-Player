@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4210472C20C706CE005CC2EB /* myfavoriteicon32.png in Resources */ = {isa = PBXBuildFile; fileRef = 4210472920C706CE005CC2EB /* myfavoriteicon32.png */; };
-		4210472D20C706CE005CC2EB /* recomendicon32.png in Resources */ = {isa = PBXBuildFile; fileRef = 4210472A20C706CE005CC2EB /* recomendicon32.png */; };
-		4210472E20C706CE005CC2EB /* serchicon32.png in Resources */ = {isa = PBXBuildFile; fileRef = 4210472B20C706CE005CC2EB /* serchicon32.png */; };
 		42168CEF20D253F800B72D4F /* Tunes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42168CED20D253F800B72D4F /* Tunes.xcdatamodeld */; };
 		42168CFA20D2756A00B72D4F /* Tunes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42168CF820D2756A00B72D4F /* Tunes+CoreDataClass.swift */; };
 		42168CFB20D2756A00B72D4F /* Tunes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42168CF920D2756A00B72D4F /* Tunes+CoreDataProperties.swift */; };
@@ -42,9 +39,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4210472920C706CE005CC2EB /* myfavoriteicon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myfavoriteicon32.png; sourceTree = "<group>"; };
-		4210472A20C706CE005CC2EB /* recomendicon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recomendicon32.png; sourceTree = "<group>"; };
-		4210472B20C706CE005CC2EB /* serchicon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = serchicon32.png; sourceTree = "<group>"; };
 		42168CEE20D253F800B72D4F /* Tunes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tunes.xcdatamodel; sourceTree = "<group>"; };
 		42168CF820D2756A00B72D4F /* Tunes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tunes+CoreDataClass.swift"; sourceTree = "<group>"; };
 		42168CF920D2756A00B72D4F /* Tunes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tunes+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -140,9 +134,6 @@
 				4260B75B20CE380500D27312 /* normalmodeicon128.png */,
 				42C8B69220CCEE3B006C44C4 /* volumeminicon256.png */,
 				42C8B69020CCED1D006C44C4 /* volumemaxicon256.png */,
-				4210472920C706CE005CC2EB /* myfavoriteicon32.png */,
-				4210472A20C706CE005CC2EB /* recomendicon32.png */,
-				4210472B20C706CE005CC2EB /* serchicon32.png */,
 				425C0C6220C2F36600BA1D2D /* playbackpositioncursor.png */,
 				4257E4E820BFD16400B9AD26 /* backicon.png */,
 				4257E4E920BFD16400B9AD26 /* nexticon.png */,
@@ -250,19 +241,16 @@
 				42657FA220C438C10034FA19 /* Tobu-Candyland.mp3 in Resources */,
 				4228B3B920BD18B200349913 /* LaunchScreen.storyboard in Resources */,
 				425C0C6120C2EE2000BA1D2D /* darklogo512.png in Resources */,
-				4210472C20C706CE005CC2EB /* myfavoriteicon32.png in Resources */,
 				4228B3B620BD18B200349913 /* Assets.xcassets in Resources */,
 				425C0C6320C2F36600BA1D2D /* playbackpositioncursor.png in Resources */,
 				4257E4EC20BFD16400B9AD26 /* pauseicon.png in Resources */,
 				4268008620BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 in Resources */,
-				4210472E20C706CE005CC2EB /* serchicon32.png in Resources */,
 				4260B75F20CE380F00D27312 /* shufflemodeicon128.png in Resources */,
 				4268008420BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 in Resources */,
 				4257E4ED20BFD16400B9AD26 /* backicon.png in Resources */,
 				42657FA020C438C10034FA19 /* Ehrling-Dance With Me.mp3 in Resources */,
 				42657FA120C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 in Resources */,
 				4260B76020CE380F00D27312 /* repeatmodeicon128.png in Resources */,
-				4210472D20C706CE005CC2EB /* recomendicon32.png in Resources */,
 				4260B75C20CE380500D27312 /* normalmodeicon128.png in Resources */,
 				4257E4F020BFD16400B9AD26 /* stopicon.png in Resources */,
 				42C8B69320CCEE3B006C44C4 /* volumeminicon256.png in Resources */,

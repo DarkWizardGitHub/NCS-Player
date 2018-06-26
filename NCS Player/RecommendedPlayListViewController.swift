@@ -15,14 +15,6 @@ struct tuneInformation {
     var tunePath: String?
 }
 
-
-
-
-//ユーザーリストはiOSの記憶領域に保存するべきか？
-
-
-
-
 var tune0 = tuneInformation(tuneName: "Cloud 9", artistName: "Itro & Tobu", tunePath: Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")!)
 var tune1 = tuneInformation(tuneName: "Sthlm Sunset", artistName: "Ehrling", tunePath: Bundle.main.path(forResource: "Ehrling-Sthlm Sunset", ofType:"mp3")!)
 var tune2 = tuneInformation(tuneName: "Sunburst", artistName: "Tobu & Itro", tunePath: Bundle.main.path(forResource: "Tobu & Itro-Sunburst", ofType:"mp3")!)
@@ -31,31 +23,44 @@ var tune4 = tuneInformation(tuneName: "Dance With Me", artistName: "Ehrling", tu
 
 // 再生する audio ファイルのパスを取得
 var playList = [tune0, tune1, tune2, tune3, tune4]
+var hoge = [["tune_name", "artist_name", Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")],["tune_name1", "artist_name2", Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")]]
 
-class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
+
+//        実装すること
+//        順序を変更する機能(タップしながらズラすような感じ、もしくは上下移動か)
+
+class RecommendedPlayListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let coreDataManager: CoreDataManager = CoreDataManager(setEntityName: GlobalVariableManager.shared.coreDataEntityName, attributeNames: GlobalVariableManager.shared.coreDataAttributes)
     
-    // Sectionのタイトル
-    let sectionTitle: NSArray = ["RecommendedPlayList"]
-    
+    // ユーザーデフォルトインスタンス(参照)
+    let userDefaults = UserDefaults.standard
+    // プレイリスト用配列(二次元配列)
+    // [[String]] = [] でも同義
+    var myPlayList: Array<Array<String>> = []
+    // Sectionのタイトルr
+    let sectionTitle: NSArray = ["   Recommended PlayList"]
+    // CoreData操作クラスインスタンス
+    let coreDataManager: CoreDataManager<String> = CoreDataManager<String>(setEntityName: GlobalVariableManager.shared.coreDataEntityName, attributeNames: GlobalVariableManager.shared.coreDataAttributes)
+
     @IBOutlet weak var playListTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.playListTableView.delegate = self
         self.playListTableView.dataSource = self
-        
-        
-//        聞くこと
-//        セクションのフォントサイズとカラー変更方法
-//        リストの枠が一部広くなる理由
-        
-//        実装すること
-//        リストから削除する機能
-//        順序を変更する機能(タップしながらズラすような感じ、もしくは上下移動か)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        userDefaults.set(hoge, forKey: "myPlayList")
+//        print(userDefaults.object(forKey: "myPlayList"))
+        // UserDefaultsからMyPlayListデータを取得
+        myPlayList = userDefaults.object(forKey: "myPlayList") as! Array<Array<String>>
+//        print(myPlayList)
+//        print(myPlayList[0])
+//        今後やることはmyPlayListへのデータ入力と他のコードの差替え
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -78,7 +83,8 @@ class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,
         // UIcolorのRGB値は、256段階ではなく、0~1.0までの値で指定
         // UIcolorのRGB値の引数に255で割った値を直接渡す
         label.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
-        label.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
+        label.backgroundColor = UIColor(red: 96/255, green: 96/255, blue: 96/255, alpha: 1)
+//        label.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
         return label
     }
     
@@ -96,35 +102,21 @@ class RecommendedPlayListViewController: UIViewController ,UITableViewDelegate ,
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        // removeで配列から要素削除、deleteRowsでセルから要素を削除
         let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "DELETE") { (action, index) -> Void in
-            playList.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            // データベースの要素を削除する機能を追加する
+
+            // データベースから要素を削除
+            self.coreDataManager.delete(attribute: GlobalVariableManager.shared.coreDataAttributes[0], relationalOperator: "=", placeholder: "%@", targetValue: playList[indexPath.row].tuneName)
             
-//            create処理OK
-//            let hoge: [String] = ["c","cc","ccc"]
+//            let hoge = ["Cloud 9", "tobu", "hogehoge"]
 //            self.coreDataManager.create(values: hoge)
-        
-//            read(sort)処理OK
-//            self.coreDataManager.sortRead(attribute: GlobalVariableManager.shared.coreDataAttributes[0], ascending: true, numberOfLimit: 4)
-            
-//            read(predicate)処理OK
-//            self.coreDataManager.predicateRead(attribute: GlobalVariableManager.shared.coreDataAttributes[0], placeholder: "%@", string: "b", numberOfLimit: 3)
-            
-//            update処理OK
-//            データがない場合にエラーになるので、エラー処理考えないとバグって寒い
-            let hoge: [String] = ["d","dd","ddd"]
-            self.coreDataManager.update(attribute: GlobalVariableManager.shared.coreDataAttributes[0], placeholder: "%@", string: "c", values: hoge)
-            
-//            delete処理OK
-//            self.coreDataManager.delete(attribute: GlobalVariableManager.shared.coreDataAttributes[0], placeholder: "%@", string: "tunename")
 
-             
-
+            // removeで配列から要素削除
+            playList.remove(at: indexPath.row)
+            // deleteRowsでセルから要素を削除
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
+        // Deleteボタン背景色設定
         deleteButton.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
-        
         return [deleteButton]
     }
     

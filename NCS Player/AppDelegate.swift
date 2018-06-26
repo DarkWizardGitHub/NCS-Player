@@ -9,6 +9,7 @@
 import UIKit
 // CoreData使用
 import CoreData
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // CoreDataに使用されているSQLiteファイル保存パス確認用
         let path = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
         print("\(path)")
+        
+        // バックグラウンド再生の為追記
+        try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: .mixWithOthers)
+        try? AVAudioSession.sharedInstance().setActive(true)
         
         return true
     }
@@ -93,6 +98,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    // LaunchScreenでロゴを見せつける為追記
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        Thread.sleep(forTimeInterval: 2.0)
+        return true
     }
 }
 

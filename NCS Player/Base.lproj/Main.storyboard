@@ -79,7 +79,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="UtN-SQ-zgT"/>
                     </view>
-                    <tabBarItem key="tabBarItem" image="myfavoriteicon32.png" selectedImage="myfavoriteicon32.png" id="Vcn-Rl-Y9M"/>
+                    <tabBarItem key="tabBarItem" image="SearchIcon" selectedImage="SearchIcon" id="Vcn-Rl-Y9M"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBE-6w-lQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -115,7 +115,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="5JV-eO-NNk"/>
                     </view>
-                    <tabBarItem key="tabBarItem" image="serchicon32.png" largeContentSizeImage="darklogo512.png" selectedImage="serchicon32.png" id="VsL-zk-vzF"/>
+                    <tabBarItem key="tabBarItem" image="WebIcon" largeContentSizeImage="darklogo512.png" selectedImage="WebIcon" id="VsL-zk-vzF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7VJ-K6-xdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -148,7 +148,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="401-pz-xG2"/>
                     </view>
-                    <tabBarItem key="tabBarItem" image="recomendicon32.png" selectedImage="recomendicon32.png" id="3eg-Qo-1MV"/>
+                    <tabBarItem key="tabBarItem" image="MyPlayListIcon" selectedImage="MyPlayListIcon" id="3eg-Qo-1MV"/>
                     <navigationItem key="navigationItem" id="fD1-qp-QPd"/>
                     <connections>
                         <outlet property="playListTableView" destination="ZkB-jr-Pue" id="wJs-hH-b2O"/>
@@ -257,23 +257,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0m-2f-U2T" userLabel="Minimum Volume Button">
-                                <rect key="frame" x="20" y="694" width="16" height="16"/>
+                                <rect key="frame" x="20" y="690" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <state key="normal" title="Button" image="volumeminicon256.png"/>
                                 <connections>
                                     <action selector="pressMinimumVolumeButton:" destination="bwS-PM-6Ry" eventType="touchUpInside" id="1cH-7R-oNj"/>
                                     <outletCollection property="gestureRecognizers" destination="Uph-r5-FCA" appends="YES" id="idd-9Z-MJQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mnz-4R-zwT" userLabel="Maximum Volume Button">
-                                <rect key="frame" x="378" y="694" width="16" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <state key="normal" title="Button" image="volumemaxicon256.png"/>
-                                <connections>
-                                    <action selector="pressMaximumVolumeButton:" destination="bwS-PM-6Ry" eventType="touchUpInside" id="f5C-nb-3ER"/>
-                                    <outletCollection property="gestureRecognizers" destination="Kj5-hf-Boe" appends="YES" id="mhD-eX-4ai"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="PrE-65-C8I">
@@ -285,14 +275,14 @@
                                     <action selector="changeVolumeSlider:" destination="bwS-PM-6Ry" eventType="valueChanged" id="1QG-Wo-mcV"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0Q-54-lsJ">
-                                <rect key="frame" x="0.0" y="523" width="84" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mnz-4R-zwT" userLabel="Maximum Volume Button">
+                                <rect key="frame" x="373" y="690" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button" image="volumemaxicon256.png"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="78S-UL-rGS" appends="YES" id="eph-fr-CMt"/>
+                                    <action selector="pressMaximumVolumeButton:" destination="bwS-PM-6Ry" eventType="touchUpInside" id="f5C-nb-3ER"/>
+                                    <outletCollection property="gestureRecognizers" destination="Kj5-hf-Boe" appends="YES" id="mhD-eX-4ai"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -308,26 +298,20 @@
                         <outlet property="playModeButton" destination="pUL-Ue-03R" id="G5h-KP-o3Y"/>
                         <outlet property="playbackPositionSlider" destination="Tff-Eu-TEx" id="2wX-pU-4Yz"/>
                         <outlet property="rightPlaybackPositionLabel" destination="WaI-KD-kPj" id="K3z-DQ-yGW"/>
-                        <outlet property="testmin" destination="C0Q-54-lsJ" id="gQH-8o-j8X"/>
                         <outlet property="titleLabel" destination="RsO-iU-eRw" id="I5L-ue-jns"/>
                         <outlet property="volumeSlider" destination="PrE-65-C8I" id="8uj-hT-Vua"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0wW-Rg-hae" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="7qh-EW-Bc2" userLabel="Exit" sceneMemberID="exit"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1" id="Kj5-hf-Boe" userLabel="Maximum Volume Button Long Press Gesture Recognizer">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="Kj5-hf-Boe" userLabel="Maximum Volume Button Long Press Gesture Recognizer">
                     <connections>
                         <action selector="longPressMaximumVolumeButton:" destination="bwS-PM-6Ry" id="RaR-TR-6a6"/>
                     </connections>
                 </pongPressGestureRecognizer>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1" id="Uph-r5-FCA" userLabel="Minimum Volume Button Long Press Gesture Recognizer">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="Uph-r5-FCA" userLabel="Minimum Volume Button Long Press Gesture Recognizer">
                     <connections>
                         <action selector="longPressMinimumVolumeButton:" destination="bwS-PM-6Ry" id="KEA-mq-0lD"/>
-                    </connections>
-                </pongPressGestureRecognizer>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="78S-UL-rGS">
-                    <connections>
-                        <action selector="testmin:" destination="bwS-PM-6Ry" id="pmJ-5U-dF2"/>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
@@ -335,14 +319,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="MyPlayListIcon" width="30" height="30"/>
+        <image name="SearchIcon" width="30" height="30"/>
+        <image name="WebIcon" width="30" height="30"/>
         <image name="backicon.png" width="256" height="256"/>
         <image name="darklogo512.png" width="512" height="512"/>
-        <image name="myfavoriteicon32.png" width="32" height="32"/>
         <image name="nexticon.png" width="256" height="256"/>
         <image name="normalmodeicon128.png" width="128" height="128"/>
         <image name="playicon.png" width="256" height="256"/>
-        <image name="recomendicon32.png" width="32" height="32"/>
-        <image name="serchicon32.png" width="32" height="32"/>
         <image name="volumemaxicon256.png" width="256" height="256"/>
         <image name="volumeminicon256.png" width="256" height="256"/>
     </resources>

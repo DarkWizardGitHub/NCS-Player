@@ -4,24 +4,33 @@
 //
 //  Created by Dark on 2018/06/14.
 //  Copyright © 2018年 Dark. All rights reserved.
+//  Special thanks to Yuka Okada, Reo Okumura.
 //
 
 import UIKit
 import CoreData
 
-class CoreDataManager: NSObject {
+// 関数のオーバーロードを避ける為ジェネリクス型で定義
+class CoreDataManager<T>: NSObject {
     
     let entityName: String
-    var attributes: [String] = []
+    var attributes: [T] = []
     
-    init(setEntityName: String, attributeNames: [String]) {
+    init(setEntityName: String, attributeNames: [T]) {
         self.entityName = setEntityName
         self.attributes = attributeNames
+        
+        // ①ここにREOさんが指摘してくれているAppDelegateとContextの処理を記述し共通化
+//        // AppDelegateのインスタンス化
+//        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+//        // コンテキストを取得
+//        let context = appDelegate.persistentContainer.viewContext
+        
     }
     
     
     // Create処理
-    func create(values: [String]) {
+    func create(values: [T]) {
         // AppDelegateのインスタンス化
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         // コンテキストを取得
@@ -33,8 +42,8 @@ class CoreDataManager: NSObject {
         // エンティティ内のアトリビュート数と引数に渡された配列の要素数の整合性確認
         if self.attributes.count == values.count {
             // レコードに値の設定
-            for i in 0...values.count - 1 {
-                newRecord.setValue(values[i], forKey: attributes[i])
+            for i in 0..<values.count {
+                newRecord.setValue(values[i], forKey: attributes[i] as! String)
             }
         } else {
             print("error")
@@ -49,10 +58,33 @@ class CoreDataManager: NSObject {
         }
     }
     
+
+    // ②Reoさん指摘のReadBy処理
+    func readBy(id: Int) {
+        
+    }
+    
+    // ③Reoさん指摘のReadAll処理
+    func readAll() {
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     // Read(sort)処理
-    func sortRead(attribute: String, ascending: Bool, numberOfLimit: Int = 0) -> (Any) { // NSManagedObject型で返したいがAny型じゃないとエラー
+    func sortRead(attribute: String, ascending: Bool, numberOfLimit: Int = 0) -> [Any] {
+//    以下ジェネリクス型検討中
+//    func sortRead<T>(attribute: String, ascending: Bool, numberOfLimit: Int = 0) -> [T] {
+//    func sortRead<T>(attribute: T, ascending: Bool, numberOfLimit: Int = 0) -> [T] {
         var fetchedArry: [NSManagedObject] = []
+        var record: [Any] = []
+        var returnArry: [Any] = []
 
         // AppDelegateのインスタンス化
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -62,11 +94,13 @@ class CoreDataManager: NSObject {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         // 並び替え
         let sortDescriptor = NSSortDescriptor(key: attribute, ascending: ascending) // true:昇順　false 降順
+//        let sortDescriptor = NSSortDescriptor(key: attribute as! String, ascending: ascending)
         fetchRequest.sortDescriptors = [sortDescriptor]
         //フェッチ件数の制限
         if numberOfLimit >= 1 {
             fetchRequest.fetchLimit = numberOfLimit
         }
+        
         do {
             // データ取得 配列で取得される
             fetchedArry = try context.fetch(fetchRequest) as! [NSManagedObject]
@@ -74,33 +108,28 @@ class CoreDataManager: NSObject {
             print("read error:",error)
         }
         
-// 返り値と下記のAny型がすごく気になる、どうすればいいか質問する
-        var record: [Any] = []
-        var returnArry: [Any] = []
+// ④返り値と下記のAny型がすごく気になる、どうすればいいか質問する
+//        Reoさん案
+//        return fetchedArry.map { $0 as! T }
         for buffer in fetchedArry {
             for i in 0...GlobalVariableManager.shared.coreDataAttributes.count - 1 {
-//                print(i)
-// record[i] = buffer.value(forKey: GlobalVariableManager.shared.coreDataAttributes[i])では要素追加できないんだっけか？
                 record.append(buffer.value(forKey: GlobalVariableManager.shared.coreDataAttributes[i]))
             }
-            print("returnArryに格納")
-            print("recordの値\(record)")
             returnArry.append(record)
-            print("returnArryの値\(returnArry)")
-            print("record初期化")
             // データ追加時に取得したメモリ空間を残しておく場合は引数にtrue
             // 削除、追加を繰り返す場合はメモリ空間を残しておいたほうが余計なメモリ取得処理が行われない
             record.removeAll(keepingCapacity: true)
         }
-//        returnArryはAny型？これでいいのか質問する
         return returnArry
     }
     
     
     // Read(predicate)処理
-    func predicateRead(attribute: String, placeholder: String, string: String, numberOfLimit: Int = 0) -> (Any) {
+    func predicateRead(attribute: String, relationalOperator: String, placeholder: String, targetValue: T, numberOfLimit: Int = 0) -> [Any] {
         
         var fetchedArry: [NSManagedObject] = []
+        var record: [Any] = []
+        var returnArry: [Any] = []
         
         // AppDelegateのインスタンス化
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -108,10 +137,8 @@ class CoreDataManager: NSObject {
         let context = appDelegate.persistentContainer.viewContext
         // データをフェッチ
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-        //        以下のSweetMemoryに該当する箇所を動的に書き換えたい、しかし<>内がObjectになっていると推察されString(今回はエンティティ名を想定)ではない為授業の書き方ではエラーになる
-        //        let fetchRequest:NSFetchRequest<SweetMemory> = SweetMemory.fetchRequest()
         // 絞り込み
-        let predicate = NSPredicate(format: "\(attribute) = \(placeholder)", string)
+        let predicate = NSPredicate(format: "\(attribute) \(relationalOperator) \(placeholder)", targetValue as! CVarArg)
         fetchRequest.predicate = predicate
         //フェッチ件数の制限
         if numberOfLimit >= 1 {
@@ -126,18 +153,12 @@ class CoreDataManager: NSObject {
             print("read error:",error)
         }
         
-        var record: [Any] = []
-        var returnArry: [Any] = []
         for buffer in fetchedArry {
             for i in 0...GlobalVariableManager.shared.coreDataAttributes.count - 1 {
                 print(i)
                 record.append(buffer.value(forKey: GlobalVariableManager.shared.coreDataAttributes[i]))
             }
-            print("returnArryに格納")
-            print("recordの値\(record)")
             returnArry.append(record)
-            print("returnArryの値\(returnArry)")
-            print("record初期化")
             // データ追加時に取得したメモリ空間を残しておく場合は引数にtrue
             // 削除、追加を繰り返す場合はメモリ空間を残しておいたほうが余計なメモリ取得処理が行われない
             record.removeAll(keepingCapacity: true)
@@ -147,7 +168,7 @@ class CoreDataManager: NSObject {
     
     
     // Update処理
-    func update(attribute: String, placeholder: String, string: String, values: [String]) {
+    func update(attribute: String, relationalOperator: String, placeholder: String, targetValue: T, values: [T]) {
         
         var fetchedArry: [NSManagedObject] = []
         
@@ -158,9 +179,8 @@ class CoreDataManager: NSObject {
         // データをフェッチ
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         // (更新データの)絞り込み
-        let predicate = NSPredicate(format: "\(attribute) = \(placeholder)", string)
+        let predicate = NSPredicate(format: "\(attribute) \(relationalOperator) \(placeholder)", targetValue as! CVarArg)
         fetchRequest.predicate = predicate
-        
         do {
             // データ取得 配列で取得される
             fetchedArry = try context.fetch(fetchRequest) as! [NSManagedObject]
@@ -171,9 +191,9 @@ class CoreDataManager: NSObject {
 //        NSManagedObject型 NSFetchRequestResult型の違いを調べる
         if self.attributes.count == values.count {
             // レコードに値の設定
-            for i in 0...fetchedArry.count - 1 {
-                for n in 0...values.count - 1 {
-                    fetchedArry[i].setValue(values[n], forKey: attributes[n])
+            for i in 0..<fetchedArry.count {
+                for n in 0..<values.count {
+                    fetchedArry[i].setValue(values[n], forKey: attributes[n] as! String)
                 }
             }
         } else {
@@ -190,7 +210,7 @@ class CoreDataManager: NSObject {
     
     
     // Delete処理
-    func delete(attribute: String, placeholder: String, string: String) {
+    func delete(attribute: String, relationalOperator: String, placeholder: String, targetValue: T) {
         
         var fetchedArry: [NSManagedObject] = []
         
@@ -202,24 +222,27 @@ class CoreDataManager: NSObject {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         // 絞り込み
 //        let predicate = NSPredicate(format: "\(attribute) = \(placeholder)", string)
-        let predicate = NSPredicate(format: "\(attribute) = \(placeholder)", string)
+        let predicate = NSPredicate(format: "\(attribute) \(relationalOperator) \(placeholder)", targetValue as! CVarArg)
         fetchRequest.predicate = predicate
-
+        print("1\(predicate)")
         do {
             // データ取得 配列で取得される
             fetchedArry = try context.fetch(fetchRequest) as! [NSManagedObject]
             // context.delete(fetchResults.first!) 一行だけ削除するなら、この書き方でも良い
+            print("2\(fetchedArry)")
         } catch  {
             print("read error:",error)
         }
         
         // 同キーワードのデータ(1レコード)も削除
         for result in fetchedArry {
+            print("3\(result)")
             context.delete(result as! NSManagedObject)
         }
         // 保存
         do {
             try context.save()
+            print("4")
         } catch  {
             print("read error:",error)
         }
