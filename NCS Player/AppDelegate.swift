@@ -22,7 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // CoreData使用の為追記
         // CoreDataに使用されているSQLiteファイル保存パス確認用
         let path = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
-        print("\(path)")
+        // Swift4から「"""」で文字列を囲むことで、複数行の文字列の表示が可能
+        print("""
+            ***** SQLite file path for Core Data *****
+            \(path)
+            """)
         
         // バックグラウンド再生の為追記
         try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: .mixWithOthers)

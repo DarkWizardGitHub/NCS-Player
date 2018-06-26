@@ -9,20 +9,20 @@
 import UIKit
 import AVFoundation
 
-struct tuneInformation {
-    var tuneName: String
-    var artistName: String
-    var tunePath: String?
-}
-
-var tune0 = tuneInformation(tuneName: "Cloud 9", artistName: "Itro & Tobu", tunePath: Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")!)
-var tune1 = tuneInformation(tuneName: "Sthlm Sunset", artistName: "Ehrling", tunePath: Bundle.main.path(forResource: "Ehrling-Sthlm Sunset", ofType:"mp3")!)
-var tune2 = tuneInformation(tuneName: "Sunburst", artistName: "Tobu & Itro", tunePath: Bundle.main.path(forResource: "Tobu & Itro-Sunburst", ofType:"mp3")!)
-var tune3 = tuneInformation(tuneName: "Candyland", artistName: "Tobu", tunePath: Bundle.main.path(forResource: "Tobu-Candyland", ofType:"mp3")!)
-var tune4 = tuneInformation(tuneName: "Dance With Me", artistName: "Ehrling", tunePath: Bundle.main.path(forResource: "Ehrling-Dance With Me", ofType:"mp3")!)
-
-// 再生する audio ファイルのパスを取得
-var playList = [tune0, tune1, tune2, tune3, tune4]
+//struct tuneInformation {
+//    var tuneName: String
+//    var artistName: String
+//    var tunePath: String?
+//}
+//
+//var tune0 = tuneInformation(tuneName: "Cloud 9", artistName: "Itro & Tobu", tunePath: Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")!)
+//var tune1 = tuneInformation(tuneName: "Sthlm Sunset", artistName: "Ehrling", tunePath: Bundle.main.path(forResource: "Ehrling-Sthlm Sunset", ofType:"mp3")!)
+//var tune2 = tuneInformation(tuneName: "Sunburst", artistName: "Tobu & Itro", tunePath: Bundle.main.path(forResource: "Tobu & Itro-Sunburst", ofType:"mp3")!)
+//var tune3 = tuneInformation(tuneName: "Candyland", artistName: "Tobu", tunePath: Bundle.main.path(forResource: "Tobu-Candyland", ofType:"mp3")!)
+//var tune4 = tuneInformation(tuneName: "Dance With Me", artistName: "Ehrling", tunePath: Bundle.main.path(forResource: "Ehrling-Dance With Me", ofType:"mp3")!)
+//
+//// 再生する audio ファイルのパスを取得
+//var playList = [tune0, tune1, tune2, tune3, tune4]
 
 
 //        実装すること
@@ -51,17 +51,27 @@ class RecommendedPlayListViewController: UIViewController, UITableViewDelegate, 
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        ***Debug用/初期リスト格納***
-//        var hoge = [["tune_name", "artist_name", Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")],["Sthlm Sunset", "Ehrling", Bundle.main.path(forResource: "Ehrling-Sthlm Sunset", ofType:"mp3")],["Sunburst", "Tobu & Itro", Bundle.main.path(forResource: "Tobu & Itro-Sunburst", ofType:"mp3")],["Candyland", "Tobu", Bundle.main.path(forResource: "Tobu-Candyland", ofType:"mp3")],["Dance With Me", "Ehrling", Bundle.main.path(forResource: "Ehrling-Dance With Me", ofType:"mp3")]]
+        
+        
+//        ***Debug用/初期リストUserDefaults格納***
+//        var hoge = [["Cloud 9", "Itro & Tobu", Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")],["Sthlm Sunset", "Ehrling", Bundle.main.path(forResource: "Ehrling-Sthlm Sunset", ofType:"mp3")],["Sunburst", "Tobu & Itro", Bundle.main.path(forResource: "Tobu & Itro-Sunburst", ofType:"mp3")],["Candyland", "Tobu", Bundle.main.path(forResource: "Tobu-Candyland", ofType:"mp3")],["Dance With Me", "Ehrling", Bundle.main.path(forResource: "Ehrling-Dance With Me", ofType:"mp3")]]
 //        userDefaults.set(hoge, forKey: "myPlayList")
 //        userDefaults.synchronize()
+//        ***Debug用/初期リスト格納***
+        
+        
+//        ***Debug用/初期リストCoreData格納***
+//        CoreDataManagerクラス側の引数が１次元配列の為foreachで回す
+//        hoge.forEach {
+//            coreDataManager.create(values: $0 as! [String])
+//        }
+//        ***Debug用/初期リストCoreData格納***
+        
         
         // UserDefaultsからMyPlayListデータを取得
         // as! [[String]] = [] でも同義
+        // 2次元配列の為ダウンキャストも2次元配列にする
         myPlayList = userDefaults.object(forKey: "myPlayList") as! Array<Array<String>>
-        print(myPlayList)
-
-//        今後やることはmyPlayListへのデータ入力と他のコードの差替え
     }
     
     override func didReceiveMemoryWarning() {
@@ -93,14 +103,14 @@ class RecommendedPlayListViewController: UIViewController, UITableViewDelegate, 
     
     // TableViewのセルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return playList.count
+        return myPlayList.count
     }
     
     // 1行毎のセルの要素を設定する(表示する中身の設定)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルのインスタンス化　文字列を表示するCell
         let cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "tableviewcell", for: indexPath)
-        cell.textLabel?.text = playList[indexPath.row].tuneName
+        cell.textLabel?.text = myPlayList[indexPath.row][0]
         return cell
     }
     
@@ -108,13 +118,13 @@ class RecommendedPlayListViewController: UIViewController, UITableViewDelegate, 
         let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "DELETE") { (action, index) -> Void in
 
             // データベースから要素を削除
-            self.coreDataManager.delete(attribute: GlobalVariableManager.shared.coreDataAttributes[0], relationalOperator: "=", placeholder: "%@", targetValue: playList[indexPath.row].tuneName)
+            self.coreDataManager.delete(attribute: GlobalVariableManager.shared.coreDataAttributes[0], relationalOperator: "=", placeholder: "%@", targetValue: self.myPlayList[indexPath.row][0])
             
 //            let hoge = ["Cloud 9", "tobu", "hogehoge"]
 //            self.coreDataManager.create(values: hoge)
 
             // removeで配列から要素削除
-            playList.remove(at: indexPath.row)
+            self.myPlayList.remove(at: indexPath.row)
             // deleteRowsでセルから要素を削除
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
