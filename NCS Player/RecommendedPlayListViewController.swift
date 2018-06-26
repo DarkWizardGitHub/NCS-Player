@@ -23,7 +23,6 @@ var tune4 = tuneInformation(tuneName: "Dance With Me", artistName: "Ehrling", tu
 
 // 再生する audio ファイルのパスを取得
 var playList = [tune0, tune1, tune2, tune3, tune4]
-var hoge = [["tune_name", "artist_name", Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")],["tune_name1", "artist_name2", Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")]]
 
 
 //        実装すること
@@ -52,12 +51,16 @@ class RecommendedPlayListViewController: UIViewController, UITableViewDelegate, 
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+//        ***Debug用/初期リスト格納***
+//        var hoge = [["tune_name", "artist_name", Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")],["Sthlm Sunset", "Ehrling", Bundle.main.path(forResource: "Ehrling-Sthlm Sunset", ofType:"mp3")],["Sunburst", "Tobu & Itro", Bundle.main.path(forResource: "Tobu & Itro-Sunburst", ofType:"mp3")],["Candyland", "Tobu", Bundle.main.path(forResource: "Tobu-Candyland", ofType:"mp3")],["Dance With Me", "Ehrling", Bundle.main.path(forResource: "Ehrling-Dance With Me", ofType:"mp3")]]
 //        userDefaults.set(hoge, forKey: "myPlayList")
-//        print(userDefaults.object(forKey: "myPlayList"))
+//        userDefaults.synchronize()
+        
         // UserDefaultsからMyPlayListデータを取得
+        // as! [[String]] = [] でも同義
         myPlayList = userDefaults.object(forKey: "myPlayList") as! Array<Array<String>>
-//        print(myPlayList)
-//        print(myPlayList[0])
+        print(myPlayList)
+
 //        今後やることはmyPlayListへのデータ入力と他のコードの差替え
     }
     
