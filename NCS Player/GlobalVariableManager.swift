@@ -22,27 +22,27 @@ class GlobalVariableManager: NSObject {
 
     
     
-    struct tuneInformation {
-        var tuneName: String
-        var artistName: String
-        var tunePath: String?
-    }
- 
-    var tune0 = tuneInformation(tuneName: "Cloud 9", artistName: "Itro & Tobu", tunePath: Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")!)
-    var tune1 = tuneInformation(tuneName: "Sthlm Sunset", artistName: "Ehrling", tunePath: Bundle.main.path(forResource: "Ehrling-Sthlm Sunset", ofType:"mp3")!)
-    var tune2 = tuneInformation(tuneName: "Sunburst", artistName: "Tobu & Itro", tunePath: Bundle.main.path(forResource: "Tobu & Itro-Sunburst", ofType:"mp3")!)
-    var tune3 = tuneInformation(tuneName: "Candyland", artistName: "Tobu", tunePath: Bundle.main.path(forResource: "Tobu-Candyland", ofType:"mp3")!)
-    var tune4 = tuneInformation(tuneName: "Dance With Me", artistName: "Ehrling", tunePath: Bundle.main.path(forResource: "Ehrling-Dance With Me", ofType:"mp3")!)
-    
-    // 再生する audio ファイルのパスを取得
-    lazy var playList = [tune0, tune1, tune2, tune3, tune4]
+//    struct tuneInformation {
+//        var tuneName: String
+//        var artistName: String
+//        var tunePath: String?
+//    }
+//
+//    var tune0 = tuneInformation(tuneName: "Cloud 9", artistName: "Itro & Tobu", tunePath: Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")!)
+//    var tune1 = tuneInformation(tuneName: "Sthlm Sunset", artistName: "Ehrling", tunePath: Bundle.main.path(forResource: "Ehrling-Sthlm Sunset", ofType:"mp3")!)
+//    var tune2 = tuneInformation(tuneName: "Sunburst", artistName: "Tobu & Itro", tunePath: Bundle.main.path(forResource: "Tobu & Itro-Sunburst", ofType:"mp3")!)
+//    var tune3 = tuneInformation(tuneName: "Candyland", artistName: "Tobu", tunePath: Bundle.main.path(forResource: "Tobu-Candyland", ofType:"mp3")!)
+//    var tune4 = tuneInformation(tuneName: "Dance With Me", artistName: "Ehrling", tunePath: Bundle.main.path(forResource: "Ehrling-Dance With Me", ofType:"mp3")!)
+//
+//    // 再生する audio ファイルのパスを取得
+//    lazy var playList = [tune0, tune1, tune2, tune3, tune4]
     
     
     
     
     // シングルトンの唯一性を保証するためprivateにする
     private override init() {
-        coreDataAttributes = ["tune_name", "artist_name", "tune_path"]
+        coreDataAttributes = ["tune_name", "artist_name", "file_name", "file_extension"]
         coreDataEntityName = "Tunes"
     }
 }

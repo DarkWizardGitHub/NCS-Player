@@ -11,8 +11,19 @@ import AVFoundation
 
 class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavigationControllerDelegate {
     
+    // UserDefaultsインスタンス(参照)
+    let userDefaults = UserDefaults.standard
+    
+    // CoreData操作クラスインスタンス
+    let coreDataManager: CoreDataManager<String> = CoreDataManager<String>(setEntityName: GlobalVariableManager.shared.coreDataEntityName, attributeNames: GlobalVariableManager.shared.coreDataAttributes)
+    
+    // プレイリスト用配列(2次元配列)
+    // [[String]] = [] でも同義
+    var myPlayList: Array<Array<String>> = []
+    
     // タイマー関数用変数
     var playTimer: Timer!
+    
     // PlayModeボタンが押された時点のCurrentTime記録用変数
     var changedPlayModeTime: TimeInterval!
     
@@ -21,21 +32,6 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
         case isRepeat = "Repeat"
         case isShuffle = "Shuffle"
     }
-    
-    struct tuneInformation {
-        var tuneName: String
-        var artistName: String
-        var tunePath: String
-    }
-    
-    var tune0 = tuneInformation(tuneName: "Cloud 9", artistName: "Itro & Tobu", tunePath: Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")!)
-    var tune1 = tuneInformation(tuneName: "Sthlm Sunset", artistName: "Ehrling", tunePath: Bundle.main.path(forResource: "Ehrling-Sthlm Sunset", ofType:"mp3")!)
-    var tune2 = tuneInformation(tuneName: "Sunburst", artistName: "Tobu & Itro", tunePath: Bundle.main.path(forResource: "Tobu & Itro-Sunburst", ofType:"mp3")!)
-    var tune3 = tuneInformation(tuneName: "Candyland", artistName: "Tobu", tunePath: Bundle.main.path(forResource: "Tobu-Candyland", ofType:"mp3")!)
-    var tune4 = tuneInformation(tuneName: "Dance With Me", artistName: "Ehrling", tunePath: Bundle.main.path(forResource: "Ehrling-Dance With Me", ofType:"mp3")!)
-    
-    // 再生する audio ファイルのパスを取得
-    lazy var tunes = [tune0, tune1, tune2, tune3, tune4]
 
     // アウトレット接続
     @IBOutlet weak var playModeButton: UIButton!
@@ -61,6 +57,17 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // UserDefaultsからMyPlayListデータを取得
+        // as! [[String]] = [] でも同義
+        // 2次元配列の為ダウンキャストも2次元配列にする
+        // myPlayList = userDefaults.object(forKey: "myPlayList") as! Array<Array<String>>
+        
+        // CoreDataからMyPlayListデータを取得
+        // as! [[String]] = [] でも同義
+        // 2次元配列の為ダウンキャストも2次元配列にする
+        myPlayList = coreDataManager.readAll() as! Array<Array<String>>
+        
         if GlobalVariableManager.shared.tuneIndex != GlobalVariableManager.shared.playingTuneIndex {
             self.prepareTune()
         } else {
@@ -71,8 +78,8 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
                 self.controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
             }
             // オーディオデータの読み込み以外はprepareTune()と同処理
-            self.titleLabel.text = tunes[GlobalVariableManager.shared.tuneIndex!].tuneName
-            self.artistLabel.text = tunes[GlobalVariableManager.shared.tuneIndex!].artistName
+            self.titleLabel.text = myPlayList[GlobalVariableManager.shared.tuneIndex!][0]
+            self.artistLabel.text = myPlayList[GlobalVariableManager.shared.tuneIndex!][1]
             self.volumeSlider.value = AudioManager.shared.audioVolume
             self.playbackPositionSlider.maximumValue = Float((AudioManager.shared.audioBuffer?.duration)!)
             self.playbackPositionSlider.value = Float((AudioManager.shared.audioBuffer?.currentTime)!)
@@ -188,28 +195,80 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
     // プレイリストの末尾の場合のみ再度その曲を選択する
     @IBAction func nextButton(_ sender: UIButton) {
         if (AudioManager.shared.audioBuffer?.isPlaying)! {
-            if GlobalVariableManager.shared.tuneIndex! == tunes.count - 1 {
-                self.prepareTune()
-                AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
-                // 再生アイコン切り替え
-                self.controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
+            if GlobalVariableManager.shared.tuneIndex! == myPlayList.count - 1 {
+                switch AudioManager.shared.audioPlayMode {
+                    case "Repeat":
+                        self.prepareTune()
+                        AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
+                        // 再生アイコン切り替え
+                        self.controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
+                    case "Shuffle":
+                        GlobalVariableManager.shared.tuneIndex = Int(arc4random_uniform(UInt32(myPlayList.count)))
+                        self.prepareTune()
+                        AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
+                        // 再生アイコン切り替え
+                        self.controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
+                    default:
+                        self.prepareTune()
+                        AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
+                        // 再生アイコン切り替え
+                        self.controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
+                }
             } else {
-                GlobalVariableManager.shared.tuneIndex = GlobalVariableManager.shared.tuneIndex! + 1
-                self.prepareTune()
-                AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
-                // 再生アイコン切り替え
-                self.controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
+                switch AudioManager.shared.audioPlayMode {
+                    case "Repeat":
+                        self.prepareTune()
+                        AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
+                        // 再生アイコン切り替え
+                        self.controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
+                    case "Shuffle":
+                        GlobalVariableManager.shared.tuneIndex = Int(arc4random_uniform(UInt32(myPlayList.count)))
+                        self.prepareTune()
+                        AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
+                        // 再生アイコン切り替え
+                        self.controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
+                    default:
+                        GlobalVariableManager.shared.tuneIndex = GlobalVariableManager.shared.tuneIndex! + 1
+                        self.prepareTune()
+                        AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
+                        // 再生アイコン切り替え
+                        self.controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
+                }
             }
         } else {
-            if GlobalVariableManager.shared.tuneIndex! == tunes.count - 1 {
-                self.prepareTune()
-                // 一時停止アイコン切り替え
-                self.controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
+            if GlobalVariableManager.shared.tuneIndex! == myPlayList.count - 1 {
+                switch AudioManager.shared.audioPlayMode {
+                    case "Repeat":
+                        self.prepareTune()
+                        // 再生アイコン切り替え
+                        self.controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
+                    case "Shuffle":
+                        GlobalVariableManager.shared.tuneIndex = Int(arc4random_uniform(UInt32(myPlayList.count)))
+                        self.prepareTune()
+                        // 再生アイコン切り替え
+                        self.controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
+                    default:
+                        self.prepareTune()
+                        // 再生アイコン切り替え
+                        self.controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
+                }
             } else {
-                GlobalVariableManager.shared.tuneIndex = GlobalVariableManager.shared.tuneIndex! + 1
-                self.prepareTune()
-                // 一時停止アイコン切り替え
-                self.controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
+                switch AudioManager.shared.audioPlayMode {
+                    case "Repeat":
+                        self.prepareTune()
+                        // 再生アイコン切り替え
+                        self.controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
+                    case "Shuffle":
+                        GlobalVariableManager.shared.tuneIndex = Int(arc4random_uniform(UInt32(myPlayList.count)))
+                        self.prepareTune()
+                        // 再生アイコン切り替え
+                        self.controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
+                    default:
+                        GlobalVariableManager.shared.tuneIndex = GlobalVariableManager.shared.tuneIndex! + 1
+                        self.prepareTune()
+                        // 再生アイコン切り替え
+                        self.controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
+                }
             }
         }
     }
@@ -336,10 +395,10 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
     
     // オーディオデータの読み込みに伴う処理関数
     func prepareTune() {
-        AudioManager.shared.load(path: self.tunes[GlobalVariableManager.shared.tuneIndex!].tunePath)
+        AudioManager.shared.load(fileName: self.myPlayList[GlobalVariableManager.shared.tuneIndex][2], fileExtension: self.myPlayList[GlobalVariableManager.shared.tuneIndex][3])
         // 曲名とアーティスト名取得
-        self.titleLabel.text = self.tunes[GlobalVariableManager.shared.tuneIndex!].tuneName
-        self.artistLabel.text = self.tunes[GlobalVariableManager.shared.tuneIndex!].artistName
+        self.titleLabel.text = self.myPlayList[GlobalVariableManager.shared.tuneIndex!][0]
+        self.artistLabel.text = self.myPlayList[GlobalVariableManager.shared.tuneIndex!][1]
         self.volumeSlider.value = AudioManager.shared.audioVolume
         // スライダーの最大値と音楽ファイルの長さを同期
         // スライダーの値はFloat型になるのでFloat型にキャスト変換
@@ -387,7 +446,7 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
     func playNextTune() {
         if AudioManager.shared.finishedFlag == true {
             if AudioManager.shared.audioPlayMode == "Normal" || AudioManager.shared.audioPlayMode == "Repeat" {
-                if GlobalVariableManager.shared.tuneIndex! == self.tunes.count - 1 {
+                if GlobalVariableManager.shared.tuneIndex! == self.myPlayList.count - 1 {
                     self.prepareTune()
                     AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
                     // 再生アイコン切り替え
@@ -400,7 +459,8 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
                     self.controlButton.setImage(UIImage(named: "pauseicon"), for: UIControlState())
                 }
             } else if AudioManager.shared.audioPlayMode == "Shuffle" {
-                GlobalVariableManager.shared.tuneIndex = Int(arc4random_uniform(UInt32(tunes.count)))
+                GlobalVariableManager.shared.tuneIndex = Int(arc4random_uniform(UInt32(self.myPlayList.count)))
+                print(GlobalVariableManager.shared.tuneIndex)
                 self.prepareTune()
                 AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
                 // 再生アイコン切り替え

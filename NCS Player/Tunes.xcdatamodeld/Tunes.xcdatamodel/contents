@@ -2,10 +2,11 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17C88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Tunes" representedClassName="Tunes" syncable="YES">
         <attribute name="artist_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="file_extension" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="file_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tune_name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="tune_path" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Tunes" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Tunes" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>

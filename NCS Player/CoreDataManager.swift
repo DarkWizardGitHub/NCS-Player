@@ -65,8 +65,35 @@ class CoreDataManager<T>: NSObject {
     }
     
     // ③Reoさん指摘のReadAll処理
-    func readAll() {
+    func readAll() -> [Any] {
+        var fetchedArry: [NSManagedObject] = []
+        var record: [Any] = []
+        var returnArry: [Any] = []
         
+        // AppDelegateのインスタンス化
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        // コンテキストを取得
+        let context = appDelegate.persistentContainer.viewContext
+        // データをフェッチ
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        
+        do {
+            // データ取得 配列で取得される
+            fetchedArry = try context.fetch(fetchRequest) as! [NSManagedObject]
+        } catch {
+            print("read error:",error)
+        }
+        
+        for buffer in fetchedArry {
+            for i in 0...GlobalVariableManager.shared.coreDataAttributes.count - 1 {
+                record.append(buffer.value(forKey: GlobalVariableManager.shared.coreDataAttributes[i]))
+            }
+            returnArry.append(record)
+            // データ追加時に取得したメモリ空間を残しておく場合は引数にtrue
+            // 削除、追加を繰り返す場合はメモリ空間を残しておいたほうが余計なメモリ取得処理が行われない
+            record.removeAll(keepingCapacity: true)
+        }
+        return returnArry
     }
     
     
@@ -148,14 +175,12 @@ class CoreDataManager<T>: NSObject {
         do {
             // データ取得 配列で取得される
             fetchedArry = try context.fetch(fetchRequest) as! [NSManagedObject]
-            print(fetchedArry)
         } catch {
             print("read error:",error)
         }
         
         for buffer in fetchedArry {
             for i in 0...GlobalVariableManager.shared.coreDataAttributes.count - 1 {
-                print(i)
                 record.append(buffer.value(forKey: GlobalVariableManager.shared.coreDataAttributes[i]))
             }
             returnArry.append(record)
@@ -184,7 +209,6 @@ class CoreDataManager<T>: NSObject {
         do {
             // データ取得 配列で取得される
             fetchedArry = try context.fetch(fetchRequest) as! [NSManagedObject]
-            print(fetchedArry)
         } catch  {
             print("read error:",error)
         }
@@ -224,25 +248,21 @@ class CoreDataManager<T>: NSObject {
 //        let predicate = NSPredicate(format: "\(attribute) = \(placeholder)", string)
         let predicate = NSPredicate(format: "\(attribute) \(relationalOperator) \(placeholder)", targetValue as! CVarArg)
         fetchRequest.predicate = predicate
-        print("1\(predicate)")
         do {
             // データ取得 配列で取得される
             fetchedArry = try context.fetch(fetchRequest) as! [NSManagedObject]
             // context.delete(fetchResults.first!) 一行だけ削除するなら、この書き方でも良い
-            print("2\(fetchedArry)")
         } catch  {
             print("read error:",error)
         }
         
         // 同キーワードのデータ(1レコード)も削除
         for result in fetchedArry {
-            print("3\(result)")
             context.delete(result as! NSManagedObject)
         }
         // 保存
         do {
             try context.save()
-            print("4")
         } catch  {
             print("read error:",error)
         }

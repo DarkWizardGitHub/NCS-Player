@@ -28,10 +28,10 @@ class AudioManager: NSObject, AVAudioPlayerDelegate {
     }
     
     // メモリ上にデータを読み込み再生可能な状態にする
-    func load(path: String) {
-        let url = URL(fileURLWithPath: path)
+    func load(fileName: String, fileExtension: String) {
+        let url = URL(fileURLWithPath: Bundle.main.path(forResource: fileName, ofType: fileExtension)!)
         do {
-            // auido を再生するプレイヤーを作成
+            // audio を再生するプレイヤーを作成
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioBuffer = audioPlayer
             audioBuffer?.prepareToPlay()

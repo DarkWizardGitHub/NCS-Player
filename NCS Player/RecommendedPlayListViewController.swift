@@ -9,38 +9,24 @@
 import UIKit
 import AVFoundation
 
-//struct tuneInformation {
-//    var tuneName: String
-//    var artistName: String
-//    var tunePath: String?
-//}
-//
-//var tune0 = tuneInformation(tuneName: "Cloud 9", artistName: "Itro & Tobu", tunePath: Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")!)
-//var tune1 = tuneInformation(tuneName: "Sthlm Sunset", artistName: "Ehrling", tunePath: Bundle.main.path(forResource: "Ehrling-Sthlm Sunset", ofType:"mp3")!)
-//var tune2 = tuneInformation(tuneName: "Sunburst", artistName: "Tobu & Itro", tunePath: Bundle.main.path(forResource: "Tobu & Itro-Sunburst", ofType:"mp3")!)
-//var tune3 = tuneInformation(tuneName: "Candyland", artistName: "Tobu", tunePath: Bundle.main.path(forResource: "Tobu-Candyland", ofType:"mp3")!)
-//var tune4 = tuneInformation(tuneName: "Dance With Me", artistName: "Ehrling", tunePath: Bundle.main.path(forResource: "Ehrling-Dance With Me", ofType:"mp3")!)
-//
-//// 再生する audio ファイルのパスを取得
-//var playList = [tune0, tune1, tune2, tune3, tune4]
-
-
 //        実装すること
 //        順序を変更する機能(タップしながらズラすような感じ、もしくは上下移動か)
 
 class RecommendedPlayListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     // ユーザーデフォルトインスタンス(参照)
-    let userDefaults = UserDefaults.standard
-    // プレイリスト用配列(二次元配列)
-    // [[String]] = [] でも同義
-    var myPlayList: Array<Array<String>> = []
-    // Sectionのタイトルr
-    let sectionTitle: NSArray = ["   Recommended PlayList"]
+    // let userDefaults = UserDefaults.standard
+
     // CoreData操作クラスインスタンス
     let coreDataManager: CoreDataManager<String> = CoreDataManager<String>(setEntityName: GlobalVariableManager.shared.coreDataEntityName, attributeNames: GlobalVariableManager.shared.coreDataAttributes)
 
+    // プレイリスト用配列(2次元配列)
+    // [[String]] = [] でも同義
+     var myPlayList: Array<Array<String>> = []
+    
+    // Sectionのタイトルr
+    let sectionTitle: NSArray = ["   Recommended PlayList"]
+    
     @IBOutlet weak var playListTableView: UITableView!
     
     override func viewDidLoad() {
@@ -52,26 +38,31 @@ class RecommendedPlayListViewController: UIViewController, UITableViewDelegate, 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
 //        ***Debug用/初期リストUserDefaults格納***
-//        var hoge = [["Cloud 9", "Itro & Tobu", Bundle.main.path(forResource: "Itro & Tobu-Cloud 9", ofType:"mp3")],["Sthlm Sunset", "Ehrling", Bundle.main.path(forResource: "Ehrling-Sthlm Sunset", ofType:"mp3")],["Sunburst", "Tobu & Itro", Bundle.main.path(forResource: "Tobu & Itro-Sunburst", ofType:"mp3")],["Candyland", "Tobu", Bundle.main.path(forResource: "Tobu-Candyland", ofType:"mp3")],["Dance With Me", "Ehrling", Bundle.main.path(forResource: "Ehrling-Dance With Me", ofType:"mp3")]]
+//        var hoge = [["Cloud 9", "Itro & Tobu", "Itro & Tobu-Cloud 9", "mp3"],["Sthlm Sunset", "Ehrling", "Ehrling-Sthlm Sunset", "mp3"],["Sunburst", "Tobu & Itro", "Tobu & Itro-Sunburst", "mp3"],["Candyland", "Tobu", "Tobu-Candyland", "mp3"],["Dance With Me", "Ehrling", "Ehrling-Dance With Me", "mp3"]]
 //        userDefaults.set(hoge, forKey: "myPlayList")
 //        userDefaults.synchronize()
 //        ***Debug用/初期リスト格納***
         
         
 //        ***Debug用/初期リストCoreData格納***
-//        CoreDataManagerクラス側の引数が１次元配列の為foreachで回す
-//        hoge.forEach {
-//            coreDataManager.create(values: $0 as! [String])
-//        }
-//        ***Debug用/初期リストCoreData格納***
+//        var hoge = [["Cloud 9", "Itro & Tobu", "Itro & Tobu-Cloud 9", "mp3"],["Sthlm Sunset", "Ehrling", "Ehrling-Sthlm Sunset", "mp3"],["Sunburst", "Tobu & Itro", "Tobu & Itro-Sunburst", "mp3"],["Candyland", "Tobu", "Tobu-Candyland", "mp3"],["Dance With Me", "Ehrling", "Ehrling-Dance With Me", "mp3"]]
+//         UserdefaultsでmyPlayListを取得した場合、CoreDataManagerクラス側の引数が1次元配列の為foreachで回す
+//                 hoge.forEach {
+//                    coreDataManager.create(values: $0 as! [String])
+//                 }
+        // ***Debug用/初期リストCoreData格納***
         
         
         // UserDefaultsからMyPlayListデータを取得
         // as! [[String]] = [] でも同義
         // 2次元配列の為ダウンキャストも2次元配列にする
-        myPlayList = userDefaults.object(forKey: "myPlayList") as! Array<Array<String>>
+        // myPlayList = userDefaults.object(forKey: "myPlayList") as! Array<Array<String>>
+        
+        // CoreDataからMyPlayListデータを取得
+        // as! [[String]] = [] でも同義
+        // 2次元配列の為ダウンキャストも2次元配列にする
+        myPlayList = coreDataManager.readAll() as! Array<Array<String>>
     }
     
     override func didReceiveMemoryWarning() {
@@ -97,6 +88,7 @@ class RecommendedPlayListViewController: UIViewController, UITableViewDelegate, 
         // UIcolorのRGB値の引数に255で割った値を直接渡す
         label.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         label.backgroundColor = UIColor(red: 96/255, green: 96/255, blue: 96/255, alpha: 1)
+//        何故か色が濃くなる
 //        label.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
         return label
     }
@@ -119,10 +111,6 @@ class RecommendedPlayListViewController: UIViewController, UITableViewDelegate, 
 
             // データベースから要素を削除
             self.coreDataManager.delete(attribute: GlobalVariableManager.shared.coreDataAttributes[0], relationalOperator: "=", placeholder: "%@", targetValue: self.myPlayList[indexPath.row][0])
-            
-//            let hoge = ["Cloud 9", "tobu", "hogehoge"]
-//            self.coreDataManager.create(values: hoge)
-
             // removeで配列から要素削除
             self.myPlayList.remove(at: indexPath.row)
             // deleteRowsでセルから要素を削除
@@ -136,6 +124,7 @@ class RecommendedPlayListViewController: UIViewController, UITableViewDelegate, 
     // セルをタップしたら遷移する
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        // 選択した曲番号(配列のインデックス)を格納
         GlobalVariableManager.shared.tuneIndex = indexPath.row
         // セグエの名前を指定して画面遷移を発動
         performSegue(withIdentifier: "segue1", sender: nil)
