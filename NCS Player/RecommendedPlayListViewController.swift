@@ -25,7 +25,7 @@ class RecommendedPlayListViewController: UIViewController, UITableViewDelegate, 
      var myPlayList: Array<Array<String>> = []
     
     // Sectionのタイトルr
-    let sectionTitle: NSArray = ["   Recommended PlayList"]
+    let sectionTitle: NSArray = ["   My PlayList"]
     
     @IBOutlet weak var playListTableView: UITableView!
     
@@ -46,7 +46,7 @@ class RecommendedPlayListViewController: UIViewController, UITableViewDelegate, 
         
         
 //        ***Debug用/初期リストCoreData格納***
-//        var hoge = [["Cloud 9", "Itro & Tobu", "Itro & Tobu-Cloud 9", "mp3"],["Sthlm Sunset", "Ehrling", "Ehrling-Sthlm Sunset", "mp3"],["Sunburst", "Tobu & Itro", "Tobu & Itro-Sunburst", "mp3"],["Candyland", "Tobu", "Tobu-Candyland", "mp3"],["Dance With Me", "Ehrling", "Ehrling-Dance With Me", "mp3"]]
+//        var hoge = [["Cloud 9", "Itro & Tobu", "Itro & Tobu-Cloud 9", "mp3"],["Sthlm Sunset", "Ehrling", "Ehrling-Sthlm Sunset", "mp3"],["Sunburst", "Tobu & Itro", "Tobu & Itro-Sunburst", "mp3"],["Candyland", "Tobu", "Tobu-Candyland", "mp3"],["Dance With Me", "Ehrling", "Ehrling-Dance With Me", "mp3"],["Bay Breeze", "FortyThr33", "FortyThr33-Bay Breeze", "mp3"],["Good For You", "THBD", "THBD-Good For You", "mp3"],["Hope", "Tobu", "Tobu-Hope", "mp3"],["Fade", "Alan Walker", "Alan Walker-Fade", "mp3"],["All I Need", "Ehrling", "Ehrling-All I Need", "mp3"],["Champagne Ocean", "Ehrling", "Ehrling-Champagne Ocean", "mp3"]]
 //         UserdefaultsでmyPlayListを取得した場合、CoreDataManagerクラス側の引数が1次元配列の為foreachで回す
 //                 hoge.forEach {
 //                    coreDataManager.create(values: $0 as! [String])
