@@ -33,7 +33,7 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
         case isShuffle = "Shuffle"
     }
 
-    // アウトレット接続
+    // Outlet接続
     @IBOutlet weak var playModeButton: UIButton!
     @IBOutlet weak var playbackPositionSlider: UISlider!
     @IBOutlet weak var titleLabel: UILabel!

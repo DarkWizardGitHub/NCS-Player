@@ -49,37 +49,66 @@
             </objects>
             <point key="canvasLocation" x="-897" y="121"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="7el-ld-aQ4">
             <objects>
-                <viewController id="c64-mt-Pl8" sceneMemberID="viewController">
+                <viewController id="c64-mt-Pl8" customClass="SearchViewController" customModule="NCS_Player" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TNr-9j-PnA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VHz-7m-1ZR">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="102" width="414" height="634"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="mhS-IN-0Fa">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchviewtableviewcell" id="mhS-IN-0Fa" userLabel="Search View Table View Cell" customClass="SubSearchViewController" customModule="NCS_Player" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mhS-IN-0Fa" id="NKW-cH-Uj0">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hv5-fk-kV8">
+                                                    <rect key="frame" x="344" y="6" width="50" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="ADD">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="pushAddButton:" destination="mhS-IN-0Fa" eventType="touchUpInside" id="hSK-bI-BQx"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="AddButton" destination="hv5-fk-kV8" id="x8N-9s-40U"/>
                                             <segue destination="bwS-PM-6Ry" kind="show" identifier="undefinedsegue2" id="oeB-cx-Ibm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="あああ" borderStyle="roundedRect" placeholder="Search..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i2s-0G-zhu">
+                                <rect key="frame" x="5" y="64" width="404" height="30"/>
+                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="i2s-0G-zhu" firstAttribute="leading" secondItem="UtN-SQ-zgT" secondAttribute="leading" constant="5" id="01w-n2-ubC"/>
+                            <constraint firstItem="i2s-0G-zhu" firstAttribute="top" secondItem="UtN-SQ-zgT" secondAttribute="top" id="hks-Hc-c1h"/>
+                            <constraint firstItem="UtN-SQ-zgT" firstAttribute="trailing" secondItem="i2s-0G-zhu" secondAttribute="trailing" constant="5" id="rqh-aR-HOS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UtN-SQ-zgT"/>
                     </view>
                     <tabBarItem key="tabBarItem" image="SearchIcon" selectedImage="SearchIcon" id="Vcn-Rl-Y9M"/>
+                    <connections>
+                        <outlet property="searchedResultsTableView" destination="VHz-7m-1ZR" id="zzG-Jb-n9N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBE-6w-lQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -121,10 +150,10 @@
             </objects>
             <point key="canvasLocation" x="264" y="-638"/>
         </scene>
-        <!--Recommended Play List View Controller-->
+        <!--My Play List View Controller-->
         <scene sceneID="Az6-be-JQZ">
             <objects>
-                <viewController id="FDx-QL-PoA" customClass="RecommendedPlayListViewController" customModule="NCS_Player" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FDx-QL-PoA" customClass="MyPlayListViewController" customModule="NCS_Player" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UPY-LC-r7P">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -134,7 +163,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableviewcell" id="Xjx-kV-6UX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myplaylistviewtableviewcell" id="Xjx-kV-6UX" userLabel="My Play List View Table View Cell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xjx-kV-6UX" id="uVi-ch-A5t">
