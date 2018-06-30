@@ -4,9 +4,10 @@
         <attribute name="artist_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="file_extension" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="file_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="myplaylist_status" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="tune_name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Tunes" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Tunes" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>

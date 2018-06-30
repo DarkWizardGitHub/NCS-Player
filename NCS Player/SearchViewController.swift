@@ -9,36 +9,42 @@
 import UIKit
 import AVFoundation
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     // ユーザーデフォルトインスタンス(参照)
     // let userDefaults = UserDefaults.standard
     
     // CoreData操作クラスインスタンス
-    let coreDataManager: CoreDataManager<String> = CoreDataManager<String>(setEntityName: GlobalVariableManager.shared.coreDataEntityName, attributeNames: GlobalVariableManager.shared.coreDataAttributes)
+    let coreDataManager: CoreDataManager<Any> = CoreDataManager<Any>(setEntityName: GlobalVariableManager.shared.coreDataEntityName, attributeNames: GlobalVariableManager.shared.coreDataAttributes)
     
-    // 検索結果用配列(1次元配列)
-//    var searchedResultsList: Array<String> = []
-    var searchedResultsList: Array<String>  = ["a", "b", "c"]
+    // 検索結果用配列(2次元配列)
+    var searchedResultList: Array<Array<Any>> = []
+    
+    var myPlayList: Array<Array<Any>> = []
 
     // Outlet接続
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchedResultsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchedResultsTableView.delegate = self
         self.searchedResultsTableView.dataSource = self
-        
-        let nib = UINib(nibName: "SubSearchViewController", bundle: nil)
-        searchedResultsTableView.register(nib, forCellReuseIdentifier: "searchviewtableviewcell")
-//        AddButton.layer.borderColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1) as! CGColor
-//        AddButton.layer.borderWidth = 1.0
-//        AddButton.layer.cornerRadius = 10.0 //丸みを数値で変更できます
-        
+        // デリゲート先を自分に設定
+        self.searchBar.delegate = self
+        // 何も入力されていなくてもReturnキーを押せるように設定
+        self.searchBar.enablesReturnKeyAutomatically = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let plistFilePath = Bundle.main.path(forResource: "Tunes", ofType:"plist")
+        searchedResultList = NSArray(contentsOfFile: plistFilePath!) as! Array<Array<Any>>
+        myPlayList = (coreDataManager.readAll() as! Array<Array<Any>>).filter{ $0[4] as! Bool == true }
     }
     
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        super.didReceiveMemoryWarning() 
     }
     
     // Section数
@@ -48,15 +54,45 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // TableViewのセルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchedResultsList.count
+        return searchedResultList.count
     }
     
     // 1行毎のセルの要素を設定する(表示する中身の設定)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         // セルのインスタンス化　文字列を表示するCell
-        let cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "searchviewtableviewcell", for: indexPath)
-        cell.textLabel?.text = searchedResultsList[indexPath.row]
-        cell.add
+        let cell: SubSearchViewController! = tableView.dequeueReusableCell(withIdentifier: "searchviewtableviewcell", for: indexPath) as! SubSearchViewController
+        cell.textLabel?.text = searchedResultList[indexPath.row][0] as! String
+        
+        if confirmRegistration(indexPathRow: indexPath.row) == true {
+            cell.AddButton.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
+            cell.AddButton.layer.borderWidth = 1.0
+            cell.AddButton.layer.cornerRadius = 5.0
+        } else {
+            cell.AddButton.isHidden = true
+        }
+//        以下の処理だとうまくいかない、下の関数を作成したがなんか美しくない、相談する
+//        for buffer in myPlayList {
+//            if (searchedResultList[indexPath.row][0] as! String != buffer[0] as! String) {
+//                cell.AddButton.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
+//                cell.AddButton.layer.borderWidth = 1.0
+//                cell.AddButton.layer.cornerRadius = 5.0
+//                print("break\(indexPath.row)")
+//                break
+//            } else {
+//                cell.AddButton.isHidden = true
+//            }
+//        }
         return cell
+    }
+    
+    func confirmRegistration(indexPathRow: Int) -> Bool {
+        var hoge: Bool = true
+        for buffer in myPlayList {
+            if (searchedResultList[indexPathRow][0] as! String == buffer[0] as! String) {
+                hoge = false
+            }
+        }
+        return hoge
     }
 }

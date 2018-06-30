@@ -41,6 +41,7 @@
 		4268008420BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4268008320BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 */; };
 		4268008620BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4268008520BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 */; };
 		426A5DB020C821ED00624F30 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426A5DAF20C821ED00624F30 /* AudioManager.swift */; };
+		426FDA6B20E7A10C00910969 /* Tunes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 426FDA6A20E7A10C00910969 /* Tunes.plist */; };
 		42BFACCA20C3BE5600AE8996 /* MyPlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BFACC920C3BE5600AE8996 /* MyPlayListViewController.swift */; };
 		42C8B69120CCED1D006C44C4 /* volumemaxicon256.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C8B69020CCED1D006C44C4 /* volumemaxicon256.png */; };
 		42C8B69320CCEE3B006C44C4 /* volumeminicon256.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C8B69220CCEE3B006C44C4 /* volumeminicon256.png */; };
@@ -83,6 +84,7 @@
 		4268008320BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Itro & Tobu-Cloud 9.mp3"; sourceTree = "<group>"; };
 		4268008520BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ehrling-Sthlm Sunset.mp3"; sourceTree = "<group>"; };
 		426A5DAF20C821ED00624F30 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		426FDA6A20E7A10C00910969 /* Tunes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Tunes.plist; sourceTree = "<group>"; };
 		4299AE1F20DA93040020A726 /* NCS Player.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NCS Player.entitlements"; sourceTree = "<group>"; };
 		42BFACC920C3BE5600AE8996 /* MyPlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlayListViewController.swift; sourceTree = "<group>"; };
 		42C8B69020CCED1D006C44C4 /* volumemaxicon256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volumemaxicon256.png; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				42168CFC20D2B16300B72D4F /* CoreDataManager.swift */,
 				4259E77820E6260F00DBE3B8 /* SearchViewController.swift */,
 				421BBB1A20E659FE0034E2DB /* SubSearchViewController.swift */,
+				426FDA6A20E7A10C00910969 /* Tunes.plist */,
 			);
 			path = "NCS Player";
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				4228B3B920BD18B200349913 /* LaunchScreen.storyboard in Resources */,
 				4259E77120E6245B00DBE3B8 /* Ehrling-Champagne Ocean.mp3 in Resources */,
 				425C0C6120C2EE2000BA1D2D /* darklogo512.png in Resources */,
+				426FDA6B20E7A10C00910969 /* Tunes.plist in Resources */,
 				4228B3B620BD18B200349913 /* Assets.xcassets in Resources */,
 				4259E77520E6247900DBE3B8 /* FortyThr33-Bay Breeze.mp3 in Resources */,
 				4259E77620E6247900DBE3B8 /* Tobu-Hope.mp3 in Resources */,

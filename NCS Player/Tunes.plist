@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<string>Cloud 9</string>
+		<string>Itro &amp; Tobu</string>
+		<string>Itro &amp; Tobu-Cloud 9</string>
+		<string>mp3</string>
+	</array>
+	<array>
+		<string>Sthlm Sunset</string>
+		<string>Ehrling</string>
+		<string>Ehrling-Sthlm Sunset</string>
+		<string>mp3</string>
+	</array>
+	<array>
+		<string>Sthlm Sunset</string>
+		<string>Ehrling</string>
+		<string>Ehrling-Sthlm Sunset</string>
+		<string>mp3</string>
+	</array>
+	<array>
+		<string>Candyland</string>
+		<string>Tobu</string>
+		<string>Tobu-Candyland</string>
+		<string>mp3</string>
+	</array>
+	<array>
+		<string>Dance With Me</string>
+		<string>Ehrling</string>
+		<string>Ehrling-Dance With Me</string>
+		<string>mp3</string>
+	</array>
+	<array>
+		<string>Bay Breeze</string>
+		<string>FortyThr33</string>
+		<string>FortyThr33-Bay Breeze</string>
+		<string>mp3</string>
+	</array>
+	<array>
+		<string>Good For You</string>
+		<string>THBD</string>
+		<string>THBD-Good For You</string>
+		<string>mp3</string>
+	</array>
+	<array>
+		<string>All I Need</string>
+		<string>Ehrling</string>
+		<string>Ehrling-All I Need</string>
+		<string>mp3</string>
+	</array>
+	<array>
+		<string>Fade</string>
+		<string>Alan Walker</string>
+		<string>Alan Walker-Fade</string>
+		<string>mp3</string>
+	</array>
+	<array>
+		<string>Champagne Ocean</string>
+		<string>Ehrling</string>
+		<string>Ehrling-Champagne Ocean</string>
+		<string>mp3</string>
+	</array>
+	<array>
+		<string>Hope</string>
+		<string>Tobu</string>
+		<string>Tobu-Hope</string>
+		<string>mp3</string>
+	</array>
+</array>
+</plist>

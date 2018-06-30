@@ -15,11 +15,11 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
     let userDefaults = UserDefaults.standard
     
     // CoreData操作クラスインスタンス
-    let coreDataManager: CoreDataManager<String> = CoreDataManager<String>(setEntityName: GlobalVariableManager.shared.coreDataEntityName, attributeNames: GlobalVariableManager.shared.coreDataAttributes)
+    let coreDataManager: CoreDataManager<Any> = CoreDataManager<Any>(setEntityName: GlobalVariableManager.shared.coreDataEntityName, attributeNames: GlobalVariableManager.shared.coreDataAttributes)
     
     // プレイリスト用配列(2次元配列)
     // [[String]] = [] でも同義
-    var myPlayList: Array<Array<String>> = []
+    var myPlayList: Array<Array<Any>> = []
     
     // タイマー関数用変数
     var playTimer: Timer!
@@ -66,7 +66,7 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
         // CoreDataからMyPlayListデータを取得
         // as! [[String]] = [] でも同義
         // 2次元配列の為ダウンキャストも2次元配列にする
-        myPlayList = coreDataManager.readAll() as! Array<Array<String>>
+        myPlayList = coreDataManager.readAll() as! Array<Array<Any>>
         
         if GlobalVariableManager.shared.tuneIndex != GlobalVariableManager.shared.playingTuneIndex {
             self.prepareTune()
@@ -78,8 +78,8 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
                 self.controlButton.setImage(UIImage(named: "playicon"), for: UIControlState())
             }
             // オーディオデータの読み込み以外はprepareTune()と同処理
-            self.titleLabel.text = myPlayList[GlobalVariableManager.shared.tuneIndex!][0]
-            self.artistLabel.text = myPlayList[GlobalVariableManager.shared.tuneIndex!][1]
+            self.titleLabel.text = myPlayList[GlobalVariableManager.shared.tuneIndex!][0] as! String
+            self.artistLabel.text = myPlayList[GlobalVariableManager.shared.tuneIndex!][1] as! String
             self.volumeSlider.value = AudioManager.shared.audioVolume
             self.playbackPositionSlider.maximumValue = Float((AudioManager.shared.audioBuffer?.duration)!)
             self.playbackPositionSlider.value = Float((AudioManager.shared.audioBuffer?.currentTime)!)
@@ -395,10 +395,10 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
     
     // オーディオデータの読み込みに伴う処理関数
     func prepareTune() {
-        AudioManager.shared.load(fileName: self.myPlayList[GlobalVariableManager.shared.tuneIndex][2], fileExtension: self.myPlayList[GlobalVariableManager.shared.tuneIndex][3])
+        AudioManager.shared.load(fileName: self.myPlayList[GlobalVariableManager.shared.tuneIndex][2] as! String, fileExtension: self.myPlayList[GlobalVariableManager.shared.tuneIndex][3] as! String)
         // 曲名とアーティスト名取得
-        self.titleLabel.text = self.myPlayList[GlobalVariableManager.shared.tuneIndex!][0]
-        self.artistLabel.text = self.myPlayList[GlobalVariableManager.shared.tuneIndex!][1]
+        self.titleLabel.text = self.myPlayList[GlobalVariableManager.shared.tuneIndex!][0] as! String
+        self.artistLabel.text = self.myPlayList[GlobalVariableManager.shared.tuneIndex!][1] as! String
         self.volumeSlider.value = AudioManager.shared.audioVolume
         // スライダーの最大値と音楽ファイルの長さを同期
         // スライダーの値はFloat型になるのでFloat型にキャスト変換
