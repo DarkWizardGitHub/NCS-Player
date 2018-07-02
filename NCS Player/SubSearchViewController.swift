@@ -49,23 +49,28 @@ class SubSearchViewController: UITableViewCell {
         //        isFavorite = false
     }
 
-    // CoreData(MyPlayList)へデータ追加処理
+    // CoreData(MyPlayList)のデータ追加/削除処理
     @IBAction func pushAddButton(_ sender: UIButton) {
-        // 登録済みの場合の処理
         if confirmRegistration(indexPathRow: self.tag) == true {
+            // 登録済みの場合の処理
             AddButton.setImage(UIImage(named: "addicon"), for: UIControlState())
             AddButton.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
             AddButton.layer.cornerRadius = 5.0
             print("Delete")
-        // 未登録の場合の処理
+            // CoreDataのデータ削除
+            coreDataManager.delete(attribute: GlobalVariableManager.shared.coreDataAttributes[0], relationalOperator: "=", placeholder: "%@", targetValue: searchedResultList[self.tag][0] as! String)
+            // myPlayList更新
+            GlobalVariableManager.shared.myPlayList = (coreDataManager.readAll() as! Array<Array<String>>)
         } else {
+            // 未登録の場合の処理
             AddButton.setImage(UIImage(named: "deleteicon"), for: UIControlState())
-            AddButton.backgroundColor = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 1)
+            AddButton.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
             AddButton.layer.cornerRadius = 5.0
             print("Add")
+            // CoreDataにデータ追加
             coreDataManager.create(values: searchedResultList[self.tag] as! [String])
+            // myPlayList更新
             GlobalVariableManager.shared.myPlayList = (coreDataManager.readAll() as! Array<Array<String>>)
-            print("アドボタン\(GlobalVariableManager.shared.myPlayList)")
         }
 //        print("Add")
 //        print(self.textLabel?.text)

@@ -64,7 +64,7 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
         // 2次元配列の為ダウンキャストも2次元配列にする
 //        myPlayList = (coreDataManager.readAll() as! Array<Array<Any>>).filter{ $0[4] as! Bool == true }
         GlobalVariableManager.shared.myPlayList = coreDataManager.readAll() as! Array<Array<String>>
-        print("マイプレイリスト\(GlobalVariableManager.shared.myPlayList)")
+//        print("マイプレイリスト\(GlobalVariableManager.shared.myPlayList)")
 //        こいつを入れないとGlobalVariableManager.shared.myPlayListを更新してもテーブルセルの更新が行われない
 //        おかゆさんに質問する事
         playListTableView.reloadData()
@@ -100,7 +100,6 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // TableViewのセルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("*************\(GlobalVariableManager.shared.myPlayList.count)")
         return GlobalVariableManager.shared.myPlayList.count
     }
     
@@ -108,7 +107,6 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルのインスタンス化　文字列を表示するCell
         let cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "myplaylistviewtableviewcell", for: indexPath)
-        print("==============\(indexPath.row)")
         cell.textLabel?.text = GlobalVariableManager.shared.myPlayList[indexPath.row][0]
         return cell
     }

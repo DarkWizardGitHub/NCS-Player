@@ -41,6 +41,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let plistFilePath = Bundle.main.path(forResource: "Tunes", ofType:"plist")
         searchedResultList = NSArray(contentsOfFile: plistFilePath!) as! Array<Array<Any>>
         GlobalVariableManager.shared.myPlayList = (coreDataManager.readAll() as! Array<Array<String>>)
+        searchedResultsTableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,7 +66,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.textLabel?.text = searchedResultList[indexPath.row][0] as! String
         if confirmRegistration(indexPathRow: indexPath.row) == true {
             cell.AddButton.setImage(UIImage(named: "deleteicon"), for: UIControlState())
-            cell.AddButton.backgroundColor = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 1)
+            cell.AddButton.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
             cell.AddButton.layer.cornerRadius = 5.0
             // 未登録の場合の処理
         } else {
