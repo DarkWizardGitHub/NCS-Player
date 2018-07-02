@@ -15,16 +15,18 @@ class GlobalVariableManager: NSObject {
     // シングルトンパターンはインスタンスが1個しか生成されないことを保証したい時に使用
     static let shared = GlobalVariableManager()
     
+    // MyPlayList用配列(2次元配列)
+    var myPlayList: Array<Array<String>> = [] 
+    
     var tuneIndex: Int!
     var playingTuneIndex: Int!
     var coreDataAttributes: [String]
     let coreDataEntityName: String
+
     
     // シングルトンの唯一性を保証するためprivateにする
     private override init() {
-        coreDataAttributes = ["tune_name", "artist_name", "file_name", "file_extension", "myplaylist_status"]
+        coreDataAttributes = ["tune_name", "artist_name", "file_name", "file_extension"]
         coreDataEntityName = "Tunes"
     }
 }
-
-//myPlayList変数のグローバル化

@@ -15,12 +15,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // let userDefaults = UserDefaults.standard
     
     // CoreData操作クラスインスタンス
-    let coreDataManager: CoreDataManager<Any> = CoreDataManager<Any>(setEntityName: GlobalVariableManager.shared.coreDataEntityName, attributeNames: GlobalVariableManager.shared.coreDataAttributes)
+    let coreDataManager: CoreDataManager<String> = CoreDataManager<String>(setEntityName: GlobalVariableManager.shared.coreDataEntityName, attributeNames: GlobalVariableManager.shared.coreDataAttributes)
     
     // 検索結果用配列(2次元配列)
     var searchedResultList: Array<Array<Any>> = []
     
-    var myPlayList: Array<Array<Any>> = []
+//    var myPlayList: Array<Array<String>> = []
 
     // Outlet接続
     @IBOutlet weak var searchBar: UISearchBar!
@@ -40,7 +40,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewWillAppear(animated)
         let plistFilePath = Bundle.main.path(forResource: "Tunes", ofType:"plist")
         searchedResultList = NSArray(contentsOfFile: plistFilePath!) as! Array<Array<Any>>
-        myPlayList = (coreDataManager.readAll() as! Array<Array<Any>>).filter{ $0[4] as! Bool == true }
+        GlobalVariableManager.shared.myPlayList = (coreDataManager.readAll() as! Array<Array<String>>)
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,36 +63,32 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // セルのインスタンス化　文字列を表示するCell
         let cell: SubSearchViewController! = tableView.dequeueReusableCell(withIdentifier: "searchviewtableviewcell", for: indexPath) as! SubSearchViewController
         cell.textLabel?.text = searchedResultList[indexPath.row][0] as! String
-        
         if confirmRegistration(indexPathRow: indexPath.row) == true {
-            cell.AddButton.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
-            cell.AddButton.layer.borderWidth = 1.0
+            cell.AddButton.setImage(UIImage(named: "deleteicon"), for: UIControlState())
+            cell.AddButton.backgroundColor = UIColor(red: 100/255, green: 100/255, blue: 100/255, alpha: 1)
             cell.AddButton.layer.cornerRadius = 5.0
+            // 未登録の場合の処理
         } else {
-            cell.AddButton.isHidden = true
+            cell.AddButton.setImage(UIImage(named: "addicon"), for: UIControlState())
+            cell.AddButton.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
+            cell.AddButton.layer.cornerRadius = 5.0
         }
-//        以下の処理だとうまくいかない、下の関数を作成したがなんか美しくない、相談する
-//        for buffer in myPlayList {
-//            if (searchedResultList[indexPath.row][0] as! String != buffer[0] as! String) {
-//                cell.AddButton.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
-//                cell.AddButton.layer.borderWidth = 1.0
-//                cell.AddButton.layer.cornerRadius = 5.0
-//                print("break\(indexPath.row)")
-//                break
-//            } else {
-//                cell.AddButton.isHidden = true
-//            }
-//        }
+        
+//        検証１：選択されたセルのindex格納候補
+        cell.tag = indexPath.row
+//        print("親\(cell.tag)")
         return cell
     }
     
+    // 既にMyPlayListに登録されているか確認する処理
+    // 既に登録されていた場合はtrueを返す
     func confirmRegistration(indexPathRow: Int) -> Bool {
-        var hoge: Bool = true
-        for buffer in myPlayList {
-            if (searchedResultList[indexPathRow][0] as! String == buffer[0] as! String) {
-                hoge = false
+        var returnValue: Bool = false
+        for buffer in GlobalVariableManager.shared.myPlayList {
+            if (searchedResultList[indexPathRow][0] as! String == buffer[0]) {
+                returnValue = true
             }
         }
-        return hoge
+        return returnValue
     }
 }

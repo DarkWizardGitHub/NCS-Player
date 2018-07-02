@@ -32,6 +32,8 @@
 		4259E77920E6260F00DBE3B8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4259E77820E6260F00DBE3B8 /* SearchViewController.swift */; };
 		425C0C6120C2EE2000BA1D2D /* darklogo512.png in Resources */ = {isa = PBXBuildFile; fileRef = 425C0C6020C2EE2000BA1D2D /* darklogo512.png */; };
 		425C0C6320C2F36600BA1D2D /* playbackpositioncursor.png in Resources */ = {isa = PBXBuildFile; fileRef = 425C0C6220C2F36600BA1D2D /* playbackpositioncursor.png */; };
+		425C4E1E20E9EE60000BAC04 /* addicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 425C4E1D20E9EE60000BAC04 /* addicon.png */; };
+		425C4E2220E9EFF2000BAC04 /* deleteicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 425C4E2120E9EFF2000BAC04 /* deleteicon.png */; };
 		4260B75C20CE380500D27312 /* normalmodeicon128.png in Resources */ = {isa = PBXBuildFile; fileRef = 4260B75B20CE380500D27312 /* normalmodeicon128.png */; };
 		4260B75F20CE380F00D27312 /* shufflemodeicon128.png in Resources */ = {isa = PBXBuildFile; fileRef = 4260B75D20CE380F00D27312 /* shufflemodeicon128.png */; };
 		4260B76020CE380F00D27312 /* repeatmodeicon128.png in Resources */ = {isa = PBXBuildFile; fileRef = 4260B75E20CE380F00D27312 /* repeatmodeicon128.png */; };
@@ -75,6 +77,8 @@
 		4259E77820E6260F00DBE3B8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		425C0C6020C2EE2000BA1D2D /* darklogo512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darklogo512.png; sourceTree = "<group>"; };
 		425C0C6220C2F36600BA1D2D /* playbackpositioncursor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbackpositioncursor.png; sourceTree = "<group>"; };
+		425C4E1D20E9EE60000BAC04 /* addicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addicon.png; sourceTree = "<group>"; };
+		425C4E2120E9EFF2000BAC04 /* deleteicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteicon.png; sourceTree = "<group>"; };
 		4260B75B20CE380500D27312 /* normalmodeicon128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normalmodeicon128.png; sourceTree = "<group>"; };
 		4260B75D20CE380F00D27312 /* shufflemodeicon128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shufflemodeicon128.png; sourceTree = "<group>"; };
 		4260B75E20CE380F00D27312 /* repeatmodeicon128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repeatmodeicon128.png; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 		4257E4E620BFD13800B9AD26 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				425C4E2120E9EFF2000BAC04 /* deleteicon.png */,
+				425C4E1D20E9EE60000BAC04 /* addicon.png */,
 				4260B75E20CE380F00D27312 /* repeatmodeicon128.png */,
 				4260B75D20CE380F00D27312 /* shufflemodeicon128.png */,
 				4260B75B20CE380500D27312 /* normalmodeicon128.png */,
@@ -281,10 +287,12 @@
 				4260B75F20CE380F00D27312 /* shufflemodeicon128.png in Resources */,
 				4268008420BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 in Resources */,
 				4257E4ED20BFD16400B9AD26 /* backicon.png in Resources */,
+				425C4E2220E9EFF2000BAC04 /* deleteicon.png in Resources */,
 				42657FA020C438C10034FA19 /* Ehrling-Dance With Me.mp3 in Resources */,
 				42657FA120C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 in Resources */,
 				4260B76020CE380F00D27312 /* repeatmodeicon128.png in Resources */,
 				4260B75C20CE380500D27312 /* normalmodeicon128.png in Resources */,
+				425C4E1E20E9EE60000BAC04 /* addicon.png in Resources */,
 				4257E4F020BFD16400B9AD26 /* stopicon.png in Resources */,
 				42C8B69320CCEE3B006C44C4 /* volumeminicon256.png in Resources */,
 				4259E76F20E6245B00DBE3B8 /* Alan Walker-Fade.mp3 in Resources */,
@@ -460,7 +468,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9BTV2MB557;
 				INFOPLIST_FILE = "NCS Player/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -481,7 +489,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9BTV2MB557;
 				INFOPLIST_FILE = "NCS Player/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

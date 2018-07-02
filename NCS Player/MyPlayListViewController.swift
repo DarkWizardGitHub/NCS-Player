@@ -18,15 +18,14 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
     // let userDefaults = UserDefaults.standard
 
     // CoreData操作クラスインスタンス
-    let coreDataManager: CoreDataManager<Any> = CoreDataManager<Any>(setEntityName: GlobalVariableManager.shared.coreDataEntityName, attributeNames: GlobalVariableManager.shared.coreDataAttributes)
+    let coreDataManager: CoreDataManager<String> = CoreDataManager<String>(setEntityName: GlobalVariableManager.shared.coreDataEntityName, attributeNames: GlobalVariableManager.shared.coreDataAttributes)
 
     // プレイリスト用配列(2次元配列)
     // [[String]] = [] でも同義
-     var myPlayList: Array<Array<Any>> = []
-    var test: Array<Array<Any>> = []
+//     var myPlayList: Array<Array<String>> = []
     
     // Sectionのタイトルr
-    let sectionTitle: NSArray = ["   My PlayList"]
+    let sectionTitle: NSArray = ["   My Playlist"]
     
     @IBOutlet weak var playListTableView: UITableView!
     
@@ -48,9 +47,10 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
         
 //        ***Debug用/初期リストCoreData格納***
 //        var hoge = [["Cloud 9", "Itro & Tobu", "Itro & Tobu-Cloud 9", "mp3", true],["Sthlm Sunset", "Ehrling", "Ehrling-Sthlm Sunset", "mp3", false],["Sunburst", "Tobu & Itro", "Tobu & Itro-Sunburst", "mp3", false],["Candyland", "Tobu", "Tobu-Candyland", "mp3", false],["Dance With Me", "Ehrling", "Ehrling-Dance With Me", "mp3", false],["Bay Breeze", "FortyThr33", "FortyThr33-Bay Breeze", "mp3", false],["Good For You", "THBD", "THBD-Good For You", "mp3", false],["Hope", "Tobu", "Tobu-Hope", "mp3", false],["Fade", "Alan Walker", "Alan Walker-Fade", "mp3", false],["All I Need", "Ehrling", "Ehrling-All I Need", "mp3", false],["Champagne Ocean", "Ehrling", "Ehrling-Champagne Ocean", "mp3", true]]
+//            var hoge = [["All I Need", "Ehrling", "Ehrling-All I Need", "mp3"]]
 //         UserdefaultsでmyPlayListを取得した場合、CoreDataManagerクラス側の引数が1次元配列の為foreachで回す
 //                 hoge.forEach {
-//                    coreDataManager.create(values: $0 as! [Any])
+//                    coreDataManager.create(values: $0 as! [String])
 //                 }
         // ***Debug用/初期リストCoreData格納***
         
@@ -62,7 +62,12 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
         
         // CoreDataからMyPlayListデータを取得
         // 2次元配列の為ダウンキャストも2次元配列にする
-        myPlayList = (coreDataManager.readAll() as! Array<Array<Any>>).filter{ $0[4] as! Bool == true }
+//        myPlayList = (coreDataManager.readAll() as! Array<Array<Any>>).filter{ $0[4] as! Bool == true }
+        GlobalVariableManager.shared.myPlayList = coreDataManager.readAll() as! Array<Array<String>>
+        print("マイプレイリスト\(GlobalVariableManager.shared.myPlayList)")
+//        こいつを入れないとGlobalVariableManager.shared.myPlayListを更新してもテーブルセルの更新が行われない
+//        おかゆさんに質問する事
+        playListTableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -95,14 +100,16 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // TableViewのセルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myPlayList.count
+        print("*************\(GlobalVariableManager.shared.myPlayList.count)")
+        return GlobalVariableManager.shared.myPlayList.count
     }
     
     // 1行毎のセルの要素を設定する(表示する中身の設定)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルのインスタンス化　文字列を表示するCell
         let cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "myplaylistviewtableviewcell", for: indexPath)
-        cell.textLabel?.text = myPlayList[indexPath.row][0] as! String
+        print("==============\(indexPath.row)")
+        cell.textLabel?.text = GlobalVariableManager.shared.myPlayList[indexPath.row][0]
         return cell
     }
     
@@ -110,9 +117,9 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
         let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "DELETE") { (action, index) -> Void in
 
             // データベースから要素を削除
-            self.coreDataManager.delete(attribute: GlobalVariableManager.shared.coreDataAttributes[0], relationalOperator: "=", placeholder: "%@", targetValue: self.myPlayList[indexPath.row][0] as! String)
+            self.coreDataManager.delete(attribute: GlobalVariableManager.shared.coreDataAttributes[0], relationalOperator: "=", placeholder: "%@", targetValue: GlobalVariableManager.shared.myPlayList[indexPath.row][0])
             // removeで配列から要素削除
-            self.myPlayList.remove(at: indexPath.row)
+            GlobalVariableManager.shared.myPlayList.remove(at: indexPath.row)
             // deleteRowsでセルから要素を削除
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
