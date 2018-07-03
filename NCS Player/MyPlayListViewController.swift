@@ -63,7 +63,7 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
         // CoreDataからMyPlayListデータを取得
         // 2次元配列の為ダウンキャストも2次元配列にする
 //        myPlayList = (coreDataManager.readAll() as! Array<Array<Any>>).filter{ $0[4] as! Bool == true }
-        GlobalVariableManager.shared.myPlayList = coreDataManager.readAll() as! Array<Array<String>>
+        GlobalVariableManager.shared.playList = coreDataManager.readAll() as! Array<Array<String>>
 //        print("マイプレイリスト\(GlobalVariableManager.shared.myPlayList)")
 //        こいつを入れないとGlobalVariableManager.shared.myPlayListを更新してもテーブルセルの更新が行われない
 //        おかゆさんに質問する事
@@ -100,14 +100,14 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
     
     // TableViewのセルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return GlobalVariableManager.shared.myPlayList.count
+        return GlobalVariableManager.shared.playList.count
     }
     
     // 1行毎のセルの要素を設定する(表示する中身の設定)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルのインスタンス化　文字列を表示するCell
         let cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "myplaylistviewtableviewcell", for: indexPath)
-        cell.textLabel?.text = GlobalVariableManager.shared.myPlayList[indexPath.row][0]
+        cell.textLabel?.text = GlobalVariableManager.shared.playList[indexPath.row][0]
         return cell
     }
     
@@ -115,9 +115,9 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
         let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "DELETE") { (action, index) -> Void in
 
             // データベースから要素を削除
-            self.coreDataManager.delete(attribute: GlobalVariableManager.shared.coreDataAttributes[0], relationalOperator: "=", placeholder: "%@", targetValue: GlobalVariableManager.shared.myPlayList[indexPath.row][0])
+            self.coreDataManager.delete(attribute: GlobalVariableManager.shared.coreDataAttributes[0], relationalOperator: "=", placeholder: "%@", targetValue: GlobalVariableManager.shared.playList[indexPath.row][0])
             // removeで配列から要素削除
-            GlobalVariableManager.shared.myPlayList.remove(at: indexPath.row)
+            GlobalVariableManager.shared.playList.remove(at: indexPath.row)
             // deleteRowsでセルから要素を削除
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -129,6 +129,8 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
     // セルをタップしたら遷移する
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        // 遷移元のViewController名
+        GlobalVariableManager.shared.callerViewName = "MyPlayListViewController"
         // 選択した曲番号(配列のインデックス)を格納
         GlobalVariableManager.shared.tuneIndex = indexPath.row
         // セグエの名前を指定して画面遷移を発動

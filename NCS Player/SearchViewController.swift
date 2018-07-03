@@ -12,7 +12,7 @@
 //ナビコンが悪さしているか？
 
 //やる事
-//ソート機能、曲名とアーティスト名
+//ソート機能、曲名OKとアーティスト名YET
 //オートレイアウト見直し、色が濃くなる事象解決
 //ストリーミング再生
 //ローカルストレージ再生
@@ -42,8 +42,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // 検索結果用配列(2次元配列)
     var searchedResultList: Array<Array<Any>> = []
-    
-//    var myPlayList: Array<Array<String>> = []
 
     // Outlet接続
     @IBOutlet weak var searchBar: UISearchBar!
@@ -62,7 +60,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         searchedResultList = NSArray(contentsOfFile: plistFilePath!) as! Array<Array<Any>>
-        GlobalVariableManager.shared.myPlayList = (coreDataManager.readAll() as! Array<Array<String>>)
+        GlobalVariableManager.shared.playList = (coreDataManager.readAll() as! Array<Array<String>>)
         searchedResultsTableView.reloadData()
     }
     
@@ -97,9 +95,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.AddButton.layer.cornerRadius = 5.0
         }
         
-//        検証１：選択されたセルのindex格納候補
+        // 選択されたセルindex格納をtagに格納
         cell.tag = indexPath.row
-//        print("親\(cell.tag)")
         return cell
     }
     
@@ -136,18 +133,19 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // セルをタップしたら遷移する
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("tap")
-//        // 選択した曲番号(配列のインデックス)を格納
-//        GlobalVariableManager.shared.tuneIndex = indexPath.row
-//        // セグエの名前を指定して画面遷移を発動
-//        performSegue(withIdentifier: "segue1", sender: nil)
+        // 遷移元のViewController名
+        GlobalVariableManager.shared.callerViewName = "SearchViewController"
+        // 選択した曲番号(配列のインデックス)を格納
+        GlobalVariableManager.shared.tuneIndex = indexPath.row
+        // セグエの名前を指定して画面遷移を発動
+        performSegue(withIdentifier: "segue2", sender: nil)
     }
     
     // 既にMyPlayListに登録されているか確認する処理
     // 既に登録されていた場合はtrueを返す
     func confirmRegistration(indexPathRow: Int) -> Bool {
         var returnValue: Bool = false
-        for buffer in GlobalVariableManager.shared.myPlayList {
+        for buffer in GlobalVariableManager.shared.playList {
             if (searchedResultList[indexPathRow][0] as! String == buffer[0]) {
                 returnValue = true
             }

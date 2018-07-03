@@ -16,13 +16,14 @@ class GlobalVariableManager: NSObject {
     static let shared = GlobalVariableManager()
     
     // MyPlayList用配列(2次元配列)
-    var myPlayList: Array<Array<String>> = [] 
+    // [[String]] = [] でも同義
+    var playList: Array<Array<String>> = []
     
+    var callerViewName: String!
     var tuneIndex: Int!
     var playingTuneIndex: Int!
     var coreDataAttributes: [String]
     let coreDataEntityName: String
-
     
     // シングルトンの唯一性を保証するためprivateにする
     private override init() {
