@@ -6,6 +6,26 @@
 //  Copyright © 2018年 Dark. All rights reserved.
 //
 
+
+//おかゆさんに聞く事
+//このViewからセルタップするとsegueの処理書いてないのにプレイヤーViewに飛ぶ。。。
+//ナビコンが悪さしているか？
+
+//やる事
+//ソート機能、曲名とアーティスト名
+//オートレイアウト見直し、色が濃くなる事象解決
+//ストリーミング再生
+//ローカルストレージ再生
+//アーティストページ
+//設定兼、自己サイトリンク兼、課金系機能制限
+//ノーマルモード時に曲名変わらない？再現できず
+
+
+
+
+
+
+
 import UIKit
 import AVFoundation
 
@@ -16,6 +36,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // CoreData操作クラスインスタンス
     let coreDataManager: CoreDataManager<String> = CoreDataManager<String>(setEntityName: GlobalVariableManager.shared.coreDataEntityName, attributeNames: GlobalVariableManager.shared.coreDataAttributes)
+    
+    // plistファイルパス
+    let plistFilePath = Bundle.main.path(forResource: "Tunes", ofType:"plist")
     
     // 検索結果用配列(2次元配列)
     var searchedResultList: Array<Array<Any>> = []
@@ -38,7 +61,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let plistFilePath = Bundle.main.path(forResource: "Tunes", ofType:"plist")
         searchedResultList = NSArray(contentsOfFile: plistFilePath!) as! Array<Array<Any>>
         GlobalVariableManager.shared.myPlayList = (coreDataManager.readAll() as! Array<Array<String>>)
         searchedResultsTableView.reloadData()
@@ -79,6 +101,46 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.tag = indexPath.row
 //        print("親\(cell.tag)")
         return cell
+    }
+    
+    // 検索機能
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        var sortedValue: Array<Array<Any>> = []
+        
+        searchBar.endEditing(true)
+        // 検索結果配列初期化
+        searchedResultList.removeAll()
+        
+        if(searchBar.text == "") {
+            // 検索文字列が空の場合は全件取得
+            searchedResultList = NSArray(contentsOfFile: plistFilePath!) as! Array<Array<Any>>
+        } else {
+            // 参照用に全件取得
+            searchedResultList = NSArray(contentsOfFile: plistFilePath!) as! Array<Array<Any>>
+            // 検索文字列を含むデータを抽出
+            for buffer in searchedResultList {
+                if ((buffer[0]) as AnyObject).contains(searchBar.text!) {
+                    print(buffer[0])
+                    sortedValue.append(buffer)
+                    print(sortedValue)
+                }
+            }
+            // 検索文字列を含むデータを検索結果配列に追加
+            searchedResultList.removeAll()
+            searchedResultList = sortedValue
+        }
+        // View更新
+        searchedResultsTableView.reloadData()
+    }
+    
+    // セルをタップしたら遷移する
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("tap")
+//        // 選択した曲番号(配列のインデックス)を格納
+//        GlobalVariableManager.shared.tuneIndex = indexPath.row
+//        // セグエの名前を指定して画面遷移を発動
+//        performSegue(withIdentifier: "segue1", sender: nil)
     }
     
     // 既にMyPlayListに登録されているか確認する処理

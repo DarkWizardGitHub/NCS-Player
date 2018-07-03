@@ -40,6 +40,7 @@
                         <color key="selectedImageTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
+                        <segue destination="HXS-N5-RAt" kind="relationship" relationship="viewControllers" id="Jdz-L3-0Ls"/>
                         <segue destination="z5q-bJ-Ey9" kind="relationship" relationship="viewControllers" id="Der-WS-lrO"/>
                         <segue destination="c64-mt-Pl8" kind="relationship" relationship="viewControllers" id="ddV-kx-WOc"/>
                         <segue destination="FDx-QL-PoA" kind="relationship" relationship="viewControllers" id="2mE-Jz-18d"/>
@@ -143,6 +144,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7VJ-K6-xdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="264" y="-638"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7xj-eQ-Hdx">
+            <objects>
+                <viewController id="HXS-N5-RAt" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TXy-jz-toi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="LsQ-Rd-Lie"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="DarkIcon" selectedImage="DarkIcon" id="Wa1-9E-UEc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nq3-pJ-kUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-897" y="1617"/>
         </scene>
         <!--My Play List View Controller-->
         <scene sceneID="Az6-be-JQZ">
@@ -410,6 +427,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DarkIcon" width="30" height="30"/>
         <image name="MyPlayListIcon" width="30" height="30"/>
         <image name="SearchIcon" width="30" height="30"/>
         <image name="WebIcon" width="30" height="30"/>
