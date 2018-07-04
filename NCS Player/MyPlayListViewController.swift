@@ -24,7 +24,7 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
     // [[String]] = [] でも同義
 //     var myPlayList: Array<Array<String>> = []
     
-    // Sectionのタイトルr
+    // Sectionのタイトル
     let sectionTitle: NSArray = ["   My Playlist"]
     
     @IBOutlet weak var playListTableView: UITableView!
@@ -134,7 +134,7 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
         // 選択した曲番号(配列のインデックス)を格納
         GlobalVariableManager.shared.tuneIndex = indexPath.row
         // セグエの名前を指定して画面遷移を発動
-        performSegue(withIdentifier: "segue1", sender: nil)
+        performSegue(withIdentifier: "segue2", sender: nil)
     }
 
 }

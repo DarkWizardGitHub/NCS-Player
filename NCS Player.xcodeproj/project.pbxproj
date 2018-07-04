@@ -23,6 +23,8 @@
 		4257E4EE20BFD16400B9AD26 /* nexticon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257E4E920BFD16400B9AD26 /* nexticon.png */; };
 		4257E4EF20BFD16400B9AD26 /* playicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257E4EA20BFD16400B9AD26 /* playicon.png */; };
 		4257E4F020BFD16400B9AD26 /* stopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257E4EB20BFD16400B9AD26 /* stopicon.png */; };
+		4258D35220EC919A00F6A337 /* ArtistInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4258D35120EC919A00F6A337 /* ArtistInformationViewController.swift */; };
+		4258D35420EC9DF600F6A337 /* Artist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4258D35320EC9DF600F6A337 /* Artist.plist */; };
 		4259E76F20E6245B00DBE3B8 /* Alan Walker-Fade.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4259E76C20E6245B00DBE3B8 /* Alan Walker-Fade.mp3 */; };
 		4259E77020E6245B00DBE3B8 /* Ehrling-All I Need.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4259E76D20E6245B00DBE3B8 /* Ehrling-All I Need.mp3 */; };
 		4259E77120E6245B00DBE3B8 /* Ehrling-Champagne Ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4259E76E20E6245B00DBE3B8 /* Ehrling-Champagne Ocean.mp3 */; };
@@ -68,6 +70,8 @@
 		4257E4E920BFD16400B9AD26 /* nexticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nexticon.png; sourceTree = "<group>"; };
 		4257E4EA20BFD16400B9AD26 /* playicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playicon.png; sourceTree = "<group>"; };
 		4257E4EB20BFD16400B9AD26 /* stopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopicon.png; sourceTree = "<group>"; };
+		4258D35120EC919A00F6A337 /* ArtistInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInformationViewController.swift; sourceTree = "<group>"; };
+		4258D35320EC9DF600F6A337 /* Artist.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Artist.plist; sourceTree = "<group>"; };
 		4259E76C20E6245B00DBE3B8 /* Alan Walker-Fade.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Alan Walker-Fade.mp3"; sourceTree = "<group>"; };
 		4259E76D20E6245B00DBE3B8 /* Ehrling-All I Need.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ehrling-All I Need.mp3"; sourceTree = "<group>"; };
 		4259E76E20E6245B00DBE3B8 /* Ehrling-Champagne Ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ehrling-Champagne Ocean.mp3"; sourceTree = "<group>"; };
@@ -146,7 +150,9 @@
 				42168CFC20D2B16300B72D4F /* CoreDataManager.swift */,
 				4259E77820E6260F00DBE3B8 /* SearchViewController.swift */,
 				421BBB1A20E659FE0034E2DB /* SubSearchViewController.swift */,
+				4258D35120EC919A00F6A337 /* ArtistInformationViewController.swift */,
 				426FDA6A20E7A10C00910969 /* Tunes.plist */,
+				4258D35320EC9DF600F6A337 /* Artist.plist */,
 			);
 			path = "NCS Player";
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 				4228B3B420BD18B000349913 /* Main.storyboard in Resources */,
 				4257E4EF20BFD16400B9AD26 /* playicon.png in Resources */,
 				4257E4EE20BFD16400B9AD26 /* nexticon.png in Resources */,
+				4258D35420EC9DF600F6A337 /* Artist.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +321,7 @@
 				42BFACCA20C3BE5600AE8996 /* MyPlayListViewController.swift in Sources */,
 				4228B3B120BD18B000349913 /* AudioPlayerViewController.swift in Sources */,
 				421BBB1B20E659FE0034E2DB /* SubSearchViewController.swift in Sources */,
+				4258D35220EC919A00F6A337 /* ArtistInformationViewController.swift in Sources */,
 				42168CFB20D2756A00B72D4F /* Tunes+CoreDataProperties.swift in Sources */,
 				42168CEF20D253F800B72D4F /* Tunes.xcdatamodeld in Sources */,
 				4259E77920E6260F00DBE3B8 /* SearchViewController.swift in Sources */,

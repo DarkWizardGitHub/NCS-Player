@@ -6,11 +6,6 @@
 //  Copyright © 2018年 Dark. All rights reserved.
 //
 
-
-//おかゆさんに聞く事
-//このViewからセルタップするとsegueの処理書いてないのにプレイヤーViewに飛ぶ。。。
-//ナビコンが悪さしているか？
-
 //やる事
 //ソート機能、曲名OKとアーティスト名YET
 //オートレイアウト見直し、色が濃くなる事象解決
@@ -19,12 +14,6 @@
 //アーティストページ
 //設定兼、自己サイトリンク兼、課金系機能制限
 //ノーマルモード時に曲名変わらない？再現できず
-
-
-
-
-
-
 
 import UIKit
 import AVFoundation
@@ -44,7 +33,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var searchedResultList: Array<Array<Any>> = []
 
     // Outlet接続
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tuneSearchBar: UISearchBar!
     @IBOutlet weak var searchedResultsTableView: UITableView!
     
     override func viewDidLoad() {
@@ -52,15 +41,16 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.searchedResultsTableView.delegate = self
         self.searchedResultsTableView.dataSource = self
         // デリゲート先を自分に設定
-        self.searchBar.delegate = self
+        self.tuneSearchBar.delegate = self
         // 何も入力されていなくてもReturnキーを押せるように設定
-        self.searchBar.enablesReturnKeyAutomatically = false
+        self.tuneSearchBar.enablesReturnKeyAutomatically = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        searchedResultList = NSArray(contentsOfFile: plistFilePath!) as! Array<Array<Any>>
-        GlobalVariableManager.shared.playList = (coreDataManager.readAll() as! Array<Array<String>>)
+        // sorted{}内で第一引数$0と第二引数$1の先頭の要素(曲名)を比較しアルファベット順に並び替え
+        searchedResultList = (NSArray(contentsOfFile: plistFilePath!) as! Array<Array<Any>>).sorted{ ($0[0] as! String) < ($1[0] as! String) }
+        GlobalVariableManager.shared.playList = coreDataManager.readAll() as! Array<Array<String>>
         searchedResultsTableView.reloadData()
     }
     
@@ -102,10 +92,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // 検索機能
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        //キーボードを閉じる
+        searchBar.endEditing(true)
+    }
+    
+    // 入力中検索機能
+    // テキスト変更時の呼び出しメソッド
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         var sortedValue: Array<Array<Any>> = []
-        
-        searchBar.endEditing(true)
         // 検索結果配列初期化
         searchedResultList.removeAll()
         
@@ -138,7 +133,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // 選択した曲番号(配列のインデックス)を格納
         GlobalVariableManager.shared.tuneIndex = indexPath.row
         // セグエの名前を指定して画面遷移を発動
-        performSegue(withIdentifier: "segue2", sender: nil)
+        performSegue(withIdentifier: "segue1", sender: nil)
     }
     
     // 既にMyPlayListに登録されているか確認する処理

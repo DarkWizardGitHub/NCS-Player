@@ -60,17 +60,18 @@
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="kPW-K2-WMt">
                                 <rect key="frame" x="0.0" y="64" width="320" height="56"/>
+                                <color key="barTintColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VHz-7m-1ZR">
-                                <rect key="frame" x="2" y="124" width="316" height="444"/>
+                                <rect key="frame" x="0.0" y="120" width="320" height="448"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchviewtableviewcell" id="mhS-IN-0Fa" userLabel="Search View Table View Cell" customClass="SubSearchViewController" customModule="NCS_Player" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="316" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mhS-IN-0Fa" id="NKW-cH-Uj0">
-                                            <rect key="frame" x="0.0" y="0.0" width="316" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hv5-fk-kV8">
@@ -102,44 +103,45 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="kPW-K2-WMt" firstAttribute="top" secondItem="UtN-SQ-zgT" secondAttribute="top" id="DPd-Pb-LgD"/>
-                            <constraint firstAttribute="bottom" secondItem="VHz-7m-1ZR" secondAttribute="bottom" id="VKv-CD-nCM"/>
-                            <constraint firstItem="UtN-SQ-zgT" firstAttribute="trailing" secondItem="VHz-7m-1ZR" secondAttribute="trailing" constant="2" id="fGO-jl-NeI"/>
-                            <constraint firstItem="kPW-K2-WMt" firstAttribute="trailing" secondItem="UtN-SQ-zgT" secondAttribute="trailing" id="jG6-gh-9Tv"/>
-                            <constraint firstItem="kPW-K2-WMt" firstAttribute="leading" secondItem="UtN-SQ-zgT" secondAttribute="leading" id="oN1-1k-zIY"/>
-                            <constraint firstItem="VHz-7m-1ZR" firstAttribute="leading" secondItem="UtN-SQ-zgT" secondAttribute="leading" constant="2" id="rzo-xh-Eo7"/>
-                            <constraint firstItem="VHz-7m-1ZR" firstAttribute="top" secondItem="kPW-K2-WMt" secondAttribute="bottom" constant="4" id="zQN-1j-fX0"/>
+                            <constraint firstItem="kPW-K2-WMt" firstAttribute="top" secondItem="UtN-SQ-zgT" secondAttribute="top" id="6Ms-g5-nUi"/>
+                            <constraint firstItem="kPW-K2-WMt" firstAttribute="trailing" secondItem="UtN-SQ-zgT" secondAttribute="trailing" id="AJS-fK-ceF"/>
+                            <constraint firstItem="VHz-7m-1ZR" firstAttribute="top" secondItem="kPW-K2-WMt" secondAttribute="bottom" id="CCF-fU-JBj"/>
+                            <constraint firstItem="kPW-K2-WMt" firstAttribute="leading" secondItem="UtN-SQ-zgT" secondAttribute="leading" id="EOz-UY-IBM"/>
+                            <constraint firstItem="VHz-7m-1ZR" firstAttribute="leading" secondItem="UtN-SQ-zgT" secondAttribute="leading" id="SYS-Xf-LNd"/>
+                            <constraint firstItem="VHz-7m-1ZR" firstAttribute="top" secondItem="kPW-K2-WMt" secondAttribute="bottom" id="jb4-eT-dZF"/>
+                            <constraint firstItem="VHz-7m-1ZR" firstAttribute="trailing" secondItem="UtN-SQ-zgT" secondAttribute="trailing" id="kLa-QQ-qof"/>
+                            <constraint firstAttribute="bottom" secondItem="VHz-7m-1ZR" secondAttribute="bottom" id="xVI-kD-MFZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UtN-SQ-zgT"/>
                     </view>
                     <tabBarItem key="tabBarItem" image="SearchIcon" selectedImage="SearchIcon" id="Vcn-Rl-Y9M"/>
                     <connections>
-                        <outlet property="searchBar" destination="kPW-K2-WMt" id="92f-jG-sA1"/>
                         <outlet property="searchedResultsTableView" destination="VHz-7m-1ZR" id="zzG-Jb-n9N"/>
-                        <segue destination="bwS-PM-6Ry" kind="show" identifier="segue2" id="a3T-KH-h4v"/>
+                        <outlet property="tuneSearchBar" destination="kPW-K2-WMt" id="pvl-gW-H4I"/>
+                        <segue destination="bwS-PM-6Ry" kind="show" identifier="segue1" id="a3T-KH-h4v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBE-6w-lQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="263.768115942029" y="120.65217391304348"/>
+            <point key="canvasLocation" x="256.875" y="119.36619718309859"/>
         </scene>
-        <!--View Controller-->
+        <!--Artist Information View Controller-->
         <scene sceneID="tID-ya-AhK">
             <objects>
-                <viewController id="z5q-bJ-Ey9" sceneMemberID="viewController">
+                <viewController id="z5q-bJ-Ey9" customClass="ArtistInformationViewController" customModule="NCS_Player" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="brL-El-2cS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Lu-sf-pUF">
-                                <rect key="frame" x="2" y="0.0" width="316" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="KYV-nv-C5e">
-                                        <rect key="frame" x="0.0" y="28" width="316" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistinformationviewtableviewcell" id="KYV-nv-C5e" userLabel="Artist Information View Table View Cell">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KYV-nv-C5e" id="WcO-a8-mkV">
-                                            <rect key="frame" x="0.0" y="0.0" width="316" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -148,18 +150,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Lu-sf-pUF" firstAttribute="leading" secondItem="5JV-eO-NNk" secondAttribute="leading" constant="2" id="RWd-BQ-ujZ"/>
-                            <constraint firstAttribute="bottom" secondItem="6Lu-sf-pUF" secondAttribute="bottom" id="ffQ-g7-E0n"/>
-                            <constraint firstItem="6Lu-sf-pUF" firstAttribute="top" secondItem="brL-El-2cS" secondAttribute="top" id="jSj-KM-0v5"/>
-                            <constraint firstAttribute="trailing" secondItem="6Lu-sf-pUF" secondAttribute="trailing" constant="2" id="ofG-vo-heo"/>
+                            <constraint firstItem="6Lu-sf-pUF" firstAttribute="trailing" secondItem="5JV-eO-NNk" secondAttribute="trailing" id="1BZ-QG-Tb0"/>
+                            <constraint firstItem="6Lu-sf-pUF" firstAttribute="top" secondItem="brL-El-2cS" secondAttribute="top" id="MDe-0S-Gds"/>
+                            <constraint firstItem="6Lu-sf-pUF" firstAttribute="leading" secondItem="5JV-eO-NNk" secondAttribute="leading" id="T85-R1-8I7"/>
+                            <constraint firstAttribute="bottom" secondItem="6Lu-sf-pUF" secondAttribute="bottom" id="tMr-5N-4GC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5JV-eO-NNk"/>
                     </view>
                     <tabBarItem key="tabBarItem" image="WebIcon" largeContentSizeImage="darklogo512.png" selectedImage="WebIcon" id="VsL-zk-vzF"/>
+                    <connections>
+                        <outlet property="artistInformationTableView" destination="6Lu-sf-pUF" id="O0s-17-e0I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7VJ-K6-xdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="264" y="-638"/>
+            <point key="canvasLocation" x="256.875" y="-670.77464788732391"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="7xj-eQ-Hdx">
@@ -175,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nq3-pJ-kUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-897" y="1617"/>
+            <point key="canvasLocation" x="257" y="-1443"/>
         </scene>
         <!--My Play List View Controller-->
         <scene sceneID="Az6-be-JQZ">
@@ -186,10 +191,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZkB-jr-Pue">
-                                <rect key="frame" x="2" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myplaylistviewtableviewcell" id="Xjx-kV-6UX" userLabel="My Play List View Table View Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myplaylistviewtableviewcell" id="Xjx-kV-6UX" userLabel="My Play List View Table View Cell">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xjx-kV-6UX" id="uVi-ch-A5t">
@@ -202,10 +207,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ZkB-jr-Pue" firstAttribute="leading" secondItem="401-pz-xG2" secondAttribute="leading" constant="2" id="6bB-9H-to4"/>
-                            <constraint firstItem="ZkB-jr-Pue" firstAttribute="trailing" secondItem="401-pz-xG2" secondAttribute="trailing" constant="2" id="AT2-r4-jVZ"/>
-                            <constraint firstItem="ZkB-jr-Pue" firstAttribute="top" secondItem="UPY-LC-r7P" secondAttribute="top" id="DFR-56-fCB"/>
-                            <constraint firstAttribute="bottom" secondItem="ZkB-jr-Pue" secondAttribute="bottom" id="vDj-6U-dFB"/>
+                            <constraint firstAttribute="bottom" secondItem="ZkB-jr-Pue" secondAttribute="bottom" id="4p3-W8-6rf"/>
+                            <constraint firstItem="ZkB-jr-Pue" firstAttribute="trailing" secondItem="401-pz-xG2" secondAttribute="trailing" id="FoM-48-oYd"/>
+                            <constraint firstItem="ZkB-jr-Pue" firstAttribute="leading" secondItem="401-pz-xG2" secondAttribute="leading" id="N4G-yL-uzy"/>
+                            <constraint firstItem="ZkB-jr-Pue" firstAttribute="top" secondItem="UPY-LC-r7P" secondAttribute="top" id="vPi-v3-9h8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="401-pz-xG2"/>
                     </view>
@@ -213,12 +218,12 @@
                     <navigationItem key="navigationItem" id="fD1-qp-QPd"/>
                     <connections>
                         <outlet property="playListTableView" destination="ZkB-jr-Pue" id="wJs-hH-b2O"/>
-                        <segue destination="bwS-PM-6Ry" kind="show" identifier="segue1" id="PS9-Ks-ep4"/>
+                        <segue destination="bwS-PM-6Ry" kind="show" identifier="segue2" id="PS9-Ks-ep4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12R-kc-Bcm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="264" y="875"/>
+            <point key="canvasLocation" x="256.875" y="914.78873239436621"/>
         </scene>
         <!--Audio Player View Controller-->
         <scene sceneID="WTR-5a-7tv">
@@ -382,13 +387,6 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="darklogo512.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mlz-33-anf">
-                                <rect key="frame" x="73" y="79" width="175" height="175"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="5vk-UU-47O"/>
-                                    <constraint firstAttribute="height" constant="175" id="dap-GJ-bnd"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -409,8 +407,6 @@
                             <constraint firstAttribute="trailing" secondItem="b8T-7f-e6M" secondAttribute="trailing" constant="25" id="YDi-7O-U0T"/>
                             <constraint firstItem="84Z-73-9Bp" firstAttribute="leading" secondItem="jrL-pT-QZj" secondAttribute="leading" constant="50" id="YkP-xZ-eVA"/>
                             <constraint firstAttribute="trailing" secondItem="v5X-jL-3Lq" secondAttribute="trailing" constant="25" id="aw4-ut-qMY"/>
-                            <constraint firstItem="v5X-jL-3Lq" firstAttribute="top" secondItem="Mlz-33-anf" secondAttribute="bottom" constant="48" id="mhM-4f-JkO"/>
-                            <constraint firstItem="Mlz-33-anf" firstAttribute="centerX" secondItem="v5X-jL-3Lq" secondAttribute="centerX" id="nVg-Fj-TNX"/>
                             <constraint firstItem="jrL-pT-QZj" firstAttribute="trailing" secondItem="RsO-iU-eRw" secondAttribute="trailing" constant="25" id="rjP-Ns-86z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jrL-pT-QZj"/>
@@ -440,7 +436,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1436.25" y="120.4225352112676"/>
+            <point key="canvasLocation" x="1408" y="120"/>
         </scene>
     </scenes>
     <resources>
