@@ -42,6 +42,8 @@
 		4260B76020CE380F00D27312 /* repeatmodeicon128.png in Resources */ = {isa = PBXBuildFile; fileRef = 4260B75E20CE380F00D27312 /* repeatmodeicon128.png */; };
 		4261F8C920EE141A00C5259F /* youtubeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4261F8C820EE141900C5259F /* youtubeicon.png */; };
 		4261F8CB20EE655700C5259F /* webpageicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4261F8CA20EE655700C5259F /* webpageicon.png */; };
+		4261F8CD20EE794900C5259F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4261F8CC20EE794800C5259F /* SettingsViewController.swift */; };
+		4261F8CF20EE820900C5259F /* SettingOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4261F8CE20EE820900C5259F /* SettingOptions.plist */; };
 		42657FA020C438C10034FA19 /* Ehrling-Dance With Me.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42657F9D20C438C10034FA19 /* Ehrling-Dance With Me.mp3 */; };
 		42657FA120C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42657F9E20C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 */; };
 		42657FA220C438C10034FA19 /* Tobu-Candyland.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42657F9F20C438C10034FA19 /* Tobu-Candyland.mp3 */; };
@@ -92,6 +94,8 @@
 		4260B75E20CE380F00D27312 /* repeatmodeicon128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repeatmodeicon128.png; sourceTree = "<group>"; };
 		4261F8C820EE141900C5259F /* youtubeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youtubeicon.png; sourceTree = "<group>"; };
 		4261F8CA20EE655700C5259F /* webpageicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = webpageicon.png; sourceTree = "<group>"; };
+		4261F8CC20EE794800C5259F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4261F8CE20EE820900C5259F /* SettingOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SettingOptions.plist; sourceTree = "<group>"; };
 		42657F9D20C438C10034FA19 /* Ehrling-Dance With Me.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ehrling-Dance With Me.mp3"; sourceTree = "<group>"; };
 		42657F9E20C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Tobu & Itro-Sunburst.mp3"; sourceTree = "<group>"; };
 		42657F9F20C438C10034FA19 /* Tobu-Candyland.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Tobu-Candyland.mp3"; sourceTree = "<group>"; };
@@ -143,23 +147,25 @@
 				425C0C5F20C2EE0F00BA1D2D /* logo */,
 				4257E4E620BFD13800B9AD26 /* Icons */,
 				4268008220BE638000A2659B /* Tunes */,
-				4228B3AE20BD18B000349913 /* AppDelegate.swift */,
-				4228B3B020BD18B000349913 /* AudioPlayerViewController.swift */,
-				4228B3B220BD18B000349913 /* Main.storyboard */,
 				4228B3B520BD18B200349913 /* Assets.xcassets */,
+				4228B3B220BD18B000349913 /* Main.storyboard */,
 				4228B3B720BD18B200349913 /* LaunchScreen.storyboard */,
-				4228B3BA20BD18B200349913 /* Info.plist */,
-				42BFACC920C3BE5600AE8996 /* MyPlayListViewController.swift */,
-				426A5DAF20C821ED00624F30 /* AudioManager.swift */,
-				424A446220CC2DED00B0681B /* GlobalVariableManager.swift */,
 				42168CED20D253F800B72D4F /* Tunes.xcdatamodeld */,
+				4228B3AE20BD18B000349913 /* AppDelegate.swift */,
+				426A5DAF20C821ED00624F30 /* AudioManager.swift */,
 				42168CFC20D2B16300B72D4F /* CoreDataManager.swift */,
+				424A446220CC2DED00B0681B /* GlobalVariableManager.swift */,
+				4228B3B020BD18B000349913 /* AudioPlayerViewController.swift */,
+				42BFACC920C3BE5600AE8996 /* MyPlayListViewController.swift */,
 				4259E77820E6260F00DBE3B8 /* SearchViewController.swift */,
 				421BBB1A20E659FE0034E2DB /* SubSearchViewController.swift */,
 				4258D35120EC919A00F6A337 /* ArtistInformationViewController.swift */,
-				426FDA6A20E7A10C00910969 /* Tunes.plist */,
-				4258D35320EC9DF600F6A337 /* Artists.plist */,
 				4258D35520ED140D00F6A337 /* SubArtistInformationViewController.swift */,
+				4261F8CC20EE794800C5259F /* SettingsViewController.swift */,
+				4258D35320EC9DF600F6A337 /* Artists.plist */,
+				4228B3BA20BD18B200349913 /* Info.plist */,
+				4261F8CE20EE820900C5259F /* SettingOptions.plist */,
+				426FDA6A20E7A10C00910969 /* Tunes.plist */,
 			);
 			path = "NCS Player";
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 				4259E76F20E6245B00DBE3B8 /* Alan Walker-Fade.mp3 in Resources */,
 				42C8B69120CCED1D006C44C4 /* volumemaxicon256.png in Resources */,
 				4228B3B420BD18B000349913 /* Main.storyboard in Resources */,
+				4261F8CF20EE820900C5259F /* SettingOptions.plist in Resources */,
 				4257E4EF20BFD16400B9AD26 /* playicon.png in Resources */,
 				4257E4EE20BFD16400B9AD26 /* nexticon.png in Resources */,
 				4258D35420EC9DF600F6A337 /* Artists.plist in Resources */,
@@ -337,6 +344,7 @@
 				42168CEF20D253F800B72D4F /* Tunes.xcdatamodeld in Sources */,
 				4259E77920E6260F00DBE3B8 /* SearchViewController.swift in Sources */,
 				426A5DB020C821ED00624F30 /* AudioManager.swift in Sources */,
+				4261F8CD20EE794900C5259F /* SettingsViewController.swift in Sources */,
 				4258D35620ED140D00F6A337 /* SubArtistInformationViewController.swift in Sources */,
 				42168CFD20D2B16300B72D4F /* CoreDataManager.swift in Sources */,
 				42168CFA20D2756A00B72D4F /* Tunes+CoreDataClass.swift in Sources */,

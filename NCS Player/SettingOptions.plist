@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<string>General</string>
+		<string>About NCS Player</string>
+	</array>
+	<array>
+		<string>General</string>
+		<string>Version</string>
+	</array>
+	<array>
+		<string>General</string>
+		<string>User Policy</string>
+	</array>
+	<array>
+		<string>Restrictions</string>
+		<string>Remove My Playlist Limited Registration Number</string>
+	</array>
+	<array>
+		<string>Special Thanks</string>
+		<string>Tong Sangpanya</string>
+	</array>
+	<array>
+		<string>Special Thanks</string>
+		<string>Shuji Oota</string>
+	</array>
+</array>
+</plist>
