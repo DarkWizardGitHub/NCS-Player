@@ -75,7 +75,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hv5-fk-kV8">
-                                                    <rect key="frame" x="251" y="6" width="50" height="30"/>
+                                                    <rect key="frame" x="255" y="6" width="50" height="30"/>
                                                     <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Z3S-Sc-DzW"/>
@@ -137,13 +137,49 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistinformationviewtableviewcell" id="KYV-nv-C5e" userLabel="Artist Information View Table View Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="artistinformationviewtableviewcell" id="KYV-nv-C5e" userLabel="Artist Information View Table View Cell" customClass="SubArtistInformationViewController" customModule="NCS_Player" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KYV-nv-C5e" id="WcO-a8-mkV">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCf-n9-Ir8">
+                                                    <rect key="frame" x="255" y="6" width="50" height="30"/>
+                                                    <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="7iC-49-t0R"/>
+                                                        <constraint firstAttribute="height" constant="30" id="nKc-Vn-oRt"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="youtubeicon.png"/>
+                                                    <connections>
+                                                        <action selector="pushJumpToYoutubeButton:" destination="KYV-nv-C5e" eventType="touchUpInside" id="1aU-A7-egM"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVe-Gq-Cqx">
+                                                    <rect key="frame" x="195" y="6" width="50" height="30"/>
+                                                    <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="EZJ-E0-UTA"/>
+                                                        <constraint firstAttribute="height" constant="30" id="KBs-cc-hyI"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="webpageicon.png"/>
+                                                    <connections>
+                                                        <action selector="pushJumpToWebButton:" destination="KYV-nv-C5e" eventType="touchUpInside" id="4yh-Vo-5Aa"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jCf-n9-Ir8" firstAttribute="leading" secondItem="vVe-Gq-Cqx" secondAttribute="trailing" constant="10" id="Lkn-pd-L2o"/>
+                                                <constraint firstAttribute="trailing" secondItem="jCf-n9-Ir8" secondAttribute="trailing" constant="15" id="a1M-kJ-4Wz"/>
+                                                <constraint firstItem="vVe-Gq-Cqx" firstAttribute="top" secondItem="WcO-a8-mkV" secondAttribute="top" constant="6" id="ewA-CG-uU3"/>
+                                                <constraint firstItem="jCf-n9-Ir8" firstAttribute="top" secondItem="WcO-a8-mkV" secondAttribute="top" constant="6" id="tiN-xI-PmZ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="jumpToWebButton" destination="vVe-Gq-Cqx" id="z7p-cq-5I7"/>
+                                            <outlet property="jumpToYoutubeButton" destination="jCf-n9-Ir8" id="FI6-vk-32Q"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -452,6 +488,8 @@
         <image name="playicon.png" width="256" height="256"/>
         <image name="volumemaxicon256.png" width="256" height="256"/>
         <image name="volumeminicon256.png" width="256" height="256"/>
+        <image name="webpageicon.png" width="256" height="153"/>
+        <image name="youtubeicon.png" width="256" height="153"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="a3T-KH-h4v"/>
