@@ -66,8 +66,8 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
         switch GlobalVariableManager.shared.callerViewName {
             // as! [[String]] = [] でも同義
             // 2次元配列の為ダウンキャストも2次元配列にする
-            case "SearchViewController":
-                GlobalVariableManager.shared.playList = NSArray(contentsOfFile: plistFilePath!) as! Array<Array<String>>
+//            case "SearchViewController":
+//                GlobalVariableManager.shared.playList = NSArray(contentsOfFile: plistFilePath!) as! Array<Array<String>>
             case "MyPlayListViewController":
                 GlobalVariableManager.shared.playList = coreDataManager.readAll() as! Array<Array<String>>
             default:

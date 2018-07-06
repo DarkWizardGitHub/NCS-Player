@@ -118,12 +118,43 @@
                     <connections>
                         <outlet property="searchedResultsTableView" destination="VHz-7m-1ZR" id="zzG-Jb-n9N"/>
                         <outlet property="tuneSearchBar" destination="kPW-K2-WMt" id="pvl-gW-H4I"/>
-                        <segue destination="bwS-PM-6Ry" kind="show" identifier="segue1" id="a3T-KH-h4v"/>
+                        <segue destination="kjY-Jc-zAn" kind="show" identifier="segue1" id="pHI-Om-Ee7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBE-6w-lQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="256.875" y="119.36619718309859"/>
+        </scene>
+        <!--Youtube View Controller-->
+        <scene sceneID="m3X-Mr-J0n">
+            <objects>
+                <viewController id="kjY-Jc-zAn" customClass="YoutubeViewController" customModule="NCS_Player" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HfZ-NJ-bVH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vZi-Xt-ljJ">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vZi-Xt-ljJ" firstAttribute="leading" secondItem="Knb-Fq-HMQ" secondAttribute="leading" id="35M-1p-pAx"/>
+                            <constraint firstItem="vZi-Xt-ljJ" firstAttribute="trailing" secondItem="Knb-Fq-HMQ" secondAttribute="trailing" id="dZb-eW-KJd"/>
+                            <constraint firstItem="vZi-Xt-ljJ" firstAttribute="bottom" secondItem="Knb-Fq-HMQ" secondAttribute="bottom" id="ejb-NJ-DlM"/>
+                            <constraint firstItem="vZi-Xt-ljJ" firstAttribute="top" secondItem="Knb-Fq-HMQ" secondAttribute="top" id="vha-UB-48o"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Knb-Fq-HMQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="YoutubeWebView" destination="vZi-Xt-ljJ" id="ekv-YF-ntF"/>
+                        <outlet property="youtubeWebView" destination="vZi-Xt-ljJ" id="vM1-92-cnE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2xI-47-AQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1419.375" y="118.30985915492958"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Dma-KT-I9d">
@@ -497,7 +528,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1408" y="120"/>
+            <point key="canvasLocation" x="1423" y="915"/>
         </scene>
     </scenes>
     <resources>
@@ -516,8 +547,5 @@
         <image name="webpageicon.png" width="256" height="153"/>
         <image name="youtubeicon.png" width="256" height="153"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="a3T-KH-h4v"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -127,8 +127,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // セルをタップしたら遷移する
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 遷移元のViewController名
-        GlobalVariableManager.shared.callerViewName = "SearchViewController"
+//        // 遷移元のViewController名
+//        GlobalVariableManager.shared.callerViewName = "SearchViewController"
         // 選択した曲番号(配列のインデックス)を格納
         GlobalVariableManager.shared.tuneIndex = indexPath.row
         // セグエの名前を指定して画面遷移を発動
