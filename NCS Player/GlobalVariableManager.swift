@@ -27,7 +27,7 @@ class GlobalVariableManager: NSObject {
     
     // シングルトンの唯一性を保証するためprivateにする
     private override init() {
-        coreDataAttributes = ["tune_name", "artist_name", "file_name", "file_extension"]
+        coreDataAttributes = ["tune_name", "artist_name", "file_name", "file_extension", "youtube_url"]
         coreDataEntityName = "Tunes"
     }
 }

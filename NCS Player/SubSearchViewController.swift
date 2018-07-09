@@ -35,7 +35,7 @@ class SubSearchViewController: UITableViewCell {
         if confirmRegistration(indexPathRow: self.tag) == true {
             // 登録済みの場合の処理
             // Documentsフォルダからデータ削除
-            self.dataStorageManager.delete(targetFolderPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0], fileNameWithExtension: "\(self.textLabel?.text).mp3")
+            self.dataStorageManager.delete(targetFolderPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0], fileNameWithExtension: (self.textLabel?.text)! + ".mp3")
             // CoreDataのデータ削除
             coreDataManager.delete(attribute: GlobalVariableManager.shared.coreDataAttributes[0], relationalOperator: "=", placeholder: "%@", targetValue: searchedResultList[self.tag][0] as! String)
             // myPlayList更新
@@ -47,7 +47,8 @@ class SubSearchViewController: UITableViewCell {
         } else {
             // 未登録の場合の処理
             // Documentsフォルダにデータ追加
-            self.dataStorageManager.download(url: NSURL(string: "http://www.hurtrecord.com/se/operation/b1-007_computer_01.mp3")!, destinationFolderPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0], fileNameWithExtension: "\(self.textLabel?.text).mp3")
+//            self.dataStorageManager.download(url: NSURL(string: "http://www.hurtrecord.com/se/operation/b1-007_computer_01.mp3")!, destinationFolderPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0], fileNameWithExtension: "\(self.textLabel?.text).mp3")
+            self.dataStorageManager.download(url: NSURL(fileURLWithPath: ("/Users/Dark/Desktop/Tunes/" + (self.textLabel?.text)! + ".mp3")), destinationFolderPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0], fileNameWithExtension: (self.textLabel?.text)! + ".mp3")
             // CoreDataにデータ追加
             coreDataManager.create(values: searchedResultList[self.tag] as! [String])
             // myPlayList更新

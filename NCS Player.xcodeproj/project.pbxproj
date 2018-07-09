@@ -26,12 +26,6 @@
 		4258D35220EC919A00F6A337 /* ArtistInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4258D35120EC919A00F6A337 /* ArtistInformationViewController.swift */; };
 		4258D35420EC9DF600F6A337 /* Artists.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4258D35320EC9DF600F6A337 /* Artists.plist */; };
 		4258D35620ED140D00F6A337 /* SubArtistInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4258D35520ED140D00F6A337 /* SubArtistInformationViewController.swift */; };
-		4259E76F20E6245B00DBE3B8 /* Alan Walker-Fade.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4259E76C20E6245B00DBE3B8 /* Alan Walker-Fade.mp3 */; };
-		4259E77020E6245B00DBE3B8 /* Ehrling-All I Need.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4259E76D20E6245B00DBE3B8 /* Ehrling-All I Need.mp3 */; };
-		4259E77120E6245B00DBE3B8 /* Ehrling-Champagne Ocean.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4259E76E20E6245B00DBE3B8 /* Ehrling-Champagne Ocean.mp3 */; };
-		4259E77520E6247900DBE3B8 /* FortyThr33-Bay Breeze.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4259E77220E6247800DBE3B8 /* FortyThr33-Bay Breeze.mp3 */; };
-		4259E77620E6247900DBE3B8 /* Tobu-Hope.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4259E77320E6247800DBE3B8 /* Tobu-Hope.mp3 */; };
-		4259E77720E6247900DBE3B8 /* THBD-Good For You.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4259E77420E6247900DBE3B8 /* THBD-Good For You.mp3 */; };
 		4259E77920E6260F00DBE3B8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4259E77820E6260F00DBE3B8 /* SearchViewController.swift */; };
 		425C0C6120C2EE2000BA1D2D /* darklogo512.png in Resources */ = {isa = PBXBuildFile; fileRef = 425C0C6020C2EE2000BA1D2D /* darklogo512.png */; };
 		425C0C6320C2F36600BA1D2D /* playbackpositioncursor.png in Resources */ = {isa = PBXBuildFile; fileRef = 425C0C6220C2F36600BA1D2D /* playbackpositioncursor.png */; };
@@ -44,11 +38,6 @@
 		4261F8CB20EE655700C5259F /* webpageicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4261F8CA20EE655700C5259F /* webpageicon.png */; };
 		4261F8CD20EE794900C5259F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4261F8CC20EE794800C5259F /* SettingsViewController.swift */; };
 		4261F8CF20EE820900C5259F /* SettingOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4261F8CE20EE820900C5259F /* SettingOptions.plist */; };
-		42657FA020C438C10034FA19 /* Ehrling-Dance With Me.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42657F9D20C438C10034FA19 /* Ehrling-Dance With Me.mp3 */; };
-		42657FA120C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42657F9E20C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 */; };
-		42657FA220C438C10034FA19 /* Tobu-Candyland.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 42657F9F20C438C10034FA19 /* Tobu-Candyland.mp3 */; };
-		4268008420BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4268008320BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 */; };
-		4268008620BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4268008520BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 */; };
 		426A5DB020C821ED00624F30 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426A5DAF20C821ED00624F30 /* AudioManager.swift */; };
 		426FDA6B20E7A10C00910969 /* Tunes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 426FDA6A20E7A10C00910969 /* Tunes.plist */; };
 		42B06FBF20EF40CF0038DE6D /* YoutubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B06FBE20EF40CF0038DE6D /* YoutubeViewController.swift */; };
@@ -80,12 +69,6 @@
 		4258D35120EC919A00F6A337 /* ArtistInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInformationViewController.swift; sourceTree = "<group>"; };
 		4258D35320EC9DF600F6A337 /* Artists.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Artists.plist; sourceTree = "<group>"; };
 		4258D35520ED140D00F6A337 /* SubArtistInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubArtistInformationViewController.swift; sourceTree = "<group>"; };
-		4259E76C20E6245B00DBE3B8 /* Alan Walker-Fade.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Alan Walker-Fade.mp3"; sourceTree = "<group>"; };
-		4259E76D20E6245B00DBE3B8 /* Ehrling-All I Need.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ehrling-All I Need.mp3"; sourceTree = "<group>"; };
-		4259E76E20E6245B00DBE3B8 /* Ehrling-Champagne Ocean.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ehrling-Champagne Ocean.mp3"; sourceTree = "<group>"; };
-		4259E77220E6247800DBE3B8 /* FortyThr33-Bay Breeze.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "FortyThr33-Bay Breeze.mp3"; sourceTree = "<group>"; };
-		4259E77320E6247800DBE3B8 /* Tobu-Hope.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Tobu-Hope.mp3"; sourceTree = "<group>"; };
-		4259E77420E6247900DBE3B8 /* THBD-Good For You.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "THBD-Good For You.mp3"; sourceTree = "<group>"; };
 		4259E77820E6260F00DBE3B8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		425C0C6020C2EE2000BA1D2D /* darklogo512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darklogo512.png; sourceTree = "<group>"; };
 		425C0C6220C2F36600BA1D2D /* playbackpositioncursor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbackpositioncursor.png; sourceTree = "<group>"; };
@@ -98,11 +81,6 @@
 		4261F8CA20EE655700C5259F /* webpageicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = webpageicon.png; sourceTree = "<group>"; };
 		4261F8CC20EE794800C5259F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4261F8CE20EE820900C5259F /* SettingOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SettingOptions.plist; sourceTree = "<group>"; };
-		42657F9D20C438C10034FA19 /* Ehrling-Dance With Me.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ehrling-Dance With Me.mp3"; sourceTree = "<group>"; };
-		42657F9E20C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Tobu & Itro-Sunburst.mp3"; sourceTree = "<group>"; };
-		42657F9F20C438C10034FA19 /* Tobu-Candyland.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Tobu-Candyland.mp3"; sourceTree = "<group>"; };
-		4268008320BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Itro & Tobu-Cloud 9.mp3"; sourceTree = "<group>"; };
-		4268008520BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ehrling-Sthlm Sunset.mp3"; sourceTree = "<group>"; };
 		426A5DAF20C821ED00624F30 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		426FDA6A20E7A10C00910969 /* Tunes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Tunes.plist; sourceTree = "<group>"; };
 		4299AE1F20DA93040020A726 /* NCS Player.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NCS Player.entitlements"; sourceTree = "<group>"; };
@@ -150,7 +128,6 @@
 				4299AE1F20DA93040020A726 /* NCS Player.entitlements */,
 				425C0C5F20C2EE0F00BA1D2D /* logo */,
 				4257E4E620BFD13800B9AD26 /* Icons */,
-				4268008220BE638000A2659B /* Tunes */,
 				4228B3B520BD18B200349913 /* Assets.xcassets */,
 				4228B3B220BD18B000349913 /* Main.storyboard */,
 				4228B3B720BD18B200349913 /* LaunchScreen.storyboard */,
@@ -204,24 +181,6 @@
 				425C0C6020C2EE2000BA1D2D /* darklogo512.png */,
 			);
 			path = logo;
-			sourceTree = "<group>";
-		};
-		4268008220BE638000A2659B /* Tunes */ = {
-			isa = PBXGroup;
-			children = (
-				4259E77220E6247800DBE3B8 /* FortyThr33-Bay Breeze.mp3 */,
-				4259E77420E6247900DBE3B8 /* THBD-Good For You.mp3 */,
-				4259E77320E6247800DBE3B8 /* Tobu-Hope.mp3 */,
-				4259E76C20E6245B00DBE3B8 /* Alan Walker-Fade.mp3 */,
-				4259E76D20E6245B00DBE3B8 /* Ehrling-All I Need.mp3 */,
-				4259E76E20E6245B00DBE3B8 /* Ehrling-Champagne Ocean.mp3 */,
-				42657F9D20C438C10034FA19 /* Ehrling-Dance With Me.mp3 */,
-				42657F9F20C438C10034FA19 /* Tobu-Candyland.mp3 */,
-				42657F9E20C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 */,
-				4268008520BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 */,
-				4268008320BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 */,
-			);
-			path = Tunes;
 			sourceTree = "<group>";
 		};
 		42C8B69420CD008D006C44C4 /* Frameworks */ = {
@@ -298,33 +257,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42657FA220C438C10034FA19 /* Tobu-Candyland.mp3 in Resources */,
 				4228B3B920BD18B200349913 /* LaunchScreen.storyboard in Resources */,
-				4259E77120E6245B00DBE3B8 /* Ehrling-Champagne Ocean.mp3 in Resources */,
 				425C0C6120C2EE2000BA1D2D /* darklogo512.png in Resources */,
 				426FDA6B20E7A10C00910969 /* Tunes.plist in Resources */,
 				4228B3B620BD18B200349913 /* Assets.xcassets in Resources */,
 				4261F8CB20EE655700C5259F /* webpageicon.png in Resources */,
-				4259E77520E6247900DBE3B8 /* FortyThr33-Bay Breeze.mp3 in Resources */,
-				4259E77620E6247900DBE3B8 /* Tobu-Hope.mp3 in Resources */,
-				4259E77020E6245B00DBE3B8 /* Ehrling-All I Need.mp3 in Resources */,
 				4261F8C920EE141A00C5259F /* youtubeicon.png in Resources */,
 				425C0C6320C2F36600BA1D2D /* playbackpositioncursor.png in Resources */,
 				4257E4EC20BFD16400B9AD26 /* pauseicon.png in Resources */,
-				4268008620BE856700A2659B /* Ehrling-Sthlm Sunset.mp3 in Resources */,
-				4259E77720E6247900DBE3B8 /* THBD-Good For You.mp3 in Resources */,
 				4260B75F20CE380F00D27312 /* shufflemodeicon128.png in Resources */,
-				4268008420BE63F600A2659B /* Itro & Tobu-Cloud 9.mp3 in Resources */,
 				4257E4ED20BFD16400B9AD26 /* backicon.png in Resources */,
 				425C4E2220E9EFF2000BAC04 /* deleteicon.png in Resources */,
-				42657FA020C438C10034FA19 /* Ehrling-Dance With Me.mp3 in Resources */,
-				42657FA120C438C10034FA19 /* Tobu & Itro-Sunburst.mp3 in Resources */,
 				4260B76020CE380F00D27312 /* repeatmodeicon128.png in Resources */,
 				4260B75C20CE380500D27312 /* normalmodeicon128.png in Resources */,
 				425C4E1E20E9EE60000BAC04 /* addicon.png in Resources */,
 				4257E4F020BFD16400B9AD26 /* stopicon.png in Resources */,
 				42C8B69320CCEE3B006C44C4 /* volumeminicon256.png in Resources */,
-				4259E76F20E6245B00DBE3B8 /* Alan Walker-Fade.mp3 in Resources */,
 				42C8B69120CCED1D006C44C4 /* volumemaxicon256.png in Resources */,
 				4228B3B420BD18B000349913 /* Main.storyboard in Resources */,
 				4261F8CF20EE820900C5259F /* SettingOptions.plist in Resources */,
