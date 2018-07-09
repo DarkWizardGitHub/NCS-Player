@@ -45,17 +45,41 @@ class SubSearchViewController: UITableViewCell {
             AddButton.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
             AddButton.layer.cornerRadius = 5.0
         } else {
+            // ダウンロード終了フラグ
+            var hoge: Bool = false
             // 未登録の場合の処理
             // Documentsフォルダにデータ追加
-//            self.dataStorageManager.download(url: NSURL(string: "http://www.hurtrecord.com/se/operation/b1-007_computer_01.mp3")!, destinationFolderPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0], fileNameWithExtension: "\(self.textLabel?.text).mp3")
-            self.dataStorageManager.download(url: NSURL(fileURLWithPath: ("/Users/Dark/Desktop/Tunes/" + (self.textLabel?.text)! + ".mp3")), destinationFolderPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0], fileNameWithExtension: (self.textLabel?.text)! + ".mp3")
-            // CoreDataにデータ追加
-            coreDataManager.create(values: searchedResultList[self.tag] as! [String])
-            // myPlayList更新
-            GlobalVariableManager.shared.playList = (coreDataManager.readAll() as! Array<Array<String>>)
-            AddButton.setImage(UIImage(named: "deleteicon"), for: UIControlState())
-            AddButton.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
-            AddButton.layer.cornerRadius = 5.0
+            let queue = DispatchQueue.global()
+                // 非同期で処理を実行する
+                queue.async {
+                    self.dataStorageManager.download(url: NSURL(string: "http://darkwizard.xsrv.jp/NCSPlayerTunes/" + (self.textLabel?.text?.replacingOccurrences(of: " ", with: "%20"))! + ".mp3")!, destinationFolderPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0], fileNameWithExtension: (self.textLabel?.text)! + ".mp3")
+                    // CoreDataにデータ追加
+                    self.coreDataManager.create(values: self.searchedResultList[self.tag] as! [String])
+                    // myPlayList更新
+                    GlobalVariableManager.shared.playList = (self.coreDataManager.readAll() as! Array<Array<String>>)
+                    self.AddButton.setImage(UIImage(named: "deleteicon"), for: UIControlState())
+                    self.AddButton.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
+                    self.AddButton.layer.cornerRadius = 5.0
+                    
+                    
+                    
+                    hoge = true
+                    
+                    
+                    
+                }
+            // ボタン画像/色変更
+            self.AddButton.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
+            self.AddButton.layer.cornerRadius = 5.0
+            while(hoge == false) {
+                self.AddButton.setImage(UIImage(named: "downloadprogressbar0"), for: UIControlState())
+                self.AddButton.setImage(UIImage(named: "downloadprogressbar1"), for: UIControlState())
+                self.AddButton.setImage(UIImage(named: "downloadprogressbar2"), for: UIControlState())
+                self.AddButton.setImage(UIImage(named: "downloadprogressbar3"), for: UIControlState())
+            }
+//            self.AddButton.setImage(UIImage(named: "deleteicon"), for: UIControlState())
+//            self.AddButton.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
+//            self.AddButton.layer.cornerRadius = 5.0
         }
         // textラベルで曲名も取れる
         // print(self.textLabel?.text)

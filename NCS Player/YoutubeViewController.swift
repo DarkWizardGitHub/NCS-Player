@@ -27,8 +27,8 @@ class YoutubeViewController: UIViewController {
         // sorted{}内で第一引数$0と第二引数$1の先頭の要素(曲名)を比較しアルファベット順に並び替え
         tunesList = (NSArray(contentsOfFile: plistFilePath!) as! Array<Array<Any>>).sorted{ ($0[0] as! String) < ($1[0] as! String) } as! Array<Array<String>>
         
-        var hoge: String = self.tunesList[GlobalVariableManager.shared.tuneIndex][4]
-        let url: NSURL = NSURL(string: hoge)!
+//        let hoge: String = self.tunesList[GlobalVariableManager.shared.tuneIndex][3]
+        let url: NSURL = NSURL(string: self.tunesList[GlobalVariableManager.shared.tuneIndex][3])!
         let request: NSURLRequest = NSURLRequest(url: url as URL)
         youtubeWebView.loadRequest(request as URLRequest)
     }

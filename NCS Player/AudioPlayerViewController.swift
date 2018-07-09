@@ -402,7 +402,7 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
     // オーディオデータの読み込みに伴う処理関数
     func prepareTune() {
         ////////////*****************************************///////////////
-        AudioManager.shared.load(fileName: GlobalVariableManager.shared.playList[GlobalVariableManager.shared.tuneIndex][0], fileExtension: GlobalVariableManager.shared.playList[GlobalVariableManager.shared.tuneIndex][3])
+        AudioManager.shared.load(fileName: GlobalVariableManager.shared.playList[GlobalVariableManager.shared.tuneIndex][0], fileExtension: GlobalVariableManager.shared.playList[GlobalVariableManager.shared.tuneIndex][2])
         // 曲名とアーティスト名取得
         self.titleLabel.text = GlobalVariableManager.shared.playList[GlobalVariableManager.shared.tuneIndex!][0]
         self.artistLabel.text = GlobalVariableManager.shared.playList[GlobalVariableManager.shared.tuneIndex!][1]

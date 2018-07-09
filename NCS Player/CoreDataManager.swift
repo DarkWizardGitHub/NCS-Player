@@ -46,6 +46,7 @@ class CoreDataManager<T>: NSObject {
                 newRecord.setValue(values[i], forKey: attributes[i] as! String)
             }
         } else {
+//            エラー処理書きましょう
             print("error")
             return
         }

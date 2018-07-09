@@ -38,6 +38,10 @@
 		4261F8CB20EE655700C5259F /* webpageicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4261F8CA20EE655700C5259F /* webpageicon.png */; };
 		4261F8CD20EE794900C5259F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4261F8CC20EE794800C5259F /* SettingsViewController.swift */; };
 		4261F8CF20EE820900C5259F /* SettingOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4261F8CE20EE820900C5259F /* SettingOptions.plist */; };
+		4268D27C20F3B20400DC1591 /* downloadprogressbar3.png in Resources */ = {isa = PBXBuildFile; fileRef = 4268D27820F3B20400DC1591 /* downloadprogressbar3.png */; };
+		4268D27D20F3B20400DC1591 /* downloadprogressbar2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4268D27920F3B20400DC1591 /* downloadprogressbar2.png */; };
+		4268D27E20F3B20400DC1591 /* downloadprogressbar1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4268D27A20F3B20400DC1591 /* downloadprogressbar1.png */; };
+		4268D27F20F3B20400DC1591 /* downloadprogressbar0.png in Resources */ = {isa = PBXBuildFile; fileRef = 4268D27B20F3B20400DC1591 /* downloadprogressbar0.png */; };
 		426A5DB020C821ED00624F30 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426A5DAF20C821ED00624F30 /* AudioManager.swift */; };
 		426FDA6B20E7A10C00910969 /* Tunes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 426FDA6A20E7A10C00910969 /* Tunes.plist */; };
 		42B06FBF20EF40CF0038DE6D /* YoutubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B06FBE20EF40CF0038DE6D /* YoutubeViewController.swift */; };
@@ -81,6 +85,10 @@
 		4261F8CA20EE655700C5259F /* webpageicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = webpageicon.png; sourceTree = "<group>"; };
 		4261F8CC20EE794800C5259F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4261F8CE20EE820900C5259F /* SettingOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SettingOptions.plist; sourceTree = "<group>"; };
+		4268D27820F3B20400DC1591 /* downloadprogressbar3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downloadprogressbar3.png; sourceTree = "<group>"; };
+		4268D27920F3B20400DC1591 /* downloadprogressbar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downloadprogressbar2.png; sourceTree = "<group>"; };
+		4268D27A20F3B20400DC1591 /* downloadprogressbar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downloadprogressbar1.png; sourceTree = "<group>"; };
+		4268D27B20F3B20400DC1591 /* downloadprogressbar0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downloadprogressbar0.png; sourceTree = "<group>"; };
 		426A5DAF20C821ED00624F30 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		426FDA6A20E7A10C00910969 /* Tunes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Tunes.plist; sourceTree = "<group>"; };
 		4299AE1F20DA93040020A726 /* NCS Player.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NCS Player.entitlements"; sourceTree = "<group>"; };
@@ -156,6 +164,10 @@
 		4257E4E620BFD13800B9AD26 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				4268D27B20F3B20400DC1591 /* downloadprogressbar0.png */,
+				4268D27A20F3B20400DC1591 /* downloadprogressbar1.png */,
+				4268D27920F3B20400DC1591 /* downloadprogressbar2.png */,
+				4268D27820F3B20400DC1591 /* downloadprogressbar3.png */,
 				4261F8CA20EE655700C5259F /* webpageicon.png */,
 				4261F8C820EE141900C5259F /* youtubeicon.png */,
 				425C4E2120E9EFF2000BAC04 /* deleteicon.png */,
@@ -275,10 +287,14 @@
 				42C8B69320CCEE3B006C44C4 /* volumeminicon256.png in Resources */,
 				42C8B69120CCED1D006C44C4 /* volumemaxicon256.png in Resources */,
 				4228B3B420BD18B000349913 /* Main.storyboard in Resources */,
+				4268D27E20F3B20400DC1591 /* downloadprogressbar1.png in Resources */,
+				4268D27C20F3B20400DC1591 /* downloadprogressbar3.png in Resources */,
 				4261F8CF20EE820900C5259F /* SettingOptions.plist in Resources */,
+				4268D27F20F3B20400DC1591 /* downloadprogressbar0.png in Resources */,
 				4257E4EF20BFD16400B9AD26 /* playicon.png in Resources */,
 				4257E4EE20BFD16400B9AD26 /* nexticon.png in Resources */,
 				4258D35420EC9DF600F6A337 /* Artists.plist in Resources */,
+				4268D27D20F3B20400DC1591 /* downloadprogressbar2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

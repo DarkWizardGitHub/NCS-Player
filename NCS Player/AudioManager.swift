@@ -23,6 +23,7 @@ class AudioManager: NSObject, AVAudioPlayerDelegate {
     var finishedFlag: Bool = false
     
     // シングルトンの唯一性を保証するためprivateにする
+    // イニシャライザーをprivateにすることで自由なインスタンス生成を禁止し、static letとして公開したプロパティを通じてのみ唯一のインスタンスにアクセスできるようにする
     private override init() {
         audioVolume = 0.5
     }
