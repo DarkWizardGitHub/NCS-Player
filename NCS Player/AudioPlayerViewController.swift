@@ -12,7 +12,7 @@ import AVFoundation
 class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavigationControllerDelegate {
     
     // UserDefaultsインスタンス(参照)
-    let userDefaults = UserDefaults.standard
+    // let userDefaults = UserDefaults.standard
     
     // CoreData操作クラスインスタンス
     let coreDataManager: CoreDataManager<Any> = CoreDataManager<Any>(setEntityName: GlobalVariableManager.shared.coreDataEntityName, attributeNames: GlobalVariableManager.shared.coreDataAttributes)

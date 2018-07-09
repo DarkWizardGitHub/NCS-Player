@@ -11,13 +11,16 @@ import UIKit
 //SearchViewController内のセルに設置したButtonの処理用サブクラス
 class SubSearchViewController: UITableViewCell {
 
-    @IBOutlet weak var AddButton: UIButton!
-    
     // CoreData操作クラスインスタンス
     let coreDataManager: CoreDataManager<String> = CoreDataManager<String>(setEntityName: GlobalVariableManager.shared.coreDataEntityName, attributeNames: GlobalVariableManager.shared.coreDataAttributes)
     
+    // データ操作クラスインスタンス
+    let dataStorageManager = DataStorageManager()
+    
     // 検索結果用配列(2次元配列)
     var searchedResultList: Array<Array<Any>> = []
+    
+    @IBOutlet weak var AddButton: UIButton!
 
     // nibファイルがオープンされた際に１度だけ呼び出されるメソッド
     override func awakeFromNib() {
@@ -31,24 +34,27 @@ class SubSearchViewController: UITableViewCell {
     @IBAction func pushAddButton(_ sender: UIButton) {
         if confirmRegistration(indexPathRow: self.tag) == true {
             // 登録済みの場合の処理
-            AddButton.setImage(UIImage(named: "addicon"), for: UIControlState())
-            AddButton.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
-            AddButton.layer.cornerRadius = 5.0
-            print("Delete")
+            // Documentsフォルダからデータ削除
+            self.dataStorageManager.delete(targetFolderPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0], fileNameWithExtension: "\(self.textLabel?.text).mp3")
             // CoreDataのデータ削除
             coreDataManager.delete(attribute: GlobalVariableManager.shared.coreDataAttributes[0], relationalOperator: "=", placeholder: "%@", targetValue: searchedResultList[self.tag][0] as! String)
             // myPlayList更新
             GlobalVariableManager.shared.playList = (coreDataManager.readAll() as! Array<Array<String>>)
+            // ボタン画像/色変更
+            AddButton.setImage(UIImage(named: "addicon"), for: UIControlState())
+            AddButton.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
+            AddButton.layer.cornerRadius = 5.0
         } else {
             // 未登録の場合の処理
-            AddButton.setImage(UIImage(named: "deleteicon"), for: UIControlState())
-            AddButton.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
-            AddButton.layer.cornerRadius = 5.0
-            print("Add")
+            // Documentsフォルダにデータ追加
+            self.dataStorageManager.download(url: NSURL(string: "http://www.hurtrecord.com/se/operation/b1-007_computer_01.mp3")!, destinationFolderPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0], fileNameWithExtension: "\(self.textLabel?.text).mp3")
             // CoreDataにデータ追加
             coreDataManager.create(values: searchedResultList[self.tag] as! [String])
             // myPlayList更新
             GlobalVariableManager.shared.playList = (coreDataManager.readAll() as! Array<Array<String>>)
+            AddButton.setImage(UIImage(named: "deleteicon"), for: UIControlState())
+            AddButton.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
+            AddButton.layer.cornerRadius = 5.0
         }
         // textラベルで曲名も取れる
         // print(self.textLabel?.text)

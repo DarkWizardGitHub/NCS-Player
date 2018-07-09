@@ -52,6 +52,7 @@
 		426A5DB020C821ED00624F30 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426A5DAF20C821ED00624F30 /* AudioManager.swift */; };
 		426FDA6B20E7A10C00910969 /* Tunes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 426FDA6A20E7A10C00910969 /* Tunes.plist */; };
 		42B06FBF20EF40CF0038DE6D /* YoutubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B06FBE20EF40CF0038DE6D /* YoutubeViewController.swift */; };
+		42B06FC120EF5A9D0038DE6D /* DataStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B06FC020EF5A9D0038DE6D /* DataStorageManager.swift */; };
 		42BFACCA20C3BE5600AE8996 /* MyPlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BFACC920C3BE5600AE8996 /* MyPlayListViewController.swift */; };
 		42C8B69120CCED1D006C44C4 /* volumemaxicon256.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C8B69020CCED1D006C44C4 /* volumemaxicon256.png */; };
 		42C8B69320CCEE3B006C44C4 /* volumeminicon256.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C8B69220CCEE3B006C44C4 /* volumeminicon256.png */; };
@@ -106,6 +107,7 @@
 		426FDA6A20E7A10C00910969 /* Tunes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Tunes.plist; sourceTree = "<group>"; };
 		4299AE1F20DA93040020A726 /* NCS Player.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NCS Player.entitlements"; sourceTree = "<group>"; };
 		42B06FBE20EF40CF0038DE6D /* YoutubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeViewController.swift; sourceTree = "<group>"; };
+		42B06FC020EF5A9D0038DE6D /* DataStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorageManager.swift; sourceTree = "<group>"; };
 		42BFACC920C3BE5600AE8996 /* MyPlayListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlayListViewController.swift; sourceTree = "<group>"; };
 		42C8B69020CCED1D006C44C4 /* volumemaxicon256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volumemaxicon256.png; sourceTree = "<group>"; };
 		42C8B69220CCEE3B006C44C4 /* volumeminicon256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volumeminicon256.png; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				4228B3BA20BD18B200349913 /* Info.plist */,
 				4261F8CE20EE820900C5259F /* SettingOptions.plist */,
 				426FDA6A20E7A10C00910969 /* Tunes.plist */,
+				42B06FC020EF5A9D0038DE6D /* DataStorageManager.swift */,
 			);
 			path = "NCS Player";
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				4259E77920E6260F00DBE3B8 /* SearchViewController.swift in Sources */,
 				426A5DB020C821ED00624F30 /* AudioManager.swift in Sources */,
 				4261F8CD20EE794900C5259F /* SettingsViewController.swift in Sources */,
+				42B06FC120EF5A9D0038DE6D /* DataStorageManager.swift in Sources */,
 				4258D35620ED140D00F6A337 /* SubArtistInformationViewController.swift in Sources */,
 				42168CFD20D2B16300B72D4F /* CoreDataManager.swift in Sources */,
 				42168CFA20D2756A00B72D4F /* Tunes+CoreDataClass.swift in Sources */,

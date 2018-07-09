@@ -67,28 +67,21 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         //        label.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
         return label
     }
-    
+
     // TableViewのセルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // prefix(1)で先頭の文字を抽出、uppercased()で小文字も大文字に強制変換し、各アルファベット(Section名と同じ)と比較
         return self.settingOptionList.filter{ $0[0] == sectionTitle[section] as! String }.count
     }
-    
+
     // 1行毎のセルの要素を設定する(表示する中身の設定)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルのインスタンス化　文字列を表示するCell
         let cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "settingsviewtableviewcell", for: indexPath)
-        
-        //        上でダウンキャストもしているのに何故ダメなのか？
-        //        Subクラス側でindexPathを使用したいため、どうやったら引き渡せるか
-        //        cell.hoge = indexPath
-        //        print("親\(indexPath)")
         cell.textLabel?.text = self.settingOptionList.filter{ $0[0] == sectionTitle[indexPath.section] as! String }[indexPath.row][1]
-//        cell.jumpToWebButton.layer.cornerRadius = 5.0
-//        cell.jumpToYoutubeButton.layer.cornerRadius = 5.0
         return cell
     }
-    
+
     // セルをタップしたら遷移する
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
