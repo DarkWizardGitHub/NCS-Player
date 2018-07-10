@@ -80,7 +80,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             // 未登録の場合の処理
         } else {
             cell.AddButton.setImage(UIImage(named: "addicon"), for: UIControlState())
-            cell.AddButton.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
             cell.AddButton.layer.cornerRadius = 5.0
         }
         

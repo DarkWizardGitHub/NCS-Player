@@ -92,9 +92,7 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
         // UIcolorのRGB値は、256段階ではなく、0~1.0までの値で指定
         // UIcolorのRGB値の引数に255で割った値を直接渡す
         label.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
-        label.backgroundColor = UIColor(red: 96/255, green: 96/255, blue: 96/255, alpha: 1)
-//        何故か色が濃くなる
-//        label.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
+        label.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
         return label
     }
     
@@ -110,7 +108,8 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.textLabel?.text = GlobalVariableManager.shared.playList[indexPath.row][0]
         return cell
     }
-    
+
+//    今後の機能として残す
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "DELETE") { (action, index) -> Void in
 
@@ -122,7 +121,7 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         // Deleteボタン背景色設定
-        deleteButton.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
+        deleteButton.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
         return [deleteButton]
     }
     

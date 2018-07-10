@@ -62,9 +62,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         label.text = "   " + (sectionTitle[section] as! String)
         // UIcolorのRGB値の引数に255で割った値を直接渡す
         label.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
-        label.backgroundColor = UIColor(red: 96/255, green: 96/255, blue: 96/255, alpha: 1)
-        //        何故か色が濃くなる
-        //        label.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
+        label.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
         return label
     }
 

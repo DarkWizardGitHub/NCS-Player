@@ -20,8 +20,14 @@ class SubSearchViewController: UITableViewCell {
     // 検索結果用配列(2次元配列)
     var searchedResultList: Array<Array<Any>> = []
     
+    var i:Int = 0
+    var timer:Timer!
+    
+    
+    
+    // Outlet接続
     @IBOutlet weak var AddButton: UIButton!
-
+    
     // nibファイルがオープンされた際に１度だけ呼び出されるメソッド
     override func awakeFromNib() {
 
@@ -42,41 +48,68 @@ class SubSearchViewController: UITableViewCell {
             GlobalVariableManager.shared.playList = (coreDataManager.readAll() as! Array<Array<String>>)
             // ボタン画像/色変更
             AddButton.setImage(UIImage(named: "addicon"), for: UIControlState())
-            AddButton.backgroundColor = UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1)
+            // alphaの透過率の関係でRGBがそのまま適用できないので
+            AddButton.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
             AddButton.layer.cornerRadius = 5.0
         } else {
-            // ダウンロード終了フラグ
-            var hoge: Bool = false
             // 未登録の場合の処理
             // Documentsフォルダにデータ追加
+            // GCD（Grand Central Dispatch）のDispatchGroupを作成し、非同期処理の実行前にenter()、実行後にleave()を呼ぶことで、複数の非同期処理の開始と完了を管理
+            // 全ての処理で完了の合図としてleave()が呼ばれた後に、notify()メソッドで指定したクロージャが実行
+            let dispatchGroup = DispatchGroup()
             let queue = DispatchQueue.global()
-                // 非同期で処理を実行する
-                queue.async {
-                    self.dataStorageManager.download(url: NSURL(string: "http://darkwizard.xsrv.jp/NCSPlayerTunes/" + (self.textLabel?.text?.replacingOccurrences(of: " ", with: "%20"))! + ".mp3")!, destinationFolderPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0], fileNameWithExtension: (self.textLabel?.text)! + ".mp3")
+            
+            // 非同期処理開始
+            dispatchGroup.enter()
+            
+            // メインスレッドで実行
+            DispatchQueue.main.async {
+                self.AddButton.isEnabled = false
+                self.AddButton.setImage(UIImage(named: "downloadprogressbar0"), for: UIControlState())
+                self.timer = Timer.scheduledTimer(withTimeInterval: 0.75, repeats: true, block: { (timer) in
+                    self.AddButton.setImage(UIImage(named: "downloadprogressbar\(self.i)"), for: .normal)
+                    if self.i < 4 {
+                        self.i += 1
+                    } else {
+                        self.i = 0
+                    }
+                })
+            }
+            
+            // サブスレッドで実行
+            queue.async {
+                self.dataStorageManager.download(url: NSURL(string: "http://darkwizard.xsrv.jp/NCSPlayerTunes/" + (self.textLabel?.text?.replacingOccurrences(of: " ", with: "%20"))! + ".mp3")!, destinationFolderPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0], fileNameWithExtension: (self.textLabel?.text)! + ".mp3")
+                // 非同期処理終了
+                dispatchGroup.leave()
+            }
+            
+            // leave()が呼ばれた後の処理
+            dispatchGroup.notify(queue: queue, execute: {
+                print("呼ばれたぜよ")
+                DispatchQueue.main.async {
                     // CoreDataにデータ追加
                     self.coreDataManager.create(values: self.searchedResultList[self.tag] as! [String])
                     // myPlayList更新
                     GlobalVariableManager.shared.playList = (self.coreDataManager.readAll() as! Array<Array<String>>)
+                    // タイマー破棄
+                    self.timer.invalidate()
+                    self.i = 0
                     self.AddButton.setImage(UIImage(named: "deleteicon"), for: UIControlState())
                     self.AddButton.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
                     self.AddButton.layer.cornerRadius = 5.0
-                    
-                    
-                    
-                    hoge = true
-                    
-                    
-                    
+                    self.AddButton.isEnabled = true
                 }
-            // ボタン画像/色変更
-            self.AddButton.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
-            self.AddButton.layer.cornerRadius = 5.0
-            while(hoge == false) {
-                self.AddButton.setImage(UIImage(named: "downloadprogressbar0"), for: UIControlState())
-                self.AddButton.setImage(UIImage(named: "downloadprogressbar1"), for: UIControlState())
-                self.AddButton.setImage(UIImage(named: "downloadprogressbar2"), for: UIControlState())
-                self.AddButton.setImage(UIImage(named: "downloadprogressbar3"), for: UIControlState())
-            }
+            })
+            
+//            // ボタン画像/色変更
+//            self.AddButton.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
+//            self.AddButton.layer.cornerRadius = 5.0
+//            while(hoge == false) {
+//                self.AddButton.setImage(UIImage(named: "downloadprogressbar0"), for: UIControlState())
+//                self.AddButton.setImage(UIImage(named: "downloadprogressbar1"), for: UIControlState())
+//                self.AddButton.setImage(UIImage(named: "downloadprogressbar2"), for: UIControlState())
+//                self.AddButton.setImage(UIImage(named: "downloadprogressbar3"), for: UIControlState())
+//            }
 //            self.AddButton.setImage(UIImage(named: "deleteicon"), for: UIControlState())
 //            self.AddButton.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
 //            self.AddButton.layer.cornerRadius = 5.0
@@ -96,4 +129,45 @@ class SubSearchViewController: UITableViewCell {
         }
         return returnValue
     }
+
+//    // ダウンロード完了時の処理
+//    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+//
+//        print("didFinishDownloading")
+//        do {
+//            if let data = NSData(contentsOf: location) {
+//
+//                let fileExtension = location.pathExtension
+//                let filePath = getSaveDirectory() + getIdFromDateTime() + "." + fileExtension
+//
+//                print(filePath)
+//
+//                try data.write(toFile: filePath, options: .atomic)
+//            }
+//        } catch let error as NSError {
+//            print("download error: \(error)")
+//        }
+//    }
+//
+//    // ダウンロード進行中の処理
+//    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+//
+//        let progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
+//
+//        // ダウンロードの進捗をログに表示
+//        print(String(format: "%.2f", progress * 100) + "%")
+//
+//        // メインスレッドでプログレスバーの更新処理
+//        DispatchQueue.main.async(execute: {
+//            self.downloadProgressBar.setProgress(progress, animated: true)
+//        })
+//    }
+//
+//    // ダウンロードエラー発生時の処理
+//    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+//
+//        if error != nil {
+//            print("download error: \(error)")
+//        }
+//    }
 }

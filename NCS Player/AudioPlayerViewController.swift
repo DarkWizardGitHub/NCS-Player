@@ -117,7 +117,7 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         // 画面遷移時にタイマー破棄
-        self.playTimer = nil
+        self.playTimer.invalidate()
         GlobalVariableManager.shared.playingTuneIndex = GlobalVariableManager.shared.tuneIndex
     }
 
