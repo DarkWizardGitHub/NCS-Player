@@ -67,7 +67,7 @@ class SubSearchViewController: UITableViewCell {
                 self.AddButton.isEnabled = false
                 self.AddButton.setImage(UIImage(named: "downloadprogressbar0"), for: UIControlState())
                 self.timer = Timer.scheduledTimer(withTimeInterval: 0.75, repeats: true, block: { (timer) in
-                    self.AddButton.setImage(UIImage(named: "downloadprogressbar\(self.i)"), for: .normal)
+                    self.AddButton.setImage(UIImage(named: "downloadprogressbar\(self.i)"), for: .disabled)
                     if self.i < 4 {
                         self.i += 1
                     } else {
@@ -85,7 +85,7 @@ class SubSearchViewController: UITableViewCell {
             
             // leave()が呼ばれた後の処理
             dispatchGroup.notify(queue: queue, execute: {
-                print("呼ばれたぜよ")
+                // メインスレッドで実行
                 DispatchQueue.main.async {
                     // CoreDataにデータ追加
                     self.coreDataManager.create(values: self.searchedResultList[self.tag] as! [String])
@@ -100,19 +100,6 @@ class SubSearchViewController: UITableViewCell {
                     self.AddButton.isEnabled = true
                 }
             })
-            
-//            // ボタン画像/色変更
-//            self.AddButton.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
-//            self.AddButton.layer.cornerRadius = 5.0
-//            while(hoge == false) {
-//                self.AddButton.setImage(UIImage(named: "downloadprogressbar0"), for: UIControlState())
-//                self.AddButton.setImage(UIImage(named: "downloadprogressbar1"), for: UIControlState())
-//                self.AddButton.setImage(UIImage(named: "downloadprogressbar2"), for: UIControlState())
-//                self.AddButton.setImage(UIImage(named: "downloadprogressbar3"), for: UIControlState())
-//            }
-//            self.AddButton.setImage(UIImage(named: "deleteicon"), for: UIControlState())
-//            self.AddButton.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
-//            self.AddButton.layer.cornerRadius = 5.0
         }
         // textラベルで曲名も取れる
         // print(self.textLabel?.text)
@@ -129,45 +116,4 @@ class SubSearchViewController: UITableViewCell {
         }
         return returnValue
     }
-
-//    // ダウンロード完了時の処理
-//    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-//
-//        print("didFinishDownloading")
-//        do {
-//            if let data = NSData(contentsOf: location) {
-//
-//                let fileExtension = location.pathExtension
-//                let filePath = getSaveDirectory() + getIdFromDateTime() + "." + fileExtension
-//
-//                print(filePath)
-//
-//                try data.write(toFile: filePath, options: .atomic)
-//            }
-//        } catch let error as NSError {
-//            print("download error: \(error)")
-//        }
-//    }
-//
-//    // ダウンロード進行中の処理
-//    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-//
-//        let progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
-//
-//        // ダウンロードの進捗をログに表示
-//        print(String(format: "%.2f", progress * 100) + "%")
-//
-//        // メインスレッドでプログレスバーの更新処理
-//        DispatchQueue.main.async(execute: {
-//            self.downloadProgressBar.setProgress(progress, animated: true)
-//        })
-//    }
-//
-//    // ダウンロードエラー発生時の処理
-//    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-//
-//        if error != nil {
-//            print("download error: \(error)")
-//        }
-//    }
 }

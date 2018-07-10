@@ -268,4 +268,39 @@ class CoreDataManager<T>: NSObject {
             print("read error:",error)
         }
     }
+    
+    // Delete処理
+    func deleteAll() {
+        
+        var fetchedArry: [NSManagedObject] = []
+        
+        // AppDelegateのインスタンス化
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        // コンテキストを取得
+        let context = appDelegate.persistentContainer.viewContext
+        // データをフェッチ
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+//        // 絞り込み
+//        //        let predicate = NSPredicate(format: "\(attribute) = \(placeholder)", string)
+//        let predicate = NSPredicate(format: "\(attribute) \(relationalOperator) \(placeholder)", targetValue as! CVarArg)
+//        fetchRequest.predicate = predicate
+        do {
+            // データ取得 配列で取得される
+            fetchedArry = try context.fetch(fetchRequest) as! [NSManagedObject]
+            // context.delete(fetchResults.first!) 一行だけ削除するなら、この書き方でも良い
+        } catch  {
+            print("read error:",error)
+        }
+        
+        // 全データ(レコード)削除
+        for result in fetchedArry {
+            context.delete(result as! NSManagedObject)
+        }
+        // 保存
+        do {
+            try context.save()
+        } catch  {
+            print("read error:",error)
+        }
+    }
 }

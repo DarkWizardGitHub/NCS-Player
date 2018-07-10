@@ -14,10 +14,6 @@ class SubArtistInformationViewController: UITableViewCell {
     @IBOutlet weak var jumpToWebButton: UIButton!
     @IBOutlet weak var jumpToYoutubeButton: UIButton!
     
-//    let test = DataStorageManager()
-    
-    
-    
     // CoreData操作クラスインスタンス
     let coreDataManager: CoreDataManager<String> = CoreDataManager<String>(setEntityName: GlobalVariableManager.shared.coreDataEntityName, attributeNames: GlobalVariableManager.shared.coreDataAttributes)
     
@@ -38,8 +34,6 @@ class SubArtistInformationViewController: UITableViewCell {
         if UIApplication.shared.canOpenURL(url!) {
             UIApplication.shared.open(url!)
         }
-//
-//        test.download(url: NSURL(string: "http://www.hurtrecord.com/se/operation/b1-007_computer_01.mp3")!, destinationFolderPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0], fileNameWithExtension: "hogehoge.mp3")
     }
     
     // Youtubeへリンク
@@ -49,6 +43,5 @@ class SubArtistInformationViewController: UITableViewCell {
         if UIApplication.shared.canOpenURL(url!) {
             UIApplication.shared.open(url!)
         }
-//                test.delete(targetFolderPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0], fileNameWithExtension: "hogehoge.mp3")
     }
 }

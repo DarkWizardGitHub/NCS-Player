@@ -144,6 +144,7 @@
 				426A5DAF20C821ED00624F30 /* AudioManager.swift */,
 				42168CFC20D2B16300B72D4F /* CoreDataManager.swift */,
 				424A446220CC2DED00B0681B /* GlobalVariableManager.swift */,
+				42B06FC020EF5A9D0038DE6D /* DataStorageManager.swift */,
 				4228B3B020BD18B000349913 /* AudioPlayerViewController.swift */,
 				42B06FBE20EF40CF0038DE6D /* YoutubeViewController.swift */,
 				42BFACC920C3BE5600AE8996 /* MyPlayListViewController.swift */,
@@ -156,7 +157,6 @@
 				4228B3BA20BD18B200349913 /* Info.plist */,
 				4261F8CE20EE820900C5259F /* SettingOptions.plist */,
 				426FDA6A20E7A10C00910969 /* Tunes.plist */,
-				42B06FC020EF5A9D0038DE6D /* DataStorageManager.swift */,
 			);
 			path = "NCS Player";
 			sourceTree = "<group>";

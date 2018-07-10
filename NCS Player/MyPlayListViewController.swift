@@ -9,9 +9,6 @@
 import UIKit
 import AVFoundation
 
-//        実装すること
-//        順序を変更する機能(タップしながらズラすような感じ、もしくは上下移動か)
-
 class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // ユーザーデフォルトインスタンス(参照)
@@ -33,28 +30,16 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         self.playListTableView.delegate = self
         self.playListTableView.dataSource = self
+        
+        // TableView並べ替えに必要
+        self.playListTableView.isEditing = true
+        // Cellをタップ選択できるようにする
+        self.playListTableView.allowsSelectionDuringEditing = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-//        ***Debug用/初期リストUserDefaults格納***
-//        var hoge = [["Cloud 9", "Itro & Tobu", "Itro & Tobu-Cloud 9", "mp3"],["Sthlm Sunset", "Ehrling", "Ehrling-Sthlm Sunset", "mp3"],["Sunburst", "Tobu & Itro", "Tobu & Itro-Sunburst", "mp3"],["Candyland", "Tobu", "Tobu-Candyland", "mp3"],["Dance With Me", "Ehrling", "Ehrling-Dance With Me", "mp3"]]
-//        userDefaults.set(hoge, forKey: "myPlayList")
-//        userDefaults.synchronize()
-//        ***Debug用/初期リスト格納***
-        
-        
-//        ***Debug用/初期リストCoreData格納***
-//        var hoge = [["Cloud 9", "Itro & Tobu", "Itro & Tobu-Cloud 9", "mp3", true],["Sthlm Sunset", "Ehrling", "Ehrling-Sthlm Sunset", "mp3", false],["Sunburst", "Tobu & Itro", "Tobu & Itro-Sunburst", "mp3", false],["Candyland", "Tobu", "Tobu-Candyland", "mp3", false],["Dance With Me", "Ehrling", "Ehrling-Dance With Me", "mp3", false],["Bay Breeze", "FortyThr33", "FortyThr33-Bay Breeze", "mp3", false],["Good For You", "THBD", "THBD-Good For You", "mp3", false],["Hope", "Tobu", "Tobu-Hope", "mp3", false],["Fade", "Alan Walker", "Alan Walker-Fade", "mp3", false],["All I Need", "Ehrling", "Ehrling-All I Need", "mp3", false],["Champagne Ocean", "Ehrling", "Ehrling-Champagne Ocean", "mp3", true]]
-//            var hoge = [["All I Need", "Ehrling", "Ehrling-All I Need", "mp3"]]
-//         UserdefaultsでmyPlayListを取得した場合、CoreDataManagerクラス側の引数が1次元配列の為foreachで回す
-//                 hoge.forEach {
-//                    coreDataManager.create(values: $0 as! [String])
-//                 }
-        // ***Debug用/初期リストCoreData格納***
-        
-        
+
         // UserDefaultsからMyPlayListデータを取得
         // as! [[String]] = [] でも同義
         // 2次元配列の為ダウンキャストも2次元配列にする
@@ -64,9 +49,6 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
         // 2次元配列の為ダウンキャストも2次元配列にする
 //        myPlayList = (coreDataManager.readAll() as! Array<Array<Any>>).filter{ $0[4] as! Bool == true }
         GlobalVariableManager.shared.playList = coreDataManager.readAll() as! Array<Array<String>>
-//        print("マイプレイリスト\(GlobalVariableManager.shared.myPlayList)")
-//        こいつを入れないとGlobalVariableManager.shared.myPlayListを更新してもテーブルセルの更新が行われない
-//        おかゆさんに質問する事
         playListTableView.reloadData()
     }
     
@@ -109,20 +91,59 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
 
-//    今後の機能として残す
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "DELETE") { (action, index) -> Void in
-
-            // データベースから要素を削除
-            self.coreDataManager.delete(attribute: GlobalVariableManager.shared.coreDataAttributes[0], relationalOperator: "=", placeholder: "%@", targetValue: GlobalVariableManager.shared.playList[indexPath.row][0])
-            // removeで配列から要素削除
-            GlobalVariableManager.shared.playList.remove(at: indexPath.row)
-            // deleteRowsでセルから要素を削除
-            tableView.deleteRows(at: [indexPath], with: .fade)
+//    //    今後の拡張機能を見据えて残す
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "DELETE") { (action, index) -> Void in
+//
+//            // データベースから要素を削除
+//            self.coreDataManager.delete(attribute: GlobalVariableManager.shared.coreDataAttributes[0], relationalOperator: "=", placeholder: "%@", targetValue: GlobalVariableManager.shared.playList[indexPath.row][0])
+//            // removeで配列から要素削除
+//            GlobalVariableManager.shared.playList.remove(at: indexPath.row)
+//            // deleteRowsでセルから要素を削除
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//        // Deleteボタン背景色設定
+//        deleteButton.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
+//        return [deleteButton]
+//    }
+    
+    // セルを動かせるように設定
+    // Asks the data source whether a given row can be moved to another location in the table view
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    // セル入れ替え時の処理
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        // 移動された要素(Array<String>型)を取得
+        let changedElement = GlobalVariableManager.shared.playList[sourceIndexPath.row]
+        
+        // 元の位置の要素(Array<String>型)を配列から削除
+        // 配列内の指定indexの要素(Array<String>型)を削除
+        GlobalVariableManager.shared.playList.remove(at: sourceIndexPath.row)
+        
+        // 移動先の位置に要素を配列に挿入
+        GlobalVariableManager.shared.playList.insert(changedElement, at:destinationIndexPath.row)
+        
+        // CoreData初期化
+        coreDataManager.deleteAll()
+        
+        // 変更後の曲順(要素順)でMyPlaylist配列をCoreDataへ保存
+        GlobalVariableManager.shared.playList.forEach {
+            coreDataManager.create(values: $0)
         }
-        // Deleteボタン背景色設定
-        deleteButton.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
-        return [deleteButton]
+    }
+    
+    // Asks the delegate for the editing style of a row at a particular location in a table view
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
+    }
+    
+    // セル並べ替え時にインデントさせないように設定
+    // Asks the delegate whether the background of the specified row should be indented while the table view is in editing mode
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
     
     // セルをタップしたら遷移する
@@ -135,5 +156,6 @@ class MyPlayListViewController: UIViewController, UITableViewDelegate, UITableVi
         // セグエの名前を指定して画面遷移を発動
         performSegue(withIdentifier: "segue2", sender: nil)
     }
-
 }
+
+

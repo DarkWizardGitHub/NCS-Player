@@ -335,14 +335,12 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
     @IBAction func longPressMinimumVolumeButton(_ sender: UILongPressGestureRecognizer) {
         // 押した時点からdurationで設定した秒数経過した時の処理
         if sender.state == .began {
-            print("began")
             AudioManager.shared.audioVolume = 0
             AudioManager.shared.audioBuffer?.volume = 0
             self.volumeSlider.value = AudioManager.shared.audioVolume
         }
         // ボタンを話した時の処理
         else if sender.state == .ended {
-            print("ended")
         }
     }
     
@@ -388,14 +386,12 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
     @IBAction func longPressMaximumVolumeButton(_ sender: UILongPressGestureRecognizer) {
         // 押した時点からdurationで設定した秒数経過した時の処理
         if sender.state == .began {
-            print("began")
             AudioManager.shared.audioVolume = 1
             AudioManager.shared.audioBuffer?.volume = 1
             self.volumeSlider.value = AudioManager.shared.audioVolume
         }
         // ボタンを話した時の処理
         else if sender.state == .ended {
-            print("ended")
         }
     }
     
@@ -467,7 +463,7 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
                 }
             } else if AudioManager.shared.audioPlayMode == "Shuffle" {
                 GlobalVariableManager.shared.tuneIndex = Int(arc4random_uniform(UInt32(GlobalVariableManager.shared.playList.count)))
-                print(GlobalVariableManager.shared.tuneIndex)
+//                print(GlobalVariableManager.shared.tuneIndex)
                 self.prepareTune()
                 AudioManager.shared.play(volumeValue: AudioManager.shared.audioVolume)
                 // 再生アイコン切り替え
