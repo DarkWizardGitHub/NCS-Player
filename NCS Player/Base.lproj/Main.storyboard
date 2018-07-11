@@ -85,6 +85,7 @@
                                                     <state key="normal" image="addicon.png">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <state key="selected" image="downloadprogressbar0.png"/>
                                                     <connections>
                                                         <action selector="pushAddButton:" destination="mhS-IN-0Fa" eventType="touchUpInside" id="hSK-bI-BQx"/>
                                                     </connections>
@@ -540,6 +541,7 @@
         <image name="addicon.png" width="256" height="153"/>
         <image name="backicon.png" width="256" height="256"/>
         <image name="darklogo512.png" width="512" height="512"/>
+        <image name="downloadprogressbar0.png" width="256" height="153"/>
         <image name="nexticon.png" width="256" height="256"/>
         <image name="normalmodeicon128.png" width="128" height="128"/>
         <image name="playicon.png" width="256" height="256"/>

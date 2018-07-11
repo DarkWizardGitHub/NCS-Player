@@ -47,7 +47,7 @@ class SubSearchViewController: UITableViewCell {
             // myPlayList更新
             GlobalVariableManager.shared.playList = (coreDataManager.readAll() as! Array<Array<String>>)
             // ボタン画像/色変更
-            AddButton.setImage(UIImage(named: "addicon"), for: UIControlState())
+            AddButton.setImage(UIImage(named: "addicon"), for: .normal)
             // alphaの透過率の関係でRGBがそのまま適用できないので
             AddButton.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
             AddButton.layer.cornerRadius = 5.0
@@ -63,12 +63,13 @@ class SubSearchViewController: UITableViewCell {
             dispatchGroup.enter()
             
             // メインスレッドで実行
+            // UIControlState()  ==  UIControlState.normal == .normal
             DispatchQueue.main.async {
                 self.AddButton.isEnabled = false
-                self.AddButton.setImage(UIImage(named: "downloadprogressbar0"), for: UIControlState())
+                self.AddButton.setImage(UIImage(named: "downloadprogressbar0"), for: .disabled)
                 self.timer = Timer.scheduledTimer(withTimeInterval: 0.75, repeats: true, block: { (timer) in
                     self.AddButton.setImage(UIImage(named: "downloadprogressbar\(self.i)"), for: .disabled)
-                    if self.i < 4 {
+                    if self.i < 3 {
                         self.i += 1
                     } else {
                         self.i = 0

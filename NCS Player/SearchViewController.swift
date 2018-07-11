@@ -74,12 +74,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell: SubSearchViewController! = tableView.dequeueReusableCell(withIdentifier: "searchviewtableviewcell", for: indexPath) as! SubSearchViewController
         cell.textLabel?.text = searchedResultList[indexPath.row][0] as! String
         if confirmRegistration(indexPathRow: indexPath.row) == true {
-            cell.AddButton.setImage(UIImage(named: "deleteicon"), for: UIControlState())
+            cell.AddButton.setImage(UIImage(named: "deleteicon"), for: .normal)
             cell.AddButton.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)
             cell.AddButton.layer.cornerRadius = 5.0
             // 未登録の場合の処理
         } else {
-            cell.AddButton.setImage(UIImage(named: "addicon"), for: UIControlState())
+            cell.AddButton.setImage(UIImage(named: "addicon"), for: .normal)
             cell.AddButton.layer.cornerRadius = 5.0
         }
         
