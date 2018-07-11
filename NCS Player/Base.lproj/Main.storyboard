@@ -481,11 +481,23 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGI-dI-LMd">
+                                <rect key="frame" x="10" y="85" width="300" height="100"/>
+                                <color key="backgroundColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="EpB-yq-P7T"/>
+                                    <constraint firstAttribute="height" constant="100" id="JiL-wQ-mYs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="jrL-pT-QZj" firstAttribute="trailing" secondItem="fr0-d0-fuE" secondAttribute="trailing" constant="25" id="3Vc-vR-v4o"/>
+                            <constraint firstItem="SGI-dI-LMd" firstAttribute="centerX" secondItem="7l2-xR-sjR" secondAttribute="centerX" id="63H-5I-Lkl"/>
                             <constraint firstItem="b8T-7f-e6M" firstAttribute="top" secondItem="84Z-73-9Bp" secondAttribute="bottom" constant="45" id="8A4-kG-84H"/>
                             <constraint firstItem="84Z-73-9Bp" firstAttribute="top" secondItem="fr0-d0-fuE" secondAttribute="bottom" constant="25" id="8kz-sM-cEr"/>
                             <constraint firstItem="jrL-pT-QZj" firstAttribute="trailing" secondItem="pUL-Ue-03R" secondAttribute="trailing" constant="25" id="Ae8-2g-CuB"/>
@@ -494,6 +506,7 @@
                             <constraint firstItem="b8T-7f-e6M" firstAttribute="leading" secondItem="jrL-pT-QZj" secondAttribute="leading" constant="25" id="KEr-zr-m4v"/>
                             <constraint firstItem="fr0-d0-fuE" firstAttribute="leading" secondItem="jrL-pT-QZj" secondAttribute="leading" constant="25" id="N2I-ti-G1I"/>
                             <constraint firstItem="fr0-d0-fuE" firstAttribute="top" secondItem="RsO-iU-eRw" secondAttribute="bottom" constant="20" id="RGJ-jb-2mo"/>
+                            <constraint firstItem="pUL-Ue-03R" firstAttribute="top" secondItem="SGI-dI-LMd" secondAttribute="bottom" constant="82" id="RLK-wZ-5hy"/>
                             <constraint firstItem="jrL-pT-QZj" firstAttribute="bottom" secondItem="b8T-7f-e6M" secondAttribute="bottom" constant="25" id="TUp-FN-LNW"/>
                             <constraint firstItem="RsO-iU-eRw" firstAttribute="top" secondItem="v5X-jL-3Lq" secondAttribute="bottom" constant="15" id="XSF-o7-hXX"/>
                             <constraint firstItem="jrL-pT-QZj" firstAttribute="trailing" secondItem="84Z-73-9Bp" secondAttribute="trailing" constant="50" id="XWJ-ex-Xpk"/>
@@ -509,6 +522,7 @@
                         <outlet property="artistLabel" destination="fr0-d0-fuE" id="NRP-IU-Xmm"/>
                         <outlet property="backButton" destination="SRR-L5-eyV" id="Sh1-vm-Gey"/>
                         <outlet property="controlButton" destination="DQj-Ja-sAz" id="kT6-Gz-Eg5"/>
+                        <outlet property="fraudLabel" destination="SGI-dI-LMd" id="cfd-q7-sfk"/>
                         <outlet property="leftPlaybackPositionLabel" destination="qeK-H3-4MU" id="djZ-mh-2XG"/>
                         <outlet property="playModeButton" destination="pUL-Ue-03R" id="G5h-KP-o3Y"/>
                         <outlet property="playbackPositionSlider" destination="Tff-Eu-TEx" id="2wX-pU-4Yz"/>
@@ -530,7 +544,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1423" y="915"/>
+            <point key="canvasLocation" x="1421.25" y="914.78873239436621"/>
         </scene>
     </scenes>
     <resources>

@@ -43,6 +43,11 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
     @IBOutlet weak var leftPlaybackPositionLabel: UILabel!
     @IBOutlet weak var rightPlaybackPositionLabel: UILabel!
     
+    // *************************************************
+    @IBOutlet weak var fraudLabel: UILabel!
+    let fraudLabelColors: Array<UIColor> = [UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1), UIColor(red: 215/255, green: 215/255, blue: 215/255, alpha: 1), UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)]
+    // *************************************************
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -111,6 +116,10 @@ class AudioPlayerViewController: UIViewController, AVAudioPlayerDelegate, UINavi
             self.synchronizePlaybackPositionSlider()
             self.synchronizeLeftPlaybackPositionLabel(value: (AudioManager.shared.audioBuffer?.currentTime)!)
             self.playNextTune()
+            
+            // *************************************************
+            self.fraudLabel.backgroundColor = self.fraudLabelColors[Int(arc4random_uniform(UInt32(self.fraudLabelColors.count)))]
+            // *************************************************
         })
     }
 
