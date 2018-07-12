@@ -25,7 +25,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     var settingOptionList: Array<Array<String>> = []
     
     // Sectionのタイトル
-    let sectionTitle: NSArray = ["General", "Restrictions", "Special Thanks"]
+    let sectionTitle: NSArray = ["General", "Special Thanks"]
     
     // Outlet接続
     @IBOutlet weak var settingsTableView: UITableView!
@@ -82,5 +82,18 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
     // セルをタップしたら遷移する
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // セグエの名前を指定して画面遷移を発動
+        
+        // cellForRow(at:) -> the table cell at the specified index path
+        // IndexPath -> A list of indexes that together represent the path to a specific location in a tree of nested arrays
+        switch settingsTableView.cellForRow(at: IndexPath(row: indexPath.row, section: indexPath.section))?.textLabel?.text {
+            case "About NCS Player":
+                performSegue(withIdentifier: "segue3", sender: nil)
+            case "User Policy":
+                performSegue(withIdentifier: "segue4", sender: nil)
+            default:
+                break
+        }
     }
 }

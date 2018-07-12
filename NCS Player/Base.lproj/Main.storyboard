@@ -193,11 +193,73 @@
                     <tabBarItem key="tabBarItem" title="" image="DarkIcon" selectedImage="DarkIcon" id="M0d-Z2-rJz"/>
                     <connections>
                         <outlet property="settingsTableView" destination="NeF-Tz-VnZ" id="8QF-3b-l7u"/>
+                        <segue destination="Pe9-77-voA" kind="show" identifier="segue3" id="lOR-Fc-aV0"/>
+                        <segue destination="OjY-hB-d6p" kind="show" identifier="segue4" id="bxe-jr-ZUs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTW-uD-SC0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="256.875" y="-1482.0422535211267"/>
+        </scene>
+        <!--AboutNCS View Controller-->
+        <scene sceneID="yIk-L2-hU8">
+            <objects>
+                <viewController id="Pe9-77-voA" customClass="AboutNCSViewController" customModule="NCS_Player" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0gt-PV-pp1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2Uy-FP-uKS">
+                                <rect key="frame" x="40" y="84" width="240" height="454"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Cvw-0D-H73" firstAttribute="trailing" secondItem="2Uy-FP-uKS" secondAttribute="trailing" constant="40" id="Gbr-gz-jKL"/>
+                            <constraint firstItem="2Uy-FP-uKS" firstAttribute="top" secondItem="Cvw-0D-H73" secondAttribute="top" constant="20" id="f8a-s5-JD5"/>
+                            <constraint firstItem="Cvw-0D-H73" firstAttribute="bottom" secondItem="2Uy-FP-uKS" secondAttribute="bottom" constant="30" id="gsC-EX-yLg"/>
+                            <constraint firstItem="2Uy-FP-uKS" firstAttribute="leading" secondItem="Cvw-0D-H73" secondAttribute="leading" constant="40" id="uKq-PK-0g3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Cvw-0D-H73"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JVG-kb-pXm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1417.5" y="-2294.3661971830984"/>
+        </scene>
+        <!--User Policy-->
+        <scene sceneID="t4z-EQ-Irr">
+            <objects>
+                <viewController id="OjY-hB-d6p" userLabel="User Policy" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AEK-eB-E5Q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bjh-tT-Bn7">
+                                <rect key="frame" x="40" y="84" width="240" height="454"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nmh-O2-YlR" firstAttribute="trailing" secondItem="Bjh-tT-Bn7" secondAttribute="trailing" constant="40" id="0Rx-oO-RYy"/>
+                            <constraint firstItem="nmh-O2-YlR" firstAttribute="bottom" secondItem="Bjh-tT-Bn7" secondAttribute="bottom" constant="30" id="9bV-NH-D7R"/>
+                            <constraint firstItem="Bjh-tT-Bn7" firstAttribute="top" secondItem="nmh-O2-YlR" secondAttribute="top" constant="20" id="QHz-sz-jF6"/>
+                            <constraint firstItem="Bjh-tT-Bn7" firstAttribute="leading" secondItem="nmh-O2-YlR" secondAttribute="leading" constant="40" id="j9K-0N-Wqv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nmh-O2-YlR"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eff-tY-dsY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1419" y="-1482"/>
         </scene>
         <!--Artist Information View Controller-->
         <scene sceneID="tID-ya-AhK">

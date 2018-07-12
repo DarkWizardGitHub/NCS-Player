@@ -72,7 +72,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // セルのインスタンス化　文字列を表示するCell
         let cell: SubSearchViewController! = tableView.dequeueReusableCell(withIdentifier: "searchviewtableviewcell", for: indexPath) as! SubSearchViewController
-        cell.textLabel?.text = searchedResultList[indexPath.row][0] as! String
+        cell.textLabel?.text = searchedResultList[indexPath.row][0] as? String
         if confirmRegistration(indexPathRow: indexPath.row) == true {
             cell.AddButton.setImage(UIImage(named: "deleteicon"), for: .normal)
             cell.AddButton.backgroundColor = UIColor(red: 150/255, green: 150/255, blue: 150/255, alpha: 1)

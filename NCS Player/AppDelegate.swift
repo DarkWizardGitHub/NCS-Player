@@ -19,6 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // ユーザーデフォルトインスタンス(参照)
+         let userDefaults = UserDefaults.standard
+        // 値を取り出す前に.register()メソッドを用いることで初期値を指定
+        // 初期値の指定をしない場合、UserDefaultsではそのデータ型の基本値(Intなら0、Boolならfalse)が初回の呼び出しで取得
+        // 一度も利用されていない(保存されていない)Keyのデータに適応、値がすでに入っているときはそちらを優先し、初期値は無視
+        // 初回起動時に機能制限用フラグ変数の初期化
+        userDefaults.register(defaults: ["Restrictions": false])
+        
         // CoreData使用の為追記
         // CoreDataに使用されているSQLiteファイル保存パス確認用
         let path = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
