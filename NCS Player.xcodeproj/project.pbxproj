@@ -23,6 +23,7 @@
 		4257E4EE20BFD16400B9AD26 /* nexticon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257E4E920BFD16400B9AD26 /* nexticon.png */; };
 		4257E4EF20BFD16400B9AD26 /* playicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257E4EA20BFD16400B9AD26 /* playicon.png */; };
 		4257E4F020BFD16400B9AD26 /* stopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4257E4EB20BFD16400B9AD26 /* stopicon.png */; };
+		42589D2020F869650020E990 /* AboutNCSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42589D1F20F869650020E990 /* AboutNCSViewController.swift */; };
 		4258D35220EC919A00F6A337 /* ArtistInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4258D35120EC919A00F6A337 /* ArtistInformationViewController.swift */; };
 		4258D35420EC9DF600F6A337 /* Artists.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4258D35320EC9DF600F6A337 /* Artists.plist */; };
 		4258D35620ED140D00F6A337 /* SubArtistInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4258D35520ED140D00F6A337 /* SubArtistInformationViewController.swift */; };
@@ -70,6 +71,7 @@
 		4257E4E920BFD16400B9AD26 /* nexticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nexticon.png; sourceTree = "<group>"; };
 		4257E4EA20BFD16400B9AD26 /* playicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playicon.png; sourceTree = "<group>"; };
 		4257E4EB20BFD16400B9AD26 /* stopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopicon.png; sourceTree = "<group>"; };
+		42589D1F20F869650020E990 /* AboutNCSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutNCSViewController.swift; sourceTree = "<group>"; };
 		4258D35120EC919A00F6A337 /* ArtistInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistInformationViewController.swift; sourceTree = "<group>"; };
 		4258D35320EC9DF600F6A337 /* Artists.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Artists.plist; sourceTree = "<group>"; };
 		4258D35520ED140D00F6A337 /* SubArtistInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubArtistInformationViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				4258D35120EC919A00F6A337 /* ArtistInformationViewController.swift */,
 				4258D35520ED140D00F6A337 /* SubArtistInformationViewController.swift */,
 				4261F8CC20EE794800C5259F /* SettingsViewController.swift */,
+				42589D1F20F869650020E990 /* AboutNCSViewController.swift */,
 				4258D35320EC9DF600F6A337 /* Artists.plist */,
 				4228B3BA20BD18B200349913 /* Info.plist */,
 				4261F8CE20EE820900C5259F /* SettingOptions.plist */,
@@ -315,6 +318,7 @@
 				42168CEF20D253F800B72D4F /* Tunes.xcdatamodeld in Sources */,
 				4259E77920E6260F00DBE3B8 /* SearchViewController.swift in Sources */,
 				426A5DB020C821ED00624F30 /* AudioManager.swift in Sources */,
+				42589D2020F869650020E990 /* AboutNCSViewController.swift in Sources */,
 				4261F8CD20EE794900C5259F /* SettingsViewController.swift in Sources */,
 				42B06FC120EF5A9D0038DE6D /* DataStorageManager.swift in Sources */,
 				4258D35620ED140D00F6A337 /* SubArtistInformationViewController.swift in Sources */,

@@ -27,6 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 初回起動時に機能制限用フラグ変数の初期化
         userDefaults.register(defaults: ["Restrictions": false])
         
+        // アプリのversionとbuild番号表示
+        let version: String! = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+        let build: String! = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
+        print("""
+            ***** Application Version *****
+            version: \(version!)
+            build: \(build!)
+            """)
+        
         // CoreData使用の為追記
         // CoreDataに使用されているSQLiteファイル保存パス確認用
         let path = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)

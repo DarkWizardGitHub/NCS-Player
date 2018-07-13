@@ -90,8 +90,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         switch settingsTableView.cellForRow(at: IndexPath(row: indexPath.row, section: indexPath.section))?.textLabel?.text {
             case "About NCS Player":
                 performSegue(withIdentifier: "segue3", sender: nil)
-            case "User Policy":
-                performSegue(withIdentifier: "segue4", sender: nil)
+//            case "User Policy":
+//                performSegue(withIdentifier: "segue4", sender: nil)
             default:
                 break
         }
