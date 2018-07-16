@@ -3,16 +3,10 @@
 <plist version="1.0">
 <array>
 	<array>
-		<string>All I Need</string>
-		<string>Ehrling</string>
+		<string>Blank</string>
+		<string>Disfigure</string>
 		<string>mp3</string>
-		<string>https://www.youtube.com/watch?v=cFgRS0dFWis</string>
-	</array>
-	<array>
-		<string>Bay Breeze</string>
-		<string>FortyThr33</string>
-		<string>mp3</string>
-		<string>https://www.youtube.com/watch?v=XER8Zg0ExKU</string>
+		<string>https://www.youtube.com/watch?v=p7ZsBPK656s</string>
 	</array>
 	<array>
 		<string>Candyland</string>
@@ -21,22 +15,10 @@
 		<string>https://www.youtube.com/watch?v=IIrCDAV3EgI</string>
 	</array>
 	<array>
-		<string>Champagne Ocean</string>
-		<string>Ehrling</string>
-		<string>mp3</string>
-		<string>https://www.youtube.com/watch?v=do0oIs31Huw</string>
-	</array>
-	<array>
 		<string>Cloud 9</string>
 		<string>Itro &amp; Tobu</string>
 		<string>mp3</string>
 		<string>https://www.youtube.com/watch?v=VtKbiyyVZks</string>
-	</array>
-	<array>
-		<string>Dance With Me</string>
-		<string>Ehrling</string>
-		<string>mp3</string>
-		<string>https://www.youtube.com/watch?v=FuAgLHJnc-Y</string>
 	</array>
 	<array>
 		<string>Fade</string>
@@ -45,10 +27,22 @@
 		<string>https://www.youtube.com/watch?v=bM7SZ5SBzyY</string>
 	</array>
 	<array>
-		<string>Good For You</string>
-		<string>THBD</string>
+		<string>Firefly</string>
+		<string>Jim Yosef</string>
 		<string>mp3</string>
-		<string>https://www.youtube.com/watch?v=-K_YSjqKgvQ</string>
+		<string>https://www.youtube.com/watch?v=x_OwcYTNbHs</string>
+	</array>
+	<array>
+		<string>Force</string>
+		<string>Alan Walker</string>
+		<string>mp3</string>
+		<string>https://www.youtube.com/watch?v=xshEZzpS4CQ</string>
+	</array>
+	<array>
+		<string>Hellcat</string>
+		<string>Desmeon</string>
+		<string>mp3</string>
+		<string>https://www.youtube.com/watch?v=JSY6vBPunpY</string>
 	</array>
 	<array>
 		<string>Hope</string>
@@ -57,16 +51,100 @@
 		<string>https://www.youtube.com/watch?v=EP625xQIGzs</string>
 	</array>
 	<array>
-		<string>Sthlm Sunset</string>
-		<string>Ehrling</string>
+		<string>Infectious</string>
+		<string>Tobu</string>
 		<string>mp3</string>
-		<string>https://www.youtube.com/watch?v=uoEhoGt4mIw</string>
+		<string>https://www.youtube.com/watch?v=ux8-EbW6DUI</string>
+	</array>
+	<array>
+		<string>Invincible</string>
+		<string>DEAF KEV</string>
+		<string>mp3</string>
+		<string>https://www.youtube.com/watch?v=J2X5mJ3HDYE</string>
+	</array>
+	<array>
+		<string>Let&apos;s Go!</string>
+		<string>Lensko</string>
+		<string>mp3</string>
+		<string>https://www.youtube.com/watch?v=mSLuJYtl89Y</string>
+	</array>
+	<array>
+		<string>Life</string>
+		<string>Tobu</string>
+		<string>mp3</string>
+		<string>https://www.youtube.com/watch?v=OBwl2glmqC0</string>
+	</array>
+	<array>
+		<string>Miles Away</string>
+		<string>Wontolla, Kasger &amp; Limitless</string>
+		<string>mp3</string>
+		<string>https://www.youtube.com/watch?v=aCyQu00rZrM</string>
+	</array>
+	<array>
+		<string>My Heart</string>
+		<string>Different Heaven &amp; EH!DE</string>
+		<string>mp3</string>
+		<string>https://www.youtube.com/watch?v=jK2aIUmmdP4</string>
+	</array>
+	<array>
+		<string>Nova</string>
+		<string>Ahrix</string>
+		<string>mp3</string>
+		<string>https://www.youtube.com/watch?v=QoWmzYSmMk4&amp;t=1s</string>
+	</array>
+	<array>
+		<string>On &amp; On (feat. Daniel Levi)</string>
+		<string>Cartoon</string>
+		<string>mp3</string>
+		<string>https://www.youtube.com/watch?v=K4DyBUG242c</string>
+	</array>
+	<array>
+		<string>Panda</string>
+		<string>Itro</string>
+		<string>mp3</string>
+		<string>https://www.youtube.com/watch?v=FkKjZz2vpy4</string>
+	</array>
+	<array>
+		<string>Rubik</string>
+		<string>Distrion &amp; Electro-Light</string>
+		<string>mp3</string>
+		<string>https://www.youtube.com/watch?v=A2AydJcUKR8</string>
+	</array>
+	<array>
+		<string>Shine</string>
+		<string>Spektrem</string>
+		<string>mp3</string>
+		<string>https://www.youtube.com/watch?v=n4tK7LYFxI0</string>
+	</array>
+	<array>
+		<string>Spectre</string>
+		<string>Alan Walker</string>
+		<string>mp3</string>
+		<string>https://www.youtube.com/watch?v=AOeY-nDp7hI</string>
+	</array>
+	<array>
+		<string>Shootin Stars</string>
+		<string>Aero Chord feat. DDARK</string>
+		<string>mp3</string>
+		<string>https://www.youtube.com/watch?v=PTF5xgT-pm8</string>
 	</array>
 	<array>
 		<string>Sunburst</string>
 		<string>Tobu &amp; Itro</string>
 		<string>mp3</string>
 		<string>https://www.youtube.com/watch?v=4lXBHD5C8do</string>
+	</array>
+	<array>
+		<string>Symbolism</string>
+		<string>Electro-Light</string>
+		<string>mp3</string>
+		<string>https://www.youtube.com/watch?v=__CRWE-L45k</string>
+	</array>
+	<array>
+		<string>Why We Lose (feat. Coleman Trapp)</string>
+		<string>Cartoon</string>
+		<string>mp3</string>
+		<string>https://www.youtube.com/watch?v=zyXmsVwZqX4</string>
 	</array>
 </array>
 </plist>

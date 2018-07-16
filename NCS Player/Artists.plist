@@ -3,14 +3,94 @@
 <plist version="1.0">
 <array>
 	<array>
+		<string>Itro</string>
+		<string>https://soundcloud.com/itro</string>
+		<string>https://www.youtube.com/user/officialitro</string>
+	</array>
+	<array>
 		<string>Tobu</string>
 		<string>http://facebook.com/tobuofficial</string>
 		<string>https://www.youtube.com/tobuofficial</string>
 	</array>
 	<array>
-		<string>Itro</string>
-		<string>https://soundcloud.com/itro</string>
-		<string>https://www.youtube.com/user/officialitro</string>
+		<string>Alan Walker</string>
+		<string>https://www.facebook.com/alanwalkermusic</string>
+		<string>https://www.youtube.com/user/DjWalkzz/featured</string>
+	</array>
+	<array>
+		<string>Different Heaven</string>
+		<string>https://www.facebook.com/DifferentHeaven</string>
+		<string>https://www.youtube.com/user/Differentheaven</string>
+	</array>
+	<array>
+		<string>EH!DE</string>
+		<string>https://www.facebook.com/ehideofficial/?ref=hl</string>
+		<string>https://www.youtube.com/user/TheOfficialEhide</string>
+	</array>
+	<array>
+		<string>Ahrix</string>
+		<string>https://www.facebook.com/ahrixmusic/</string>
+		<string>https://www.youtube.com/user/AhrixOfficial</string>
+	</array>
+	<array>
+		<string>DEAF KEV</string>
+		<string>https://www.facebook.com/officialDEAFKEV</string>
+		<string>https://www.youtube.com/user/ATMDubstep</string>
+	</array>
+	<array>
+		<string>Electro-Light</string>
+		<string>https://www.facebook.com/ElectroLightOfficial</string>
+		<string>https://www.youtube.com/user/ElectroLightOfficial</string>
+	</array>
+	<array>
+		<string>Cartoon</string>
+		<string>https://www.facebook.com/cartoondband</string>
+		<string>https://www.youtube.com/channel/UC_aEa8K-EOJ3D6gOs7HcyNg</string>
+	</array>
+	<array>
+		<string>Desmeon</string>
+		<string>https://www.facebook.com/iamdesmeon</string>
+		<string>https://www.youtube.com/user/iamdesmeon</string>
+	</array>
+	<array>
+		<string>Jim Yosef</string>
+		<string>https://www.facebook.com/jimyosefmusic?ref_type=bookmark</string>
+		<string>https://www.youtube.com/user/Jimboows</string>
+	</array>
+	<array>
+		<string>Lensko</string>
+		<string>https://www.facebook.com/Lenskoofficial/</string>
+		<string>https://www.youtube.com/user/LenskoOfficial</string>
+	</array>
+	<array>
+		<string>Aero Chord</string>
+		<string>https://www.facebook.com/AeroChord</string>
+		<string>https://www.youtube.com/user/TheAeroChord</string>
+	</array>
+	<array>
+		<string>DDARK</string>
+		<string>https://www.facebook.com/ddarkonline</string>
+		<string>https://www.youtube.com/user/DDARKTV</string>
+	</array>
+	<array>
+		<string>Distrion</string>
+		<string>https://www.facebook.com/distrionmusic?ref=aymt_homepage_panel</string>
+		<string>https://www.youtube.com/channel/UCp5s8oqsQc6_2JyCOMTO42g</string>
+	</array>
+	<array>
+		<string>Wontolla</string>
+		<string>https://www.facebook.com/wontollamusic</string>
+		<string>https://www.youtube.com/user/wontollatv</string>
+	</array>
+	<array>
+		<string>Kasger</string>
+		<string>https://www.facebook.com/Kasger</string>
+		<string>https://www.youtube.com/user/KasgerMusic</string>
+	</array>
+	<array>
+		<string>NCS</string>
+		<string>https://www.facebook.com/NoCopyrightSounds/</string>
+		<string>https://www.youtube.com/user/NoCopyrightSounds</string>
 	</array>
 </array>
 </plist>
